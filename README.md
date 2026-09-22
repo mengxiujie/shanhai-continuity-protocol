@@ -19,6 +19,8 @@ npm run audit:release
 npm test
 npm run test:process
 npm run compile:contract
+npm run build:pages
+npm run audit:hosting
 ```
 
 The public Monad RPC probe is separate because it requires network access:
@@ -83,6 +85,8 @@ tech-design.md     完整技术设计
 ```
 
 评委可先运行四幕引导演示，再查看 [`submission/SCORECARD.md`](submission/SCORECARD.md) 和 [`submission/JUDGE_QA.md`](submission/JUDGE_QA.md)。最终提交草案中的方括号链接仍是待真实证据替换的占位符，不得原样提交。
+
+完整的一键复现脚本是 `scripts/reproduce.ps1`（Windows）和 `scripts/reproduce.sh`（POSIX）。静态托管候选与手动 GitHub Pages 流程见 [`docs/HOSTING.md`](docs/HOSTING.md)；工作流不会因普通 push 自动发布。
 
 ## 本地运行
 

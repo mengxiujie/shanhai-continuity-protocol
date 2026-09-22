@@ -11,6 +11,8 @@
     "test:monad-gate": "node --test --test-isolation=none apps/demo/test/monad-gate.test.mjs",
     "compile:contract": "npm --prefix contracts run compile",
     "audit:release": "node scripts/release-audit.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "audit:hosting": "node scripts/audit-hosting.mjs",
     "probe:monad": "node apps/demo/probe-monad-rpc.mjs",
     "verify:deployment": "node deployment/verify-deployment.mjs",
     "serve:demo": "python -m http.server 4173"
