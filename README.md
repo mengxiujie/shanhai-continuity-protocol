@@ -78,8 +78,11 @@ deployment/        Monad 测试网部署、核验和取证操作包
 docs/              当前状态与证据说明
 features/          各组件验收规格
 protocol/          SCP 0.1.0、参考实现与一致性测试
+submission/        提交文案、视频脚本、评分映射与评委问答
 tech-design.md     完整技术设计
 ```
+
+评委可先运行四幕引导演示，再查看 [`submission/SCORECARD.md`](submission/SCORECARD.md) 和 [`submission/JUDGE_QA.md`](submission/JUDGE_QA.md)。最终提交草案中的方括号链接仍是待真实证据替换的占位符，不得原样提交。
 
 ## 本地运行
 
