@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://weixu.me/schemas/shanhai-continuity/0.1.0/package-version.json",
+  "title": "Shanhai Continuity Package Version",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol", "protocolVersion", "dataClass", "packageId", "versionId", "version", "supersedesVersionId", "recordedAt", "items"],
+  "properties": {
+    "protocol": { "const": "shanhai-continuity" },
+    "protocolVersion": { "const": "0.1.0" },
+    "dataClass": { "const": "SYNTHETIC" },
+    "packageId": { "type": "string", "format": "uuid" },
+    "versionId": { "type": "string", "format": "uuid" },
+    "version": { "type": "integer", "minimum": 1 },
+    "supersedesVersionId": { "type": ["string", "null"], "format": "uuid" },
+    "recordedAt": { "type": "integer", "minimum": 0 },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/item" }
+    }
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["itemId", "statement", "source", "validTime", "recordedAt", "supersedes"],
+      "properties": {
+        "itemId": { "type": "string", "format": "uuid" },
+        "statement": { "type": "string", "minLength": 1, "maxLength": 4096 },
+        "source": { "$ref": "#/$defs/source" },
+        "validTime": { "$ref": "#/$defs/validTime" },
+        "recordedAt": { "type": "integer", "minimum": 0 },
+        "supersedes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/supersession" },
+          "uniqueItems": true
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["originKind", "reviewStatus", "authorityClass", "authorityRank", "sourceId", "capturedAt", "supportingSourceIds", "confirmation", "inference"],
+      "properties": {
+        "originKind": { "enum": ["USER_UTTERANCE", "TRACEABLE_FACT", "MODEL_INFERENCE"] },
+        "reviewStatus": { "enum": ["UNREVIEWED", "USER_CONFIRMED", "USER_REJECTED"] },
+        "authorityClass": { "enum": ["USER_CONFIRMED", "USER_UTTERANCE", "TRACEABLE_FACT", "MODEL_INFERENCE"] },
+        "authorityRank": { "enum": [400, 300, 200, 100] },
+        "sourceId": { "type": "string", "format": "uuid" },
+        "capturedAt": { "type": "integer", "minimum": 0 },
+        "supportingSourceIds": { "type": "array", "items": { "type": "string", "format": "uuid" }, "uniqueItems": true },
+        "confirmation": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["eventId", "confirmedAt"],
+              "properties": {
+                "eventId": { "type": "string", "format": "uuid" },
+                "confirmedAt": { "type": "integer", "minimum": 0 }
+              }
+            }
+          ]
+        },
+        "inference": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["model", "generatedAt", "basedOnItemIds"],
+              "properties": {
+                "model": { "type": "string", "minLength": 1 },
+                "generatedAt": { "type": "integer", "minimum": 0 },
+                "basedOnItemIds": { "type": "array", "minItems": 1, "items": { "type": "string", "format": "uuid" }, "uniqueItems": true }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "validTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to", "precision"],
+      "properties": {
+        "from": { "type": "integer", "minimum": 0 },
+        "to": { "type": ["integer", "null"], "minimum": 0 },
+        "precision": { "enum": ["INSTANT", "DAY", "MONTH", "YEAR", "APPROXIMATE"] }
+      }
+    },
+    "supersession": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["itemId", "relation"],
+      "properties": {
+        "itemId": { "type": "string", "format": "uuid" },
+        "relation": { "enum": ["CORRECTS", "REFINES", "REPLACES"] }
+      }
+    }
+  }
+}

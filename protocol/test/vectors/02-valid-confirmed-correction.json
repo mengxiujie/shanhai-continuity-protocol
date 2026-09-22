@@ -1,0 +1,25 @@
+{
+  "expect": "PASS",
+  "documents": [
+    {
+      "protocol": "shanhai-continuity", "protocolVersion": "0.1.0", "dataClass": "SYNTHETIC",
+      "packageId": "10000000-0000-4000-8000-000000000002", "versionId": "20000000-0000-4000-8000-000000000002", "version": 1,
+      "supersedesVersionId": null, "recordedAt": 1789948800,
+      "items": [
+        { "itemId": "30000000-0000-4000-8000-000000000020", "statement": "这次选择里，我反复提到稳定。", "source": { "originKind": "USER_UTTERANCE", "reviewStatus": "UNREVIEWED", "authorityClass": "USER_UTTERANCE", "authorityRank": 300, "sourceId": "40000000-0000-4000-8000-000000000020", "capturedAt": 1789948600, "supportingSourceIds": [], "confirmation": null, "inference": null }, "validTime": { "from": 1789862400, "to": null, "precision": "DAY" }, "recordedAt": 1789948700, "supersedes": [] },
+        { "itemId": "30000000-0000-4000-8000-000000000002", "statement": "模型候选：用户更重视稳定。", "source": { "originKind": "MODEL_INFERENCE", "reviewStatus": "UNREVIEWED", "authorityClass": "MODEL_INFERENCE", "authorityRank": 100, "sourceId": "40000000-0000-4000-8000-000000000002", "capturedAt": 1789948700, "supportingSourceIds": ["40000000-0000-4000-8000-000000000020"], "confirmation": null, "inference": { "model": "synthetic-model", "generatedAt": 1789948750, "basedOnItemIds": ["30000000-0000-4000-8000-000000000020"] } }, "validTime": { "from": 1789862400, "to": null, "precision": "DAY" }, "recordedAt": 1789948800, "supersedes": [] }
+      ]
+    },
+    {
+      "protocol": "shanhai-continuity", "protocolVersion": "0.1.0", "dataClass": "SYNTHETIC",
+      "packageId": "10000000-0000-4000-8000-000000000002", "versionId": "20000000-0000-4000-8000-000000000003", "version": 2,
+      "supersedesVersionId": "20000000-0000-4000-8000-000000000002", "recordedAt": 1790035200,
+      "items": [{
+        "itemId": "30000000-0000-4000-8000-000000000003", "statement": "相比稳定，我在这次选择中更重视自由。",
+        "source": { "originKind": "MODEL_INFERENCE", "reviewStatus": "USER_CONFIRMED", "authorityClass": "USER_CONFIRMED", "authorityRank": 400, "sourceId": "40000000-0000-4000-8000-000000000003", "capturedAt": 1790035000, "supportingSourceIds": ["40000000-0000-4000-8000-000000000020"], "confirmation": { "eventId": "50000000-0000-4000-8000-000000000001", "confirmedAt": 1790035100 }, "inference": { "model": "synthetic-model", "generatedAt": 1790035050, "basedOnItemIds": ["30000000-0000-4000-8000-000000000020"] } },
+        "validTime": { "from": 1789862400, "to": null, "precision": "DAY" }, "recordedAt": 1790035200,
+        "supersedes": [{ "itemId": "30000000-0000-4000-8000-000000000002", "relation": "CORRECTS" }]
+      }]
+    }
+  ]
+}

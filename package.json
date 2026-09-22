@@ -1,0 +1,18 @@
+{
+  "name": "shanhai-continuity-protocol-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "npm run test:protocol && npm run test:monad-gate",
+    "test:protocol": "npm --prefix protocol test",
+    "test:process": "npm --prefix protocol run test:process",
+    "test:monad-gate": "node --test --test-isolation=none apps/demo/test/monad-gate.test.mjs",
+    "compile:contract": "npm --prefix contracts run compile",
+    "audit:release": "node scripts/release-audit.mjs",
+    "probe:monad": "node apps/demo/probe-monad-rpc.mjs",
+    "verify:deployment": "node deployment/verify-deployment.mjs",
+    "serve:demo": "python -m http.server 4173"
+  }
+}

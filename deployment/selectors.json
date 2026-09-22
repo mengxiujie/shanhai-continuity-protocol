@@ -1,0 +1,12 @@
+{
+  "contract": "ConsentRegistry",
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "selectors": {
+    "getAsset(bytes32)": "0x2cc3ce80",
+    "getConsent(bytes32)": "0x7715ae34",
+    "issueConsent(bytes32,bytes32,address,bytes32,uint32,uint64)": "0x8064bfa9",
+    "publishVersion(bytes32,uint32,bytes32)": "0x2efc165a",
+    "registerAsset(bytes32,bytes32)": "0xafbeafc9",
+    "revokeConsent(bytes32)": "0x07a0315d"
+  }
+}

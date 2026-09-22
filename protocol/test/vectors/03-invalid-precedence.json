@@ -1,0 +1,9 @@
+{
+  "expect": "FAIL", "expectedError": "SOURCE_PRECEDENCE_VIOLATION",
+  "documents": [
+    { "protocol": "shanhai-continuity", "protocolVersion": "0.1.0", "dataClass": "SYNTHETIC", "packageId": "10000000-0000-4000-8000-000000000003", "versionId": "20000000-0000-4000-8000-000000000004", "version": 1, "supersedesVersionId": null, "recordedAt": 1789948800,
+      "items": [{ "itemId": "30000000-0000-4000-8000-000000000004", "statement": "用户确认的陈述。", "source": { "originKind": "USER_UTTERANCE", "reviewStatus": "USER_CONFIRMED", "authorityClass": "USER_CONFIRMED", "authorityRank": 400, "sourceId": "40000000-0000-4000-8000-000000000005", "capturedAt": 1789948700, "supportingSourceIds": ["40000000-0000-4000-8000-000000000006"], "confirmation": { "eventId": "50000000-0000-4000-8000-000000000002", "confirmedAt": 1789948750 }, "inference": null }, "validTime": { "from": 1789862400, "to": null, "precision": "DAY" }, "recordedAt": 1789948800, "supersedes": [] }] },
+    { "protocol": "shanhai-continuity", "protocolVersion": "0.1.0", "dataClass": "SYNTHETIC", "packageId": "10000000-0000-4000-8000-000000000003", "versionId": "20000000-0000-4000-8000-000000000005", "version": 2, "supersedesVersionId": "20000000-0000-4000-8000-000000000004", "recordedAt": 1790035200,
+      "items": [{ "itemId": "30000000-0000-4000-8000-000000000005", "statement": "模型试图覆盖用户确认。", "source": { "originKind": "MODEL_INFERENCE", "reviewStatus": "UNREVIEWED", "authorityClass": "MODEL_INFERENCE", "authorityRank": 100, "sourceId": "40000000-0000-4000-8000-000000000007", "capturedAt": 1790035000, "supportingSourceIds": [], "confirmation": null, "inference": { "model": "synthetic-model", "generatedAt": 1790035100, "basedOnItemIds": ["30000000-0000-4000-8000-000000000004"] } }, "validTime": { "from": 1789862400, "to": null, "precision": "DAY" }, "recordedAt": 1790035200, "supersedes": [{ "itemId": "30000000-0000-4000-8000-000000000004", "relation": "REPLACES" }] }] }
+  ]
+}

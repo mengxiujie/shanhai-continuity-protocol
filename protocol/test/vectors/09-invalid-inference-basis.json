@@ -1,0 +1,7 @@
+{
+  "expect": "FAIL", "expectedError": "INFERENCE_BASIS_NOT_FOUND",
+  "documents": [{
+    "protocol": "shanhai-continuity", "protocolVersion": "0.1.0", "dataClass": "SYNTHETIC", "packageId": "10000000-0000-4000-8000-000000000010", "versionId": "20000000-0000-4000-8000-000000000012", "version": 1, "supersedesVersionId": null, "recordedAt": 1789948800,
+    "items": [{ "itemId": "30000000-0000-4000-8000-000000000013", "statement": "模型依据不存在。", "source": { "originKind": "MODEL_INFERENCE", "reviewStatus": "UNREVIEWED", "authorityClass": "MODEL_INFERENCE", "authorityRank": 100, "sourceId": "40000000-0000-4000-8000-000000000016", "capturedAt": 1789948700, "supportingSourceIds": [], "confirmation": null, "inference": { "model": "synthetic-model", "generatedAt": 1789948750, "basedOnItemIds": ["30000000-0000-4000-8000-000000000099"] } }, "validTime": { "from": 1789862400, "to": null, "precision": "APPROXIMATE" }, "recordedAt": 1789948800, "supersedes": [] }]
+  }]
+}

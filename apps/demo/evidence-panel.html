@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shanhai · Monad Evidence Panel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="shell">
+  <p class="eyebrow">MONAD TESTNET · READ ONLY · SYNTHETIC DATA</p>
+  <h1>授权门禁证据面板</h1>
+  <p class="muted">本页只读取 Monad 测试网，不请求私钥、不发交易。没有真实合约和标识时，状态必须保持 <strong>NOT YET EVIDENCE</strong>。</p>
+
+  <section class="grid">
+    <article class="card">
+      <h2>核验输入</h2>
+      <label>Registry address<input id="registry" placeholder="0x…40 hex"></label>
+      <label>Asset ID<input id="asset" placeholder="0x…64 hex"></label>
+      <label>Consent ID<input id="consent" placeholder="0x…64 hex"></label>
+      <label>Grantee<input id="grantee" placeholder="0x…40 hex"></label>
+      <label>Scope hash<input id="scope" placeholder="0x…64 hex"></label>
+      <label>Requested version<input id="version" type="number" min="1" value="1"></label>
+      <p><button class="button" id="read">从 Monad 读取并裁决</button> <button class="button alt" id="clear">清空</button></p>
+      <p class="muted">RPC：<code>https://testnet-rpc.monad.xyz</code> · Expected chain ID：<code>10143</code></p>
+    </article>
+
+    <article class="card">
+      <h2>证据状态</h2>
+      <p><span id="badge" class="tag">NOT YET EVIDENCE</span></p>
+      <dl class="evidence-grid">
+        <dt>Chain</dt><dd id="chain">—</dd>
+        <dt>Block</dt><dd id="block">—</dd>
+        <dt>Outcome</dt><dd id="outcome">—</dd>
+        <dt>Envelope fetch</dt><dd id="envelope">NOT MEASURED</dd>
+        <dt>Local decrypt</dt><dd id="decrypt">NOT MEASURED</dd>
+        <dt>Model call</dt><dd id="model">NOT MEASURED</dd>
+      </dl>
+      <pre id="result" class="status">尚未读取。这里不会显示合成通过状态。</pre>
+      <button class="button alt" id="download" disabled>导出 receipt JSON</button>
+    </article>
+  </section>
+
+  <section class="card" style="margin-top:22px">
+    <h2>证据判定</h2>
+    <ul>
+      <li><code>ACTIVE</code>：只证明链上事实与本次请求匹配；完整 envelope 计数需由端到端应用另行记录。</li>
+      <li><code>VERSION_STALE / REVOKED / SCOPE_MISMATCH</code>：真实门禁必须在 envelope 返回前停止。</li>
+      <li>RPC、链 ID、ABI 解码或输入异常：统一 <code>FAIL_CLOSED</code>。</li>
+    </ul>
+    <p><a href="index.html">查看四幕合成演示</a> · <a href="../../docs/EVIDENCE.md">查看证据边界</a></p>
+  </section>
+</main>
+<script type="module" src="evidence-panel.js"></script>
+</body>
+</html>

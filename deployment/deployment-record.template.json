@@ -1,0 +1,27 @@
+{
+  "schema": "shanhai-deployment-record/0.1",
+  "network": {
+    "name": "Monad Testnet",
+    "chainId": 10143,
+    "rpcUrl": "https://testnet-rpc.monad.xyz"
+  },
+  "contract": {
+    "name": "ConsentRegistry",
+    "address": "",
+    "deploymentTxHash": "",
+    "deploymentBlockNumber": null,
+    "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+    "runtimeBytecodeSha256": ""
+  },
+  "deployer": {
+    "address": "",
+    "privateKeyRecorded": false
+  },
+  "evidence": {
+    "activeReceiptFile": "",
+    "versionStaleReceiptFile": "",
+    "revokedReceiptFile": ""
+  },
+  "verifiedAt": "",
+  "notes": "Synthetic testnet deployment only; no real-person data."
+}

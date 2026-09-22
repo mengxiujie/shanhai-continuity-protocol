@@ -1,0 +1,10 @@
+{
+  "expect": "FAIL", "expectedError": "SUPERSESSION_NOT_PRIOR_VERSION",
+  "documents": [{
+    "protocol": "shanhai-continuity", "protocolVersion": "0.1.0", "dataClass": "SYNTHETIC", "packageId": "10000000-0000-4000-8000-000000000009", "versionId": "20000000-0000-4000-8000-000000000011", "version": 1, "supersedesVersionId": null, "recordedAt": 1789948800,
+    "items": [
+      { "itemId": "30000000-0000-4000-8000-000000000011", "statement": "同一版本旧条目。", "source": { "originKind": "USER_UTTERANCE", "reviewStatus": "UNREVIEWED", "authorityClass": "USER_UTTERANCE", "authorityRank": 300, "sourceId": "40000000-0000-4000-8000-000000000014", "capturedAt": 1789948600, "supportingSourceIds": [], "confirmation": null, "inference": null }, "validTime": { "from": 1789862400, "to": null, "precision": "DAY" }, "recordedAt": 1789948700, "supersedes": [] },
+      { "itemId": "30000000-0000-4000-8000-000000000012", "statement": "不允许在同一不可变版本内修正。", "source": { "originKind": "USER_UTTERANCE", "reviewStatus": "UNREVIEWED", "authorityClass": "USER_UTTERANCE", "authorityRank": 300, "sourceId": "40000000-0000-4000-8000-000000000015", "capturedAt": 1789948700, "supportingSourceIds": [], "confirmation": null, "inference": null }, "validTime": { "from": 1789862400, "to": null, "precision": "DAY" }, "recordedAt": 1789948800, "supersedes": [{ "itemId": "30000000-0000-4000-8000-000000000011", "relation": "CORRECTS" }] }
+    ]
+  }]
+}

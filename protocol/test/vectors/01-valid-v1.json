@@ -1,0 +1,13 @@
+{
+  "expect": "PASS",
+  "documents": [{
+    "protocol": "shanhai-continuity", "protocolVersion": "0.1.0", "dataClass": "SYNTHETIC",
+    "packageId": "10000000-0000-4000-8000-000000000001", "versionId": "20000000-0000-4000-8000-000000000001", "version": 1,
+    "supersedesVersionId": null, "recordedAt": 1789948800,
+    "items": [{
+      "itemId": "30000000-0000-4000-8000-000000000001", "statement": "我希望别人记住我愿意把复杂问题讲清楚。",
+      "source": { "originKind": "USER_UTTERANCE", "reviewStatus": "UNREVIEWED", "authorityClass": "USER_UTTERANCE", "authorityRank": 300, "sourceId": "40000000-0000-4000-8000-000000000001", "capturedAt": 1789948700, "supportingSourceIds": [], "confirmation": null, "inference": null },
+      "validTime": { "from": 1789862400, "to": null, "precision": "DAY" }, "recordedAt": 1789948800, "supersedes": []
+    }]
+  }]
+}

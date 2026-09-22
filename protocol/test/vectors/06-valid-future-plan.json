@@ -1,0 +1,7 @@
+{
+  "expect": "PASS",
+  "documents": [{
+    "protocol": "shanhai-continuity", "protocolVersion": "0.1.0", "dataClass": "SYNTHETIC", "packageId": "10000000-0000-4000-8000-000000000006", "versionId": "20000000-0000-4000-8000-000000000008", "version": 1, "supersedesVersionId": null, "recordedAt": 1789948800,
+    "items": [{ "itemId": "30000000-0000-4000-8000-000000000008", "statement": "我计划明年完成一次长途旅行。", "source": { "originKind": "USER_UTTERANCE", "reviewStatus": "UNREVIEWED", "authorityClass": "USER_UTTERANCE", "authorityRank": 300, "sourceId": "40000000-0000-4000-8000-000000000011", "capturedAt": 1789948700, "supportingSourceIds": [], "confirmation": null, "inference": null }, "validTime": { "from": 1821484800, "to": null, "precision": "YEAR" }, "recordedAt": 1789948800, "supersedes": [] }]
+  }]
+}

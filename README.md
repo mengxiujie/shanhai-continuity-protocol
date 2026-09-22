@@ -1,0 +1,144 @@
+# Shanhai Continuity Protocol
+
+> A user-owned continuity layer for AI: disclose the minimum, prove the source, and revoke future access.
+
+**Metropolis 2026 candidate repository · Track: Trust, Identity & AI Infrastructure**
+
+## In one minute
+
+Shanhai Continuity Protocol (SCP) is a portable, user-controlled continuity layer for AI agents. The owner confirms source material, projects only an authorized scope, encrypts that disclosure in the browser, and lets an independent Agent B verify the authorization against Monad before any envelope is returned. A stale version, revoked grant, scope mismatch, malformed RPC response, or wrong chain fails closed with **zero envelope delivery and zero model calls**.
+
+The repository is an independently publishable hackathon module. It is not the complete Unsaid Shanhai commercial product and contains no real user data, production credentials, payment system, private operating documents, or proprietary prompt corpus.
+
+### Reproduce the synthetic evidence
+
+```bash
+npm ci
+npm ci --prefix contracts
+npm run audit:release
+npm test
+npm run test:process
+npm run compile:contract
+```
+
+The public Monad RPC probe is separate because it requires network access:
+
+```bash
+npm run probe:monad
+```
+
+Current evidence boundaries are explicit: compilation and synthetic gates pass; a live testnet deployment and real `ACTIVE / VERSION_STALE / REVOKED` receipts are not yet claimed.
+
+未叙山海（Shanhai）正在探索一种不同于“平台替用户记住一切”的个人 AI 记忆方式：用户先确认材料，再决定向哪个 Agent 开放哪个范围；正文保持离链加密，Monad 只保存独立验证授权所需的最小事实。
+
+本仓库是 Metropolis 黑客松参赛模块的公开工程包，不是未叙山海完整商业产品，也不包含真人数据、生产凭据或私有业务材料。
+
+## 四幕演示
+
+1. **Owner 授权**：用户确认合成材料，选择最小披露范围，在浏览器生成加密 envelope。
+2. **Agent B 接续**：独立 Agent B 先读取 Monad 授权事实；只有 `ACTIVE` 才取得 envelope，并在本地解密、校验来源承诺、构造模型上下文。
+3. **版本失效**：Owner 发布 V2 后，旧 V1 授权得到 `VERSION_STALE`；envelope 返回数与模型调用数均为 0。
+4. **撤销生效**：Owner 撤销授权后，新请求得到 `REVOKED`；不得返回正文或构造上下文。
+
+## 为什么需要 Monad
+
+如果授权状态只保存在未叙自己的数据库里，Agent B 仍然必须相信未叙的声明。Consent Registry 把最小授权事实放在 Monad 上，使另一个 Agent 可以独立验证：
+
+- 授权对象是否是自己；
+- 请求范围是否与授权范围完全一致；
+- 请求版本是否仍是当前版本；
+- 授权是否已经撤销或过期。
+
+Monad 不保存生活正文、来源记录或模型上下文。链上状态是授权事实层，不是个人资料库。
+
+## 当前可验证能力
+
+| 能力 | 状态 | 证据 |
+|---|---|---|
+| SCP 0.1.0 schema、来源优先级、双时间与修正关系 | PASS | `protocol/test/conformance.mjs`，9/9 |
+| 规范化序列化、范围投影、来源承诺、Agent B context | PASS | protocol unit suite，7/7 |
+| WebCrypto envelope 与独立 Agent B 进程 | PASS | protocol E2E / process suite |
+| Monad testnet RPC 与 chain ID 只读探针 | PASS | chain ID 10143；`apps/demo/probe-monad-rpc.mjs` |
+| Solidity Consent Registry 编译 | PASS | solc 0.8.30；`contracts/build/ConsentRegistry.json` |
+| `ACTIVE / VERSION_STALE / REVOKED` envelope 门禁 | 合成 RPC PASS | `apps/demo/test/monad-gate.test.mjs`，5/5 |
+| Monad 测试网真实合约部署与三类真实 receipt | **NOT YET EVIDENCE** | 需要部署地址与测试交易 |
+| Mera 真实 ceremony / 第二设备恢复 | **DEFERRED** | 已调起系统认证，受本机 Windows Hello PIN 阻断 |
+
+详细证据边界见 [`docs/EVIDENCE.md`](docs/EVIDENCE.md)。
+
+## 仓库结构
+
+```text
+apps/
+  owner-web/       Owner 端浏览器原型
+  agent-b/         独立 Agent B 原型
+  demo/            四幕演示、真实只读 receipt 与证据面板
+contracts/         ConsentRegistry Solidity 源码与编译产物
+deployment/        Monad 测试网部署、核验和取证操作包
+docs/              当前状态与证据说明
+features/          各组件验收规格
+protocol/          SCP 0.1.0、参考实现与一致性测试
+tech-design.md     完整技术设计
+```
+
+## 本地运行
+
+前提：Node.js 24+；Python 仅用于启动静态页面。
+
+```bash
+npm install
+npm test
+npm run compile:contract
+npm run probe:monad
+npm run serve:demo
+```
+
+然后打开：
+
+- 四幕合成演示：`http://localhost:4173/apps/demo/index.html`
+- Monad 真实只读证据面板：`http://localhost:4173/apps/demo/evidence-panel.html`
+
+`npm run probe:monad` 需要访问 Monad 测试网。其他测试不使用真人材料、不发交易。
+
+## 部署状态
+
+当前没有可声明为本项目证据的 Monad 测试网合约地址。部署前后必须严格使用 [`deployment/README.md`](deployment/README.md)；部署记录必须由交易哈希、合约地址、链 ID、区块号和读取结果共同构成。没有这些字段时，页面应显示 `NOT YET EVIDENCE`，不得回退到 Demo Provider。
+
+## 黑客松工作披露
+
+完整边界与逐项清单见 [`docs/BUILD_DISCLOSURE.md`](docs/BUILD_DISCLOSURE.md)；AI 使用披露见 [`docs/AI_USAGE.md`](docs/AI_USAGE.md)。
+
+### 赛前已有
+
+- 未叙山海的产品愿景、用户主权原则与内部治理材料；
+- 早期本地原型和关于连续性记忆的探索。
+
+这些内容不是本仓库声称在黑客松期间从零创造的成果。
+
+### 黑客松期间新增
+
+- 独立、版本化的 Shanhai Continuity Protocol 0.1.0；
+- 来源优先级、双时间模型、不可变修正关系与一致性向量；
+- 浏览器最小范围投影、来源承诺、WebCrypto envelope 与独立 Agent B 解密；
+- Monad Consent Registry、只读 Verifier、状态门禁测试与四幕演示；
+- 证据面板和可复核的测试网部署操作包。
+
+提交前将以公开 Git 历史为准再次核对开发窗口内的工作比例。
+
+### AI 工具使用
+
+本项目使用了 OpenAI Codex 等 AI 工具辅助研究、规格整理、编码和测试。项目所有者负责产品决策、授权边界、结果复核和最终提交；自动生成内容不被视为未经验证的证据。
+
+## 安全与隐私
+
+- 仓库只使用合成数据。
+- 不提交私钥、助记词、API key、Cookie、真实个人材料或生产配置。
+- `ACTIVE` 之外不得返回 envelope；任何 RPC、解析或链 ID 异常均 fail closed。
+- 撤销阻止未来的新访问，但不虚假承诺删除第三方此前已合法取得的明文。
+- 本仓库是测试网参赛实现，不是生产安全审计结论。
+
+公开发布前运行 `npm run audit:release`，并按 [`docs/PUBLISHING_CHECKLIST.md`](docs/PUBLISHING_CHECKLIST.md) 完成人工复核。安全问题报告方式见 [`SECURITY.md`](SECURITY.md)。
+
+## License
+
+MIT。见 [`LICENSE`](LICENSE)。第三方依赖与署名见 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)。

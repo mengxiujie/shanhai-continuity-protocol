@@ -1,0 +1,10 @@
+{
+  "name": "@shanhai/continuity-protocol",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test/conformance.mjs && node --test --test-isolation=none test/unit/*.test.mjs test/e2e/*.test.mjs",
+    "test:process": "node test/e2e/independent-process.mjs"
+  }
+}
