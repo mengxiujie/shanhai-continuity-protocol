@@ -1,5 +1,7 @@
 # Three-minute technical demo
 
+> Historical synthetic recording draft, superseded for the current sprint by [VIDEO_90S.md](VIDEO_90S.md). The old counters and unconditional zero-delivery narration below are not current live evidence. Follow the current Owner-before-delivery / B-before-decryption sequence and its race/UNKNOWN limitations instead.
+
 ## 0:00–0:25 — Problem
 
 “AI memory is becoming valuable, but it is usually trapped inside one account and governed by one platform. Exporting an entire history reveals too much. Copying a summary loses source and correction history. Shanhai asks a different question: can continuity travel while authority stays with the person?”

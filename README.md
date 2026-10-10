@@ -39,7 +39,7 @@ Current evidence boundaries are explicit: the integrated dual-process route pass
 ## 四幕演示
 
 1. **Owner 授权**：用户确认合成材料，选择最小披露范围，在浏览器生成加密 envelope。
-2. **Agent B 接续**：Owner 先读授权，只有 `ACTIVE` 才释放精确 envelope；独立 B 再自行读链，核验完整正文与来源承诺，才解密并构造受控上下文。
+2. **Agent B 接续**：Owner 先读授权，只有 `ACTIVE` 才释放精确 envelope；独立 B 再自行读链，授权有效才解密，随后核验完整正文与来源承诺，最后构造受控上下文。
 3. **版本失效**：Owner 读取到 V2 后，旧 V1 授权得到 `VERSION_STALE`；该次请求的 envelope、解密、context、受控 gateway 增量均为 0。
 4. **撤销生效**：Owner 撤销授权后，新请求得到 `REVOKED`；不得返回正文或构造上下文。
 
