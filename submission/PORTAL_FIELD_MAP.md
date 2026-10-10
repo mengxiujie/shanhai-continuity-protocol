@@ -1,6 +1,6 @@
 # Portal field map
 
-> The final portal fields are not yet visible. On 2026-10-02, record the exact field names, limits, required links, and validation behavior before editing this map.
+> Final portal fields remain unverified as of 2026-10-11. Record actual names, limits, required links and validation behavior before final submission. Repository is temporarily private and Pages is off; historical publishing success is not current link access.
 
 | Expected field | Source | Status |
 |---|---|---|
@@ -10,8 +10,8 @@
 | Long description | `SUBMISSION_COPY.md` / Long description | READY; map sections |
 | Primary track | Trust, Identity & AI Infrastructure | SELECTED |
 | Sponsor bounty | Mera PRF bounty only if proof passes | NOT SELECTED |
-| Public repository | `[GITHUB_URL]` | BLOCKED: no public push |
-| Hosted demo | `[DEMO_URL]` | PENDING |
+| Public repository | https://github.com/mengxiujie/shanhai-continuity-protocol | BLOCKED: temporarily PRIVATE; reopen and verify anonymously before submission |
+| Hosted demo | https://mengxiujie.github.io/shanhai-continuity-protocol/ | BLOCKED: Pages OFF; redeploy and verify before submission |
 | Video | `[VIDEO_URL]` | PENDING |
 | Contract / transactions | evidence placeholders | BLOCKED: not deployed |
 | Team | Solo team | COMPLETE |

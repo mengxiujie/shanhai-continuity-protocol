@@ -66,6 +66,8 @@
 
 首次失败与修复见 [`SPRINT_QA_2026-10-11.md`](SPRINT_QA_2026-10-11.md)。当前仍没有本项目 E3 部署或交易证据。协议链不是生产产品、市场价值或商业护城河的验证。
 
-## 公开与托管证据
+## 公开与托管证据（历史成功，当前已下线）
 
 2026-10-11 已公开 [隔离仓库](https://github.com/mengxiujie/shanhai-continuity-protocol) 和 [合成演示](https://mengxiujie.github.io/shanhai-continuity-protocol/)。[首次 Actions 发布](https://github.com/mengxiujie/shanhai-continuity-protocol/actions/runs/38090677884) 成功；仓库、演示 HTML/JS 和本页均通过无登录 Cookie 的 HTTP 200 核查。完整发布记录见 [HOSTING.md](HOSTING.md)。公开托管没有补齐 E3，不代表实链双进程或用户钱包已经执行。
+
+随后用户裁决“暂时私有，投稿前公开”。已执行仓库 PRIVATE、移除 Pages 配置；无登录 Cookie 核查仓库、演示 root/HTML 与本页均返回 404。代码、Git 历史和本地测试保留。上述 HTTP 200 是撤回前历史，不得用于声称当前评委可访问；投稿前必须重新开放并复核。

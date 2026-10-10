@@ -4,7 +4,7 @@
 
 **Metropolis 2026 candidate repository · Track: Trust, Identity & AI Infrastructure**
 
-Public [repository](https://github.com/mengxiujie/shanhai-continuity-protocol) · [synthetic walkthrough](https://mengxiujie.github.io/shanhai-continuity-protocol/) · [publication record](docs/HOSTING.md). The hosted page is not the local dual-process wallet workbench or a live testnet proof.
+Current visibility: **temporarily PRIVATE; GitHub Pages OFF**, by owner instruction on 2026-10-11. Repository/demo links are not currently available to anonymous judges. Reopen before submission and verify access again; see the [publication and withdrawal record](docs/HOSTING.md). Local reproduction remains available. Static hosting is not the local dual-process wallet workbench or a live testnet proof.
 
 ## In one minute
 

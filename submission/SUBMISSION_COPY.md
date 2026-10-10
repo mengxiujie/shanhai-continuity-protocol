@@ -1,6 +1,6 @@
 # Metropolis submission copy
 
-> Sprint draft updated 2026-10-11. Repository/static walkthrough published; real deployment, connected live delivery evidence, video and final portal submission remain pending. Replace remaining bracketed placeholders only with verified public evidence, and update the evidence section from final execution artifacts before submission.
+> Sprint draft updated 2026-10-11. Repository temporarily PRIVATE and Pages OFF following owner instruction; reopen and verify links before submission. Historical publication passed, but real deployment, connected live delivery evidence, video and final portal submission remain pending. Replace remaining bracketed placeholders only with verified public evidence, and update the evidence section from final execution artifacts before submission.
 
 ## Project name
 
@@ -80,7 +80,7 @@ Shanhai directly addresses protocol-level trust, provenance, and user-owned data
 - Existing local evidence: protocol conformance, encrypted-envelope implementation, separate independent-process test, synthetic Monad gate tests, contract compilation and release preparation. Exact counts and hashes must come from the final run, not this draft.
 - Pending: verified Monad contract deployment and its transaction/block evidence.
 - Pending: the same real-chain delivery path producing ACTIVE, VERSION_STALE and REVOKED receipts plus measured downstream activity.
-- Published: isolated public repository and static synthetic walkthrough; successful Actions build and anonymous HTTP checks recorded in `docs/HOSTING.md`.
+- Historical publication passed, then withdrawn: repository currently PRIVATE and Pages OFF; success and subsequent anonymous HTTP 404 checks recorded in `docs/HOSTING.md`.
 - Pending: recorded video, final link/field checks and portal confirmation.
 - Not demonstrated: external model behavior, real-user value, production security, market adoption or Mera recovery.
 
@@ -88,8 +88,8 @@ Use `docs/EVIDENCE.md` and actual sprint run artifacts as the evidence source. A
 
 ## Evidence to insert only after completion
 
-- Public repository: https://github.com/mengxiujie/shanhai-continuity-protocol
-- Hosted demo (synthetic walkthrough): https://mengxiujie.github.io/shanhai-continuity-protocol/
+- Repository URL (currently private; reopen and verify before use): https://github.com/mengxiujie/shanhai-continuity-protocol
+- Planned hosted demo URL (currently offline; redeploy and verify before use): https://mengxiujie.github.io/shanhai-continuity-protocol/
 - Demo video: `[VIDEO_URL]`
 - Monad contract: `[CONTRACT_ADDRESS]`
 - Deployment transaction: `[DEPLOY_TX_URL]`

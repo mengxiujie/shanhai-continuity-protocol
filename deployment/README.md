@@ -6,15 +6,17 @@
 
 本次检查：候选仓库初始 Git 工作区干净、尚无 remote；GitHub CLI 已安装。首次沙箱检查报认证失效，提升权限仅做只读复核后 `gh auth status` 成功，当前 GitHub 登录有效，不需要重复登录。未找到本项目真实 `deployment-record.json`、公开 live config 或三状态 receipt。以下账户/钱包准备由用户在自己的界面完成；只回报完成状态及公开地址，不转递凭据。
 
+后续当前状态：已配置 origin 并实际推送；曾公开及托管成功，随后按用户“暂时私有，投稿前公开”的指令转为 PRIVATE、Pages OFF。匿名核查均为 404。历史发布不代表现在可访问，投稿前需重新开放及复核；不需要重复 GitHub 登录。
+
 | 用户需要完成的一次准备 | 已核实入口与回报 |
 |---|---|
-| GitHub 仓库发布准备 | 当前 GitHub CLI 已登录；准备使用当前账号的独立公开仓库。候选仓库尚无 remote、没有公开推送，发布前使用实际通过审核的 commit。认证已核实，用户不需要再次登录，也不需要发送验证码、token 或账户安全截图。 |
+| GitHub 仓库发布准备 | 当前 GitHub CLI 已登录；origin 和推送已完成。目前独立仓库暂时 PRIVATE、Pages OFF；投稿前恢复公开、重新部署并核查实际 commit 与匿名访问。用户不需要再次登录，也不需要发送验证码、token 或账户安全截图。 |
 | 准备测试钱包及测试币 | 当前官方测试网文档：[Network Information - Testnet](https://docs.monad.xyz/developer-essentials/testnet)。Chain ID `10143`、RPC `https://testnet-rpc.monad.xyz` 已从官方页面公开配置重新核实；本轮公开只读 `eth_chainId` 返回 `0x279f`。官方 faucet 为 [faucet.monad.xyz](https://faucet.monad.xyz/)，由用户自行填写公开钱包地址并领取测试 MON。只回报测试钱包公开地址与是否已有测试币。 |
 | 打开现有赛事项目，核对提交入口 | 当前官方 [Metropolis 页面](https://monad.xyz/developers/hackathons/metropolis) 指向 [hackathon.monad.xyz](https://hackathon.monad.xyz/)。确认现有项目仍可编辑、Track 04、准确截止、字段要求/长度以及正式地区资格条款；只转递字段名、限制和不含账号隐私的状态。 |
 
 官方页面本轮显示 1 Sep–13 Oct；用户收到的主办方截止更正邮件说明 13 Oct 2026, 11:59 PM Eastern Time，对应北京时间 14 Oct 11:59。最终提交仍核对登录后台的实际截止显示。
 
-本轮新官方 FAQ 说明开源被鼓励但并非强制，与历史门户 AI 摘要不同。我们继续准备独立公开仓库，作为评委复核方案；不把历史 AI 摘要当作最新强制规则。官方当前页面的评审期为 14–27 Oct、公布日为 3 Nov；这些仅作本轮来源记录，不批量改写历史快照。地区限制以应用平台正式规则为准。
+本轮新官方 FAQ 说明开源被鼓励但并非强制，与历史门户 AI 摘要不同。独立仓库计划在投稿前重新公开，作为评委复核方案；不把历史 AI 摘要当作最新强制规则。官方当前页面的评审期为 14–27 Oct、公布日为 3 Nov；这些仅作本轮来源记录，不批量改写历史快照。地区限制以应用平台正式规则为准。
 
 签名操作在钱包中逐笔完成。完成上述准备后，按本文件部署、校验及交易序列继续；当前读链成功不表示本项目已有部署或获奖资格已确认。
 

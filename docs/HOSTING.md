@@ -2,9 +2,13 @@
 
 ## Current authorization state
 
-The owner explicitly authorized public release of this isolated synthetic candidate on 2026-10-11. The repository and static walkthrough are now published. The GitHub Pages workflow remains manual (`workflow_dispatch`), so a repository push cannot publish a new site build automatically. This publication is not a production Shanhai service or Monad contract deployment.
+The owner's latest instruction on 2026-10-11 is: temporarily private, reopen before submission. The repository is now PRIVATE and the GitHub Pages site configuration has been removed. Anonymous requests to the repository, Pages root, demo HTML and evidence document return HTTP 404. Keep local work private; do not present these links as currently accessible submission evidence.
 
-## Verified publication
+The Pages workflow remains manual (`workflow_dispatch`); no scheduled reopening was created. Before submission, restore public visibility and Pages, manually deploy the verified commit, then check anonymous access again. This is a static synthetic demonstration, not a production Shanhai service or Monad contract deployment. Previously downloaded copies cannot be recalled by this change.
+
+## Historical verified publication — subsequently withdrawn
+
+The following success records preceded the owner's privacy instruction. They remain historical evidence, not current public availability.
 
 - Repository: https://github.com/mengxiujie/shanhai-continuity-protocol — public/main; anonymous HTTP 200 and project title observed.
 - Static walkthrough: https://mengxiujie.github.io/shanhai-continuity-protocol/ — anonymous HTTP 200.
@@ -30,10 +34,10 @@ python -m http.server 4173 --directory dist
 
 Open `http://localhost:4173/`. The root redirects to `apps/demo/index.html`.
 
-## Publish later through GitHub Pages
+## Reopen before submission through GitHub Pages
 
-1. Push the verified repository to the owner's public GitHub account.
-2. In repository Settings → Pages, select **GitHub Actions** as the source.
+1. Finish the submission checkpoint, restore this repository's public visibility, and push the verified commit.
+2. Recreate the GitHub Pages site; in repository Settings → Pages, select **GitHub Actions** as the source.
 3. Open Actions → `deploy demo to GitHub Pages` → Run workflow.
 4. Record the workflow run, deployed URL, commit SHA, and logged-out-browser result.
 5. Replace `[DEMO_URL]` only after the public page is confirmed from a logged-out browser.

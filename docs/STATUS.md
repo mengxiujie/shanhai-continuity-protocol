@@ -4,7 +4,9 @@
 
 | Area | Status |
 |---|---|
-| Public repository structure | READY |
+| Repository structure | READY; remote temporarily PRIVATE |
+| Anonymous repository access | BLOCKED UNTIL PRE-SUBMISSION REOPEN; HTTP 404 |
+| GitHub Pages | OFF; anonymous root/demo/evidence HTTP 404 |
 | Root README and disclosure | READY |
 | MIT license and third-party notice | READY |
 | SCP protocol tests | PASS |
@@ -18,4 +20,6 @@
 
 ## Go / no-go
 
-仓库可以公开作为合成工程作品，但在真实合约地址、三类 receipt 和交易证据齐备前，不得声称“Monad 真门禁端到端已经完成”。
+当前按用户最新指令暂时私有、公开演示下线；投稿准备完成后重新公开并复核匿名访问。此前公开成功的历史保留在 `HOSTING.md`，不能当作当前链接可访问的证据。没有建立自动重新公开任务。
+
+在真实合约地址、三类 receipt 和交易证据齐备前，不得声称“Monad 真门禁端到端已经完成”。
