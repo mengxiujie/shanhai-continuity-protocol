@@ -71,7 +71,7 @@ async function act1() {
   setAct(1);
   clearContext();
   renderMetrics({ outcome: 'GRANTED' });
-  setStatus('OWNER READY', 'V1 encrypted in the browser. Monad holds only the minimum synthetic authorization facts.', 'good');
+  setStatus('OWNER READY', 'V1 encrypted in this browser. Authorization facts are stored in DemoMonadProvider, not on a live chain.', 'good');
   $('envelope').textContent = JSON.stringify({
     dataClass: 'SYNTHETIC', version: 1, scope: ['item-001'], ciphertextBytes: state.envelope.ciphertext.length,
     plaintextOnChain: false, commitment: state.envelope.commitment,
@@ -93,7 +93,7 @@ async function act2() {
   $('context').classList.remove('empty');
   $('context').textContent = `[USER CONFIRMED · scope=item-001]\nvalidTime=${payload.items[0].validTime.precision} · recordedAt=${payload.recordedAt}\n\n${payload.items[0].statement}`;
   renderMetrics({ envelope: 1, decrypt: 1, model: 1, outcome: 'ACTIVE' });
-  setStatus('ACTIVE', 'Monad verified the exact grant. Agent B decrypted locally and constructed one model context.', 'good');
+  setStatus('ACTIVE', 'The synthetic gate allowed this request. This browser decrypted one context; no gateway or independent process was called.', 'good');
 }
 
 async function act3() {

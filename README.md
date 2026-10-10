@@ -6,7 +6,7 @@
 
 ## In one minute
 
-Shanhai Continuity Protocol (SCP) is a portable, user-controlled continuity layer for AI agents. The owner confirms source material, projects only an authorized scope, encrypts that disclosure in the browser, and lets an independent Agent B verify the authorization against Monad before any envelope is returned. A stale version, revoked grant, scope mismatch, malformed RPC response, or wrong chain fails closed with **zero envelope delivery and zero model calls**.
+Shanhai Continuity Protocol (SCP) is a user-controlled continuity reference for AI agents. A wallet-signed request binds an exact scope/version to an ephemeral Agent B key. The Owner reads Monad before releasing that encrypted disclosure; an independent B process reads the registry again, decrypts, verifies full content and provenance commitments, and assembles a controlled context. An Owner-side stale/revoked/invalid gate stops before delivery. If state changes between the two checks, B can stop before decryption even though ciphertext has already been delivered. This is snapshot-based enforcement, not instantaneous revocation of past plaintext.
 
 The repository is an independently publishable hackathon module. It is not the complete Unsaid Shanhai commercial product and contains no real user data, production credentials, payment system, private operating documents, or proprietary prompt corpus.
 
@@ -18,6 +18,7 @@ npm ci --prefix contracts
 npm run audit:release
 npm test
 npm run test:process
+npm run test:wallet
 npm run compile:contract
 npm run build:pages
 npm run audit:hosting
@@ -29,7 +30,7 @@ The public Monad RPC probe is separate because it requires network access:
 npm run probe:monad
 ```
 
-Current evidence boundaries are explicit: compilation and synthetic gates pass; a live testnet deployment and real `ACTIVE / VERSION_STALE / REVOKED` receipts are not yet claimed.
+Current evidence boundaries are explicit: the integrated dual-process route passes against a local synthetic JSON-RPC server using the actual RPC decoder and cryptography. No external model is called. A live testnet deployment, three real state receipts, and browser-wallet signatures remain unverified until executed.
 
 未叙山海（Shanhai）正在探索一种不同于“平台替用户记住一切”的个人 AI 记忆方式：用户先确认材料，再决定向哪个 Agent 开放哪个范围；正文保持离链加密，Monad 只保存独立验证授权所需的最小事实。
 
@@ -38,8 +39,8 @@ Current evidence boundaries are explicit: compilation and synthetic gates pass; 
 ## 四幕演示
 
 1. **Owner 授权**：用户确认合成材料，选择最小披露范围，在浏览器生成加密 envelope。
-2. **Agent B 接续**：独立 Agent B 先读取 Monad 授权事实；只有 `ACTIVE` 才取得 envelope，并在本地解密、校验来源承诺、构造模型上下文。
-3. **版本失效**：Owner 发布 V2 后，旧 V1 授权得到 `VERSION_STALE`；envelope 返回数与模型调用数均为 0。
+2. **Agent B 接续**：Owner 先读授权，只有 `ACTIVE` 才释放精确 envelope；独立 B 再自行读链，核验完整正文与来源承诺，才解密并构造受控上下文。
+3. **版本失效**：Owner 读取到 V2 后，旧 V1 授权得到 `VERSION_STALE`；该次请求的 envelope、解密、context、受控 gateway 增量均为 0。
 4. **撤销生效**：Owner 撤销授权后，新请求得到 `REVOKED`；不得返回正文或构造上下文。
 
 ## 为什么需要 Monad
@@ -63,6 +64,9 @@ Monad 不保存生活正文、来源记录或模型上下文。链上状态是�
 | Monad testnet RPC 与 chain ID 只读探针 | PASS | chain ID 10143；`apps/demo/probe-monad-rpc.mjs` |
 | Solidity Consent Registry 编译 | PASS | solc 0.8.30；`contracts/build/ConsentRegistry.json` |
 | `ACTIVE / VERSION_STALE / REVOKED` envelope 门禁 | 合成 RPC PASS | `apps/demo/test/monad-gate.test.mjs`，5/5 |
+| 签名身份、临时 P-256 密钥、nonce/域/链/合约绑定 | 本地 PASS | request identity suite，20/20 |
+| 统一 RPC → 密文 → 独立 B → context 路径及并发/UNKNOWN | 本地合成 RPC PASS | sprint chain suite，11/11；真实模型未测 |
+| 本地钱包操作台、同源保护、ABI 与回执核验 | mock PASS | wallet suite，14/14；真实钱包交互未测 |
 | Monad 测试网真实合约部署与三类真实 receipt | **NOT YET EVIDENCE** | 需要部署地址与测试交易 |
 | Mera 真实 ceremony / 第二设备恢复 | **DEFERRED** | 已调起系统认证，受本机 Windows Hello PIN 阻断 |
 
@@ -107,6 +111,16 @@ npm run serve:demo
 
 `npm run probe:monad` 需要访问 Monad 测试网。其他测试不使用真人材料、不发交易。
 
+### 本地钱包操作台（仅固定虚构材料）
+
+```bash
+npm run sprint:wallet
+```
+
+在安装浏览器钱包的浏览器中打开输出的 `http://127.0.0.1:端口`。它不会自动连接钱包或发送交易；Owner 与代理签名身份在这个最小演示中使用同一测试账户，Agent B 的 ECDH 私钥仍只在独立进程内。按顺序部署、核验、登记、授权、请求、发布 V2、再次请求、撤销、再次请求，再下载公开证据 JSON。细节见 [`deployment/README.md`](deployment/README.md)。普通静态四幕只是单浏览器教学演示，不是该双进程实链路线。
+
+签名 nonce 只在本机单会话内有效，重启后旧请求拒绝；UNKNOWN 使会话失效，不等于零执行。每个 asset 在本次参考实现中绑定一个精确 scope 的完整内容承诺，没有实现任意多 scope 的 Merkle 证明。授权撤销与两次读取/交付之间仍存在时间窗。
+
 ## 部署状态
 
 当前没有可声明为本项目证据的 Monad 测试网合约地址。部署前后必须严格使用 [`deployment/README.md`](deployment/README.md)；部署记录必须由交易哈希、合约地址、链 ID、区块号和读取结果共同构成。没有这些字段时，页面应显示 `NOT YET EVIDENCE`，不得回退到 Demo Provider。
@@ -140,7 +154,7 @@ npm run serve:demo
 
 - 仓库只使用合成数据。
 - 不提交私钥、助记词、API key、Cookie、真实个人材料或生产配置。
-- `ACTIVE` 之外不得返回 envelope；任何 RPC、解析或链 ID 异常均 fail closed。
+- Owner 首次门禁非 `ACTIVE` 不返回 envelope；B 二次门禁失败不解密/组装 context。RPC、解析或链 ID 异常 fail closed；执行回执未知则报 UNKNOWN，不编造零计数。
 - 撤销阻止未来的新访问，但不虚假承诺删除第三方此前已合法取得的明文。
 - 本仓库是测试网参赛实现，不是生产安全审计结论。
 

@@ -2,7 +2,7 @@
 
 ## Current authorization state
 
-The repository contains a hosting candidate only. No external deployment has been performed or authorized. The GitHub Pages workflow is manual (`workflow_dispatch`) so a repository push cannot publish the demo automatically.
+The 2026-10-11 sprint includes preparation to publish this isolated synthetic candidate. No external deployment has yet been verified. The GitHub Pages workflow is manual (`workflow_dispatch`) so a repository push cannot publish the demo automatically. Public links remain pending until observed externally.
 
 ## Build locally
 

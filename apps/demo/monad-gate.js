@@ -11,7 +11,7 @@ export class MonadConsentRegistryAdapter {
       ? await this.provider.readSnapshot(assetId, consentId)
       : { asset: await this.provider.readAsset(assetId), consent: await this.provider.readConsent(consentId) };
     const { asset, consent } = snapshot;
-    const receipt = { chainId: this.chainId, registryAddress: this.registryAddress, blockNumber: snapshot.blockNumber ?? asset?.blockNumber ?? null, blockHash: snapshot.blockHash ?? null };
+    const receipt = { chainId: this.chainId, registryAddress: this.registryAddress, assetId, consentId, grantee, version, scopeHash, assetCommitment: asset?.commitment ?? null, blockNumber: snapshot.blockNumber ?? asset?.blockNumber ?? null, blockHash: snapshot.blockHash ?? null };
     if (!asset || !consent || consent.assetId !== assetId || consent.grantee !== grantee) return { outcome: 'NOT_FOUND', ...receipt };
     if (consent.revokedAt) return { outcome: 'REVOKED', ...receipt };
     if (consent.version !== version || asset.currentVersion !== version) return { outcome: 'VERSION_STALE', ...receipt };

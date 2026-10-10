@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shanhai · Monad 测试网操作台</title>
+<style nonce="__CSP_NONCE__">
+:root{font-family:system-ui,sans-serif;color:#e7edf6;background:#101925}*{box-sizing:border-box}body{max-width:1000px;margin:auto;padding:24px}h1{font-size:25px}.notice{border-left:4px solid #bb93ff;padding:14px;background:#1c283a;line-height:1.7}section{margin:20px 0;padding:18px;border:1px solid #3b4b64;border-radius:12px}button,input{font:inherit;border-radius:7px;padding:11px}button{background:#bfa0ff;border:0;color:#161123;cursor:pointer;margin:5px 8px 5px 0}button:disabled{opacity:.4;cursor:not-allowed}input{width:100%;color:inherit;background:#0d1520;border:1px solid #60718c}label{display:block;margin:8px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;background:#0c1420;padding:12px;max-height:450px;overflow:auto}.status{font-weight:600;color:#9de1c5}.warning{color:#ffd29a}details{margin:14px 0}a{color:#c4acff}small{line-height:1.5;color:#b5c3d6}.row{display:flex;flex-wrap:wrap;align-items:center}#events{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}#material{font-size:14px;line-height:1.6}@media(max-width:500px){body{padding:12px}section{padding:12px}button{width:100%;margin:5px 0}h1{font-size:21px}}
+</style></head><body>
+<h1>Shanhai · Monad 测试网操作台</h1>
+<p class="notice">仅使用两条固定虚构材料。只连接 Monad Testnet（10143），不接真实模型、真人资料或生产服务。每笔交易都要你点击按钮，并在钱包中亲自确认；这里只构造交易，不接触私钥。测试币也不要与存有真实资产的钱包混用。</p>
+<p id="status" class="status" role="status">正在读取本地配置；没有发送交易。</p>
+<section><h2>1 · 连接与部署</h2><p>请使用浏览器注入钱包和独立测试账户。需要少量测试网 MON；取消钱包弹窗是正常结果。</p>
+<div class="row"><button id="connect">连接测试钱包 / 切换测试网</button><button id="deploy" disabled>部署 ConsentRegistry（需签名）</button></div>
+<label for="registry">已部署合约地址（也可填现有地址）</label><input id="registry" placeholder="0x…" autocomplete="off" spellcheck="false">
+<button id="configure" disabled>核验合约代码并初始化独立 Agent B</button><small>合约运行代码必须与本地编译产物完全一致。未经核验，不能初始化其他交易或继续请求。</small></section>
+<section><h2>2 · 四幕实链路径</h2><div id="material">授权：简洁解释、结果前置。未授权：另一条虚构私密备注。发布 v2 后，旧 v1 授权将因版本不符而失效；撤销后新的请求应被阻断。最小演示使用同一测试账户作为 Owner 与代理签名身份，Agent B 的解密密钥与上下文仍在独立进程中。</div>
+<div class="row"><button id="register" disabled>① 登记虚构材料 v1</button><button id="issue" disabled>② 授予 v1 使用资格</button><button id="continue" disabled>③ 签署临时请求 → Agent B</button><button id="publish" disabled>④ 发布更正 v2</button><button id="revoke" disabled>⑤ 撤销原授权</button></div>
+<small>每次“签署临时请求”都生成新的 nonce；其签名仅用于本轮请求身份核验，不是链上交易。发布/撤销以后请再点击它，核对实链拒绝及执行增量。真实模型效果仍为 NOT_MEASURED。</small></section>
+<section><h2>3 · 当前结果与证据</h2><p id="result-summary">尚无实链结果。交易准备不等于已完成；待确认或失败不会显示成功。</p><pre id="result">NOT_MEASURED</pre><button id="download">下载本次公开证据 JSON</button><p id="events" aria-live="polite"></p>
+<details><summary>查看公开参数、源码版本与运行信息</summary><pre id="config"></pre></details></section>
+<script nonce="__CSP_NONCE__">
+const $ = (id) => document.getElementById(id);
+const operations = ['deploy','configure','register','issue','continue','publish','revoke'];
+let config, account, running = false, latestResult = null; const evidence = [];
+const status = (message) => { $('status').textContent = message; };
+const record = (message) => { $('events').textContent = `${new Date().toISOString()} ${message}\n${$('events').textContent}`; };
+const updateButtons = () => { for(const id of operations) $(id).disabled = running || !account || (!['deploy','configure'].includes(id) && !config?.configuration); $('connect').disabled = running; };
+async function api(path, body) {
+  const response = await fetch(path, body === undefined ? {cache:'no-store',signal:AbortSignal.timeout(35000)} : {method:'POST',headers:{'content-type':'application/json','x-workbench-token':config.token},body:JSON.stringify(body),signal:AbortSignal.timeout(35000)});
+  const output = await response.json(); if(!response.ok) throw new Error(output.code || `HTTP_${response.status}`); return output;
+}
+async function refresh() { config = await api('/api/config'); const {token,...shown}=config; $('config').textContent=JSON.stringify(shown,null,2); updateButtons(); }
+async function walletReady() {
+  if(!window.ethereum) throw new Error('未检测到浏览器钱包。请在安装钱包的浏览器打开本地地址。');
+  const chain = await window.ethereum.request({method:'eth_chainId'}); if(BigInt(chain)!==10143n) throw new Error('钱包不在 Monad Testnet；请先点击连接/切换。');
+  const accounts = await window.ethereum.request({method:'eth_accounts'}); if(accounts[0]?.toLowerCase()!==account) throw new Error('钱包账户已改变；请重新连接并核验。');
+}
+async function run(label, action) {
+  if(running) return; running = true; updateButtons(); status(label);
+  try{await action();}catch(error){status('未完成 / 已阻断'); record(error.message || '操作失败');}
+  finally{running=false;updateButtons();}
+}
+async function transaction(action) {
+  await walletReady(); const prepared=await api('/api/prepare',{action,account});
+  $('result-summary').textContent='交易已准备，尚未发送；请核对钱包中的网络、合约及参数。'; $('result').textContent=JSON.stringify(prepared,null,2);
+  await walletReady(); const transaction=prepared.transaction;
+  const gas=await window.ethereum.request({method:'eth_estimateGas',params:[transaction]});
+  const txHash=await window.ethereum.request({method:'eth_sendTransaction',params:[{...transaction,gas}]});
+  record(`${action}: 已发送，等待链上确认 ${txHash}`); status('交易待确认；不会提前显示成功。');
+  const deadline=Date.now()+180000; let receipt;
+  while(Date.now()<deadline){receipt=await api('/api/receipt',{txHash,preparedId:prepared.preparedId});if(receipt.status!=='PENDING_NOT_CONFIRMED')break;await new Promise(resolve=>setTimeout(resolve,1500));}
+  evidence.push(receipt); latestResult=receipt; $('result').textContent=JSON.stringify(receipt,null,2);
+  if(receipt.status!=='CONFIRMED_ON_TESTNET'){ $('result-summary').textContent=receipt.status==='TRANSACTION_FAILED'?'交易在链上失败；没有记为完成。':'确认结果未知；请保留交易 hash，勿盲目重发。';status('未确认完成');return; }
+  if(receipt.contractAddress)$('registry').value=receipt.contractAddress;
+  $('result-summary').textContent=`${action} 已在 Monad Testnet 确认。`;status('链上交易已确认；使用资格仍需单独核验。');record(`${action}: confirmed ${txHash}`);await refresh();
+}
+$('connect').onclick=()=>run('等待你确认钱包连接 / 网络切换',async()=>{
+  if(!window.ethereum)throw new Error('未检测到浏览器钱包。');
+  const accounts=await window.ethereum.request({method:'eth_requestAccounts'});
+  if(BigInt(await window.ethereum.request({method:'eth_chainId'}))!==10143n){
+    try{await window.ethereum.request({method:'wallet_switchEthereumChain',params:[{chainId:'0x279f'}]});}
+    catch(error){if(error.code!==4902)throw error;await window.ethereum.request({method:'wallet_addEthereumChain',params:[{chainId:'0x279f',chainName:'Monad Testnet',rpcUrls:[config.rpcUrl],nativeCurrency:{name:'Test MON',symbol:'MON',decimals:18},blockExplorerUrls:['https://testnet.monadscan.com']}]});}
+  }
+  account=accounts[0]?.toLowerCase();await walletReady();status(`测试账户 ${account} 已连接；尚未发送交易。`);
+});
+$('deploy').onclick=()=>run('准备部署；等待钱包确认',()=>transaction('deploy'));
+$('configure').onclick=()=>run('核验链与代码；初始化 Agent B',async()=>{await walletReady();config=await api('/api/configure',{account,registryAddress:$('registry').value.trim()});await refresh();status('代码已核验，独立 Agent B 已初始化；尚未授予任何链上资格。');});
+for(const [id,action]of [['register','registerAsset'],['issue','issueConsent'],['publish','publishVersion'],['revoke','revokeConsent']])$(id).onclick=()=>run(`准备 ${action}；等待钱包确认`,()=>transaction(action));
+$('continue').onclick=()=>run('生成临时请求；等待你确认签名',async()=>{
+  await walletReady();const challenge=await api('/api/request-challenge',{});
+  $('result-summary').textContent='请核对钱包中的请求声明；取消即可结束，没有自动授权。';$('result').textContent=challenge.message;
+  const bytes=new TextEncoder().encode(challenge.message);const hex='0x'+Array.from(bytes,byte=>byte.toString(16).padStart(2,'0')).join('');
+  const signature=await window.ethereum.request({method:'personal_sign',params:[hex,account]});
+  const result=await api('/api/continue',{declaration:challenge.declaration,signature});latestResult=result;evidence.push(result);
+  $('result').textContent=JSON.stringify(result,null,2);$('result-summary').textContent=result.status==='ACTIVE_CONTEXT_DELIVERED'?'获准材料已进入独立 Agent B 的受控上下文；真实模型效果未测。':result.status==='UNKNOWN'?'执行结果未知，不能认定未交付或零调用。会话已失效，请勿重放旧签名。':`本次请求被阻断：${result.receipt?.outcome||result.code||result.status}。如发生两次核验间撤销，密文可能已交付；请以各阶段执行增量为准。`;
+  status('本次实链门禁结果已返回；不是模型质量或生产验证。');record(`continue: ${result.status} ${result.receipt?.outcome||result.code||''}`);
+});
+$('download').onclick=()=>{const output={evidenceType:'FIXED_SYNTHETIC_TESTNET_WORKBENCH',realModelBehavior:'NOT_MEASURED',parameters:config.parameters,configuration:config.configuration,receipts:config.receipts,results:evidence};const blob=new Blob([JSON.stringify(output,null,2)],{type:'application/json'});const href=URL.createObjectURL(blob);const a=document.createElement('a');a.href=href;a.download='shanhai-testnet-evidence.json';a.click();URL.revokeObjectURL(href);};
+if(window.ethereum?.on){window.ethereum.on('accountsChanged',()=>{account=null;status('钱包账户已变更，请重新连接并核验。');updateButtons();});window.ethereum.on('chainChanged',()=>{account=null;status('钱包网络已变更，请重新连接并核验。');updateButtons();});}
+refresh().then(()=>status('本地固定合成操作台已就绪；没有自动连接或交易。')).catch(error=>status(error.message));
+</script></body></html>

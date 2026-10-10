@@ -4,12 +4,12 @@ const ADDRESS = /^0x[0-9a-fA-F]{40}$/;
 function assert(condition, code) { if (!condition) { const error = new Error(code); error.code = code; throw error; } }
 function word(data, index) { const clean = data.startsWith('0x') ? data.slice(2) : data; return clean.slice(index * 64, (index + 1) * 64); }
 function asAddress(value) { return `0x${value.slice(24)}`.toLowerCase(); }
-function asNumber(value) { return Number(BigInt(`0x${value || '0'}`)); }
+function asNumber(value) { const parsed = BigInt(`0x${value || '0'}`); assert(parsed <= BigInt(Number.MAX_SAFE_INTEGER), 'CHAIN_UINT_UNSAFE'); return Number(parsed); }
 
 export class MonadJsonRpcClient {
-  constructor({ rpcUrl = 'https://testnet-rpc.monad.xyz', fetchImpl = fetch }) { this.rpcUrl = rpcUrl; this.fetchImpl = fetchImpl; this.id = 0; }
+  constructor({ rpcUrl = 'https://testnet-rpc.monad.xyz', fetchImpl = fetch, timeoutMs = 10000 }) { this.rpcUrl = rpcUrl; this.fetchImpl = fetchImpl; this.timeoutMs = timeoutMs; this.id = 0; }
   async call(method, params = []) {
-    const response = await this.fetchImpl(this.rpcUrl, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: ++this.id, method, params }) });
+    const response = await this.fetchImpl(this.rpcUrl, { method: 'POST', headers: { 'content-type': 'application/json' }, signal: AbortSignal.timeout(this.timeoutMs), body: JSON.stringify({ jsonrpc: '2.0', id: ++this.id, method, params }) });
     assert(response.ok, 'CHAIN_UNAVAILABLE');
     const body = await response.json();
     assert(!body.error && body.result !== undefined, 'CHAIN_RPC_ERROR');
@@ -37,7 +37,8 @@ export class MonadConsentRegistryRpcProvider {
       this.ethCall(this.selectors.getConsent, consentId, blockTag),
       this.rpc.call('eth_getBlockByNumber', [blockTag, false]),
     ]);
-    assert(assetRaw !== '0x' && consentRaw !== '0x', 'REGISTRY_READ_EMPTY');
+    assert(/^0x[0-9a-fA-F]{192}$/.test(assetRaw) && /^0x[0-9a-fA-F]{448}$/.test(consentRaw), 'REGISTRY_READ_MALFORMED');
+    assert(HEX_32.test(block?.hash), 'CHAIN_BLOCK_HASH_INVALID');
     const asset = {
       owner: asAddress(word(assetRaw, 0)), commitment: `0x${word(assetRaw, 1)}`,
       currentVersion: asNumber(word(assetRaw, 2)), blockNumber: asNumber(blockTag.slice(2)),

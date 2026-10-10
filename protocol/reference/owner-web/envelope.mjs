@@ -1,5 +1,6 @@
 import { canonicalize } from '../../src/canonical-json.mjs';
 import { projectDisclosure } from '../../src/projection.mjs';
+import { contentCommitment } from '../shared/content-commitment.mjs';
 import {
   subtle, randomBytes, utf8, toBase64Url, fromBase64Url,
   normalizedItemIds, scopeHash, publicKeyFingerprint, deriveWrappingKey,
@@ -26,6 +27,7 @@ export async function createEncryptedGrantEnvelope({
     version: document.version,
     scopeHash: computedScopeHash,
     provenanceCommitment,
+    contentCommitment: contentCommitment(disclosure),
     agentKeyFingerprint,
   };
   const aad = utf8(canonicalize(aadDescriptor));

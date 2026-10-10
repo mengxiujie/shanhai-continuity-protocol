@@ -1,6 +1,6 @@
 # Metropolis submission copy
 
-> Draft status: ready for portal-field mapping on 2026-10-02. Replace bracketed placeholders only with verified public evidence.
+> Sprint draft updated 2026-10-11. Real deployment, connected live delivery evidence, public URLs and final portal submission remain pending at this editorial checkpoint. Replace bracketed placeholders only with verified public evidence, and update the evidence section from the final execution artifacts before submission.
 
 ## Project name
 
@@ -12,17 +12,19 @@
 
 ## One sentence
 
-Shanhai is a user-owned continuity protocol that lets an independent AI agent receive only the encrypted, source-proven material a user authorized—and nothing when the grant is stale, revoked, or out of scope.
+Shanhai binds encrypted AI context to a user-chosen agent, scope and version, with a Monad authorization check controlling future delivery.
 
 ## Short description
 
-AI memory is useful, but today it is usually trapped inside one platform and governed by that platform. Shanhai Continuity Protocol makes continuity portable without making personal data public. The owner confirms source material, projects a minimum authorized scope, encrypts it in the browser, and grants an Agent B access. Monad stores only the minimum authorization facts. Agent B independently reads those facts before any envelope is returned. `VERSION_STALE`, `REVOKED`, scope mismatch, wrong-chain, and malformed-RPC paths fail closed with zero envelope delivery and zero model calls.
+Moving AI context between products is increasingly possible. The harder question is whether another agent may receive a particular scope and version now, especially after a correction or revocation. Shanhai Continuity Protocol couples encrypted, source-labeled context with a Monad authorization registry. Its sprint target is one connected path: current chain check → controlled envelope delivery → independent Agent B decryption and context construction. Stale, revoked and mismatched requests must stop before delivery. A simulated gateway measures the downstream boundary; no external model is called.
+
+At this draft checkpoint, local protocol, encryption and separate gate tests exist. A real deployment and recorded execution of the connected live path are still pending. The final submission must state the actual achieved evidence level.
 
 ## Long description
 
 ### The problem
 
-People increasingly build valuable personal context with AI: confirmed preferences, corrected stories, goals, constraints, and life events. That context is difficult to move between agents without either copying an entire chat history or trusting a single platform to decide what another agent may know. Ordinary account memory solves convenience inside one product; it does not create portable, independently verifiable user authority.
+People accumulate preferences, corrected statements, goals and constraints with AI. Export formats and memory tools can move this information, but transport alone does not prove that the recipient may receive this version, for this scope, at this time. The concrete problem tested here is an old authorization being replayed after its source version changes or the owner revokes it.
 
 ### The solution
 
@@ -33,18 +35,20 @@ Shanhai Continuity Protocol separates four concerns:
 3. **Encrypted portability** — the browser creates an encrypted envelope; plaintext remains off-chain.
 4. **Independent authorization** — Agent B reads Monad before the service returns the envelope.
 
-The result is a continuity primitive rather than another diary or chatbot. An authorized agent can continue with one confirmed fragment. A stale, revoked, expired, mismatched, malformed, or wrong-chain request receives no envelope and creates no model request.
+The target result is a small continuity primitive: an authorized agent can construct context from one confirmed fragment, while stale, revoked, expired, mismatched, malformed or wrong-chain requests stop before controlled envelope delivery. These are testable behaviors of the supplied implementation, not claims about every external agent or previously disclosed plaintext.
 
 ### Why Monad
 
-If authorization lives only in Shanhai's database, Agent B must trust Shanhai's current answer. Monad gives Agent B an independently readable authorization fact: asset, current version, grantee, scope hash, expiry, and revocation status. Personal text never goes on-chain. Monad is the shared trust layer that makes the negative guarantees observable across organizational boundaries.
+Monad provides a shared authorization record that a separate process can read without trusting Shanhai's private database: asset, current version, grantee, scope hash, expiry and revocation state. The chain record controls an actual delivery decision in the target flow. Personal text remains encrypted off-chain. This design is EVM-compatible; the submission demonstrates its implementation on Monad rather than claiming that no other chain could implement it.
 
 ### Four-act demonstration
 
-1. Owner confirms one synthetic statement and authorizes its minimum scope.
-2. Agent B independently verifies `ACTIVE`, decrypts locally, and constructs one labeled model context.
-3. Owner publishes V2; replaying the V1 grant returns `VERSION_STALE`, with zero envelope, decryptions, and model calls.
-4. Owner revokes the grant; the next request returns `REVOKED`, again with all three counters at zero.
+1. Owner confirms one synthetic statement and authorizes its minimum scope and Agent B.
+2. The target connected runner verifies real `ACTIVE` state before envelope delivery; independent B decrypts and constructs source-labeled context, then invokes a clearly labeled simulated gateway.
+3. Owner publishes V2; the same V1 request must return `VERSION_STALE`, with no new envelope delivery, decryption, context construction or gateway invocation.
+4. Owner revokes the grant; a further request must return `REVOKED` with the same zero downstream activity.
+
+The three receipts document a historical transition at distinct block anchors. A new RPC read reports current state; it does not recreate historical ACTIVE state. The standalone browser four-act walkthrough is explicitly synthetic until its own live connection is proven.
 
 ## Innovation
 
@@ -52,13 +56,15 @@ If authorization lives only in Shanhai's database, Agent B must trust Shanhai's 
 - Bitemporal `validTime` and `recordedAt`, plus immutable supersession instead of silent profile overwrites.
 - Scope projection and provenance commitments bind meaning and source before encryption.
 - Monad authorization is checked before envelope delivery, not after model context construction.
-- The demo treats denial as first-class evidence: non-active states visibly keep model calls at zero.
+- The connected target measures denial through actual delivery, decryption, context and simulated-gateway activity, rather than UI-assigned counters.
+
+These are the submission's implementation choices. User-owned memory, encryption, portability and revocable permissions already have related open-source work; this submission does not claim to have invented them.
 
 ## Technical implementation
 
 - `Shanhai Continuity Protocol 0.1.0`: JSON schema, canonical serialization, conformance vectors, provenance validation, scope projection, context construction.
 - Browser WebCrypto: AES-256-GCM envelope; P-256 ECDH + HKDF reference path for Agent B key wrapping.
-- Independent Agent B process: local decryption, commitment validation, source-labeled context, model gateway counter.
+- Independent Agent B process: local decryption, commitment validation, source-labeled context and simulated gateway instrumentation. Real model calls are zero throughout this sprint.
 - Solidity `ConsentRegistry`: asset version, commitment, scoped grant, expiry, grantee, and revocation.
 - Monad read adapter: fixed chain ID, block-consistent reads, fail-closed ABI/RPC handling.
 - Evidence panel: separates synthetic test outcomes from live receipt evidence.
@@ -69,14 +75,15 @@ Primary track: **Trust, Identity & AI Infrastructure**.
 
 Shanhai directly addresses protocol-level trust, provenance, and user-owned data for AI. It demonstrates how an AI agent can be useful without one platform owning or unilaterally controlling the user's continuity context.
 
-## Current verified evidence
+## Evidence status at the editorial checkpoint
 
-- SCP conformance: 9/9 PASS.
-- Runtime and encrypted-envelope tests: 13/13 PASS.
-- Monad deterministic gate tests: 5/5 PASS.
-- Independent Agent B process: PASS.
-- Solidity compilation: PASS with solc 0.8.30; 2554-byte deployment bytecode.
-- Release audit: PASS with zero findings.
+- Existing local evidence: protocol conformance, encrypted-envelope implementation, separate independent-process test, synthetic Monad gate tests, contract compilation and release preparation. Exact counts and hashes must come from the final run, not this draft.
+- Pending: verified Monad contract deployment and its transaction/block evidence.
+- Pending: the same real-chain delivery path producing ACTIVE, VERSION_STALE and REVOKED receipts plus measured downstream activity.
+- Pending: public repository, hosted demo, recorded video, logged-out link checks and final portal confirmation.
+- Not demonstrated: external model behavior, real-user value, production security, market adoption or Mera recovery.
+
+Use `docs/EVIDENCE.md` and actual sprint run artifacts as the evidence source. A deployment receipt, a synthetic walkthrough and an independent encryption test do not by themselves prove the connected live claim.
 
 ## Evidence to insert only after completion
 
@@ -91,7 +98,7 @@ Shanhai directly addresses protocol-level trust, provenance, and user-owned data
 
 ## Pre-existing work and event-period work
 
-The pre-existing project contributed the product vision, user-sovereignty principles, and earlier local continuity experiments. The standalone protocol, source hierarchy, bitemporal model, conformance suite, encrypted Agent B flow, Monad Consent Registry, verifier, four-act demo, and evidence tooling were implemented as the substantial new submission module. See `docs/BUILD_DISCLOSURE.md` and the public Git history.
+The pre-existing project contributed product context, user-sovereignty principles and earlier local experiments. The standalone protocol, source metadata, bitemporal model, conformance suite, encrypted Agent B reference flow, Monad registry and evidence tools were built as the submission module. The final sprint must disclose its actual additional connection work and real timestamps. See `docs/BUILD_DISCLOSURE.md` and the public Git history; earlier planning maturity is not evidence that all submitted code was built during the event.
 
 ## AI tool disclosure
 
@@ -99,4 +106,8 @@ OpenAI Codex and other AI-assisted tools supported research, specification organ
 
 ## Chinese positioning reference
 
-未叙山海不是让平台“拥有你的记忆”，而是让用户确认、保存并授权自己的连续性材料。用户只开放本次所需的最小范围；独立 Agent 必须先在 Monad 验证授权。版本失效、撤销或越权时，不返回密文、不解密、不调用模型。
+本届参赛主张收敛为：用户确认一份合成材料并限定对象、范围、版本；真实 Monad 授权检查决定密文是否可以交付给独立 Agent B。版本过期或授权撤销后，同一路径必须停止交付、解密和上下文构造。网关仅作确定性模拟，真实模型调用始终为零。当前稿中实链部署、贯通取证与公开链接仍待完成，以实际最终证据替换状态。
+
+## Sponsor bounty
+
+Mera is outside the primary sprint and is not claimed. Select no sponsor bounty unless its separate requirements and actual proof are completed within the authorized scope.

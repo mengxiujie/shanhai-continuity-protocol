@@ -2,6 +2,28 @@
 
 本操作包用于把 `ConsentRegistry` 部署到 Monad 测试网并形成可复核证据。它不保存私钥，也不自动代表用户签名。
 
+## 2026-10-11 冲刺准入核查与用户操作卡
+
+本次检查：候选仓库初始 Git 工作区干净、尚无 remote；GitHub CLI 已安装。首次沙箱检查报认证失效，提升权限仅做只读复核后 `gh auth status` 成功，当前 GitHub 登录有效，不需要重复登录。未找到本项目真实 `deployment-record.json`、公开 live config 或三状态 receipt。以下账户/钱包准备由用户在自己的界面完成；只回报完成状态及公开地址，不转递凭据。
+
+| 用户需要完成的一次准备 | 已核实入口与回报 |
+|---|---|
+| GitHub 仓库发布准备 | 当前 GitHub CLI 已登录；准备使用当前账号的独立公开仓库。候选仓库尚无 remote、没有公开推送，发布前使用实际通过审核的 commit。认证已核实，用户不需要再次登录，也不需要发送验证码、token 或账户安全截图。 |
+| 准备测试钱包及测试币 | 当前官方测试网文档：[Network Information - Testnet](https://docs.monad.xyz/developer-essentials/testnet)。Chain ID `10143`、RPC `https://testnet-rpc.monad.xyz` 已从官方页面公开配置重新核实；本轮公开只读 `eth_chainId` 返回 `0x279f`。官方 faucet 为 [faucet.monad.xyz](https://faucet.monad.xyz/)，由用户自行填写公开钱包地址并领取测试 MON。只回报测试钱包公开地址与是否已有测试币。 |
+| 打开现有赛事项目，核对提交入口 | 当前官方 [Metropolis 页面](https://monad.xyz/developers/hackathons/metropolis) 指向 [hackathon.monad.xyz](https://hackathon.monad.xyz/)。确认现有项目仍可编辑、Track 04、准确截止、字段要求/长度以及正式地区资格条款；只转递字段名、限制和不含账号隐私的状态。 |
+
+官方页面本轮显示 1 Sep–13 Oct；用户收到的主办方截止更正邮件说明 13 Oct 2026, 11:59 PM Eastern Time，对应北京时间 14 Oct 11:59。最终提交仍核对登录后台的实际截止显示。
+
+本轮新官方 FAQ 说明开源被鼓励但并非强制，与历史门户 AI 摘要不同。我们继续准备独立公开仓库，作为评委复核方案；不把历史 AI 摘要当作最新强制规则。官方当前页面的评审期为 14–27 Oct、公布日为 3 Nov；这些仅作本轮来源记录，不批量改写历史快照。地区限制以应用平台正式规则为准。
+
+签名操作在钱包中逐笔完成。完成上述准备后，按本文件部署、校验及交易序列继续；当前读链成功不表示本项目已有部署或获奖资格已确认。
+
+## 本轮主链取证目标
+
+真实 Monad 读取必须接到实际的受控 envelope 释放和独立 Agent B 解密/上下文路径。单独的 `evidence-panel.html` 默认将交付、解密和模型计数标为 `NOT_MEASURED`；三份链 receipt 不能替代这条贯通证据。下游使用确定性模拟 gateway，外部模型调用为零；必须分开记录 simulated gateway、实际交付、解密与 context 构造次数。
+
+同一 consent 的 A → B → C 三份 receipt 是历史状态；撤销之后的新读取应显示当前 REVOKED。不得通过演示回放静默恢复链授权。Mera 不进入本轮主线，也不申报其未完成 bounty。
+
 ## 0. 固定参数
 
 | Item | Value |
@@ -101,3 +123,13 @@ npm run serve:demo
 - RPC 读取失败或 ABI 解码失败；
 - 非 `ACTIVE` 请求仍取得 envelope；
 - 任何秘密出现在命令、日志、截图或 Git diff 中。
+
+## 7. 冲刺最小操作台（2026-10-11）
+
+推荐直接运行 `npm run sprint:wallet`，在安装钱包的浏览器打开输出的本地地址。此路线上用户不必往 Remix 反复复制参数。每笔部署/登记/授权/版本/撤销交易必须本人点击并在钱包确认，服务器只构造 ABI 数据和核对公开回执。
+
+顺序：连接独立测试钱包 → 部署 → 核验合约 → 登记 v1 → 授权 v1 → 签署临时请求并下载 ACTIVE 结果 → 发布 v2 → 用新 nonce 签请求并下载 VERSION_STALE → 撤销 → 再用新 nonce 签请求并下载 REVOKED。确认未知时保留交易 hash，不盲目重发。合约、源版本、内容承诺、scope、P-256 会话指纹和 nonce 都应一致。
+
+本轮 nonce 账本与加密会话只在进程内；在 ACTIVE 取证前请不要关闭/重启操作台。重启会产生新的 asset/consent 标识，不能把它算作原授权恢复。若进程意外结束，先保存已有公开交易记录，再安排新的合成测试，不复活旧 grant。
+
+Owner 与 Agent B 的签名身份在最小操作台中使用同一测试地址，B 的 ECDH 私钥和 context 位于独立子进程；这是本机工程隔离，不是两个独立组织的采用证据。操作台目前 mock 14/14、贯通合成 RPC 11/11 通过，真实钱包签名与实链结果仍待用户执行。
