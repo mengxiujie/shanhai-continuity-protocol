@@ -4,6 +4,8 @@
 
 **Metropolis 2026 candidate repository · Track: Trust, Identity & AI Infrastructure**
 
+Public [repository](https://github.com/mengxiujie/shanhai-continuity-protocol) · [synthetic walkthrough](https://mengxiujie.github.io/shanhai-continuity-protocol/) · [publication record](docs/HOSTING.md). The hosted page is not the local dual-process wallet workbench or a live testnet proof.
+
 ## In one minute
 
 Shanhai Continuity Protocol (SCP) is a user-controlled continuity reference for AI agents. A wallet-signed request binds an exact scope/version to an ephemeral Agent B key. The Owner reads Monad before releasing that encrypted disclosure; an independent B process reads the registry again, decrypts, verifies full content and provenance commitments, and assembles a controlled context. An Owner-side stale/revoked/invalid gate stops before delivery. If state changes between the two checks, B can stop before decryption even though ciphertext has already been delivered. This is snapshot-based enforcement, not instantaneous revocation of past plaintext.

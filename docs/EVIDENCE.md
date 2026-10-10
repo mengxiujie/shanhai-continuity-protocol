@@ -65,3 +65,7 @@
 完整回归 `npm test`：协议向量 9/9，protocol 44/44（既有 13、身份 20、贯通 11），Monad gate 5/5，wallet workbench 14/14。另复跑既有独立进程演示通过，合约编译、发布扫描与静态托管检查通过。依赖固定 `ethers@6.17.0`；官方 npm 审计 0 vulnerabilities 仅代表该次依赖报告，不代表生产安全审计。
 
 首次失败与修复见 [`SPRINT_QA_2026-10-11.md`](SPRINT_QA_2026-10-11.md)。当前仍没有本项目 E3 部署或交易证据。协议链不是生产产品、市场价值或商业护城河的验证。
+
+## 公开与托管证据
+
+2026-10-11 已公开 [隔离仓库](https://github.com/mengxiujie/shanhai-continuity-protocol) 和 [合成演示](https://mengxiujie.github.io/shanhai-continuity-protocol/)。[首次 Actions 发布](https://github.com/mengxiujie/shanhai-continuity-protocol/actions/runs/38090677884) 成功；仓库、演示 HTML/JS 和本页均通过无登录 Cookie 的 HTTP 200 核查。完整发布记录见 [HOSTING.md](HOSTING.md)。公开托管没有补齐 E3，不代表实链双进程或用户钱包已经执行。

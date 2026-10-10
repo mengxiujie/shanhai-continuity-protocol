@@ -1,6 +1,6 @@
 # Metropolis submission copy
 
-> Sprint draft updated 2026-10-11. Real deployment, connected live delivery evidence, public URLs and final portal submission remain pending at this editorial checkpoint. Replace bracketed placeholders only with verified public evidence, and update the evidence section from the final execution artifacts before submission.
+> Sprint draft updated 2026-10-11. Repository/static walkthrough published; real deployment, connected live delivery evidence, video and final portal submission remain pending. Replace remaining bracketed placeholders only with verified public evidence, and update the evidence section from final execution artifacts before submission.
 
 ## Project name
 
@@ -80,15 +80,16 @@ Shanhai directly addresses protocol-level trust, provenance, and user-owned data
 - Existing local evidence: protocol conformance, encrypted-envelope implementation, separate independent-process test, synthetic Monad gate tests, contract compilation and release preparation. Exact counts and hashes must come from the final run, not this draft.
 - Pending: verified Monad contract deployment and its transaction/block evidence.
 - Pending: the same real-chain delivery path producing ACTIVE, VERSION_STALE and REVOKED receipts plus measured downstream activity.
-- Pending: public repository, hosted demo, recorded video, logged-out link checks and final portal confirmation.
+- Published: isolated public repository and static synthetic walkthrough; successful Actions build and anonymous HTTP checks recorded in `docs/HOSTING.md`.
+- Pending: recorded video, final link/field checks and portal confirmation.
 - Not demonstrated: external model behavior, real-user value, production security, market adoption or Mera recovery.
 
 Use `docs/EVIDENCE.md` and actual sprint run artifacts as the evidence source. A deployment receipt, a synthetic walkthrough and an independent encryption test do not by themselves prove the connected live claim.
 
 ## Evidence to insert only after completion
 
-- Public repository: `[GITHUB_URL]`
-- Hosted demo: `[DEMO_URL]`
+- Public repository: https://github.com/mengxiujie/shanhai-continuity-protocol
+- Hosted demo (synthetic walkthrough): https://mengxiujie.github.io/shanhai-continuity-protocol/
 - Demo video: `[VIDEO_URL]`
 - Monad contract: `[CONTRACT_ADDRESS]`
 - Deployment transaction: `[DEPLOY_TX_URL]`

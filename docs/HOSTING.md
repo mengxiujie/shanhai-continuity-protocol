@@ -2,7 +2,15 @@
 
 ## Current authorization state
 
-The 2026-10-11 sprint includes preparation to publish this isolated synthetic candidate. No external deployment has yet been verified. The GitHub Pages workflow is manual (`workflow_dispatch`) so a repository push cannot publish the demo automatically. Public links remain pending until observed externally.
+The owner explicitly authorized public release of this isolated synthetic candidate on 2026-10-11. The repository and static walkthrough are now published. The GitHub Pages workflow remains manual (`workflow_dispatch`), so a repository push cannot publish a new site build automatically. This publication is not a production Shanhai service or Monad contract deployment.
+
+## Verified publication
+
+- Repository: https://github.com/mengxiujie/shanhai-continuity-protocol — public/main; anonymous HTTP 200 and project title observed.
+- Static walkthrough: https://mengxiujie.github.io/shanhai-continuity-protocol/ — anonymous HTTP 200.
+- Initial successful workflow: https://github.com/mengxiujie/shanhai-continuity-protocol/actions/runs/38090677884 — commit `008f85be96fcd29ec47463ed7f109f47025470e2`.
+- Hosted demo HTML, JavaScript and evidence document each returned anonymous HTTP 200. The workflow passed install, release audit, tests, independent-process check, compilation, build, hosting audit and deployment.
+- These are publication/reproducibility observations, not an external developer's independent adoption or browser-wallet execution. Final recording, real chain evidence and portal submission are still pending.
 
 ## Build locally
 

@@ -33,7 +33,7 @@ The final-mile sprint adds the connection between the previously separate author
 
 The sprint checkpoint reported 9 conformance vectors, 44 protocol tests (13 runtime + 20 signed-request identity + 11 connected sprint), 5 gate tests and 14 wallet-workbench tests passing. Contract compilation, release audit and hosting build/audit also passed locally. Reproduce the actual behavior with `npm test`, `npm run test:process`, `npm run compile:contract`, `npm run audit:release`, `npm run build:pages` and `npm run audit:hosting`; final execution artifacts and real Git timestamps govern later claims.
 
-The connected-path tests use fixed synthetic material and controlled RPC fixtures. At this checkpoint the user has not yet supplied a dedicated test wallet; there is no completed real deployment, signed real state-transition sequence or live ACTIVE → VERSION_STALE → REVOKED evidence. Public repository, hosted publication, final recording and submission remain separate completion steps. Preparing or starting the local wallet workbench does not establish any of them.
+The connected-path tests use fixed synthetic material and controlled RPC fixtures. At the initial implementation checkpoint the user had not yet supplied a dedicated test wallet; there was no completed real deployment, signed real state-transition sequence or live ACTIVE → VERSION_STALE → REVOKED evidence. The subsequent authorized repository/static publication is recorded in `docs/HOSTING.md`; real chain evidence, final recording and submission remain incomplete. Preparing or starting the local wallet workbench does not establish those steps.
 
 ## Explicitly outside the submission claim
 
