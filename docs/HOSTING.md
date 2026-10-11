@@ -4,7 +4,7 @@
 
 The owner's latest instruction on 2026-10-11 is: temporarily private, reopen before submission. The repository is now PRIVATE and the GitHub Pages site configuration has been removed. Anonymous requests to the repository, Pages root, demo HTML and evidence document return HTTP 404. Keep local work private; do not present these links as currently accessible submission evidence.
 
-The Pages workflow remains manual (`workflow_dispatch`); no scheduled reopening was created. Before submission, restore public visibility and Pages, manually deploy the verified commit, then check anonymous access again. This is a static synthetic demonstration, not a production Shanhai service or Monad contract deployment. Previously downloaded copies cannot be recalled by this change.
+The Pages workflow remains manual (`workflow_dispatch`); no scheduled reopening was created. Before submission, restore public visibility and Pages, manually deploy the verified commit, then check anonymous access again. This is a static demonstration and recorded-evidence replay, not a production Shanhai service. Previously downloaded copies cannot be recalled by this change.
 
 ## Historical verified publication — subsequently withdrawn
 
@@ -48,6 +48,7 @@ The `dist/` directory contains only:
 
 - the synthetic four-act demo;
 - the read-only Monad evidence panel;
+- the recorded Monad evidence replay and its exact public evidence JSON;
 - client-side gate/provider modules and tests bundled as static source;
 - the evidence-level document.
 

@@ -32,7 +32,7 @@ The public Monad RPC probe is separate because it requires network access:
 npm run probe:monad
 ```
 
-Current evidence boundaries are explicit: the integrated dual-process route passes against a local synthetic JSON-RPC server using the actual RPC decoder and cryptography. No external model is called. A live testnet deployment, three real state receipts, and browser-wallet signatures remain unverified until executed.
+Current evidence boundaries are explicit: the integrated dual-process route passes against a local synthetic JSON-RPC server using the actual RPC decoder and cryptography. The browser-wallet testnet run is also complete: the deployed contract and the recorded `ACTIVE`, `VERSION_STALE`, and `REVOKED` receipts are archived under `deployment/`. No external model is called; model behavior and production security remain unverified.
 
 未叙山海（Shanhai）正在探索一种不同于“平台替用户记住一切”的个人 AI 记忆方式：用户先确认材料，再决定向哪个 Agent 开放哪个范围；正文保持离链加密，Monad 只保存独立验证授权所需的最小事实。
 
@@ -110,6 +110,7 @@ npm run serve:demo
 
 - 四幕合成演示：`http://localhost:4173/apps/demo/index.html`
 - Monad 真实只读证据面板：`http://localhost:4173/apps/demo/evidence-panel.html`
+- Monad 已记录证据回放：`http://localhost:4173/apps/demo/evidence-replay.html`
 
 `npm run probe:monad` 需要访问 Monad 测试网。其他测试不使用真人材料、不发交易。
 

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shanhai · Recorded Monad Evidence</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%238b5cf6'/%3E%3Cpath d='M8 20c4-8 8 3 16-8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .replay-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.replay-card{border-top:4px solid #8b5cf6}.replay-card.denied{border-top-color:#fb7185}.replay-card h2{display:flex;justify-content:space-between;gap:10px}.metric-list{display:grid;grid-template-columns:1fr auto;gap:8px 16px}.metric-list dt{color:#94a3b8}.metric-list dd{margin:0;font-family:ui-monospace,monospace}.proof-links{display:flex;flex-wrap:wrap;gap:10px}.proof-links a{overflow-wrap:anywhere}.hash{overflow-wrap:anywhere}.ok-text{color:#86efac}.bad-text{color:#fda4af}@media(max-width:800px){.replay-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <p class="eyebrow">RECORDED RUN · MONAD TESTNET · FIXED SYNTHETIC DATA</p>
+  <h1>Authority changes what Agent B may receive</h1>
+  <p class="lead">This page replays one completed browser-wallet run from its archived JSON. It does not send transactions, request a wallet, or call an external model.</p>
+
+  <section class="card">
+    <h2>Evidence identity</h2>
+    <dl class="evidence-grid">
+      <dt>Network</dt><dd>Monad Testnet · 10143</dd>
+      <dt>Registry</dt><dd><a id="registry" target="_blank" rel="noreferrer">loading…</a></dd>
+      <dt>Raw JSON SHA-256</dt><dd id="hash" class="hash">verifying…</dd>
+      <dt>Model boundary</dt><dd id="model">NOT_MEASURED</dd>
+    </dl>
+  </section>
+
+  <section id="stages" class="replay-grid" aria-label="Recorded gate outcomes"></section>
+
+  <section class="card" style="margin-top:22px">
+    <h2>Confirmed chain transactions</h2>
+    <div id="transactions" class="proof-links"></div>
+  </section>
+
+  <section class="card" style="margin-top:22px">
+    <h2>Claim boundary</h2>
+    <ul>
+      <li><code>ACTIVE</code> records controlled delivery into an independent Agent B process and a deterministic gateway.</li>
+      <li><code>VERSION_STALE</code> and <code>REVOKED</code> each record zero new envelope fetch, decrypt, context assembly and gateway activity.</li>
+      <li>The evidence does not establish production security, model quality, real-user value or deletion of plaintext previously obtained by an authorized recipient.</li>
+    </ul>
+    <p><a href="index.html">Synthetic four-act explainer</a> · <a href="evidence-panel.html">Fresh current-state reader</a> · <a href="../../docs/EVIDENCE.md">Evidence boundary</a></p>
+  </section>
+</main>
+<script type="module" src="evidence-replay.js"></script>
+</body>
+</html>

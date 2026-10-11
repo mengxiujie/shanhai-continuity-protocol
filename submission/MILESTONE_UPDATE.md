@@ -2,16 +2,16 @@
 
 ## English draft
 
-We have completed a synthetic end-to-end candidate for Shanhai Continuity Protocol in the Trust, Identity & AI Infrastructure track. The owner confirms a synthetic continuity item, projects the minimum scope, and encrypts it in the browser. An independent Agent B checks a Monad Consent Registry before any envelope is returned. Our deterministic suite currently passes 9/9 protocol vectors, 13/13 runtime/envelope tests, and 5/5 authorization-gate tests. The contract compiles with solc 0.8.30.
+We completed the Monad testnet evidence gate for Shanhai Continuity Protocol in the Trust, Identity & AI Infrastructure track. The verified contract is deployed at `0xcda4d087900f47427b4956b9b1ee2543ec5575c0` on chain 10143. With fixed synthetic material, the recorded sequence produced `ACTIVE_CONTEXT_DELIVERED`, then `VERSION_STALE` after publishing V2, then `REVOKED` after revocation. The stale and revoked requests each show zero new envelope fetch, decryption, context assembly, or controlled-gateway work.
 
-Our next evidence gate is a real Monad testnet deployment with public `ACTIVE`, `VERSION_STALE`, and `REVOKED` receipts. We are also evaluating the Mera PRF bounty, but will not select or claim it unless a real ceremony and fresh-profile/second-device reproduction pass.
+The exact raw browser evidence is archived byte-for-byte with SHA-256 `49bd59c0ff054fbf2ef82ab009b1bccefaf88890240ff5b18b0d0cc8225a9864`. A read-only replay recomputes that hash in the browser and links the underlying Monad transactions. External model behavior remains explicitly `NOT_MEASURED`; the evidence demonstrates the authorization and delivery boundary, not model intelligence or production security.
 
-The most useful mentor feedback would be: (1) whether the independent authorization boundary is clear in the four-act demo, and (2) what live-chain evidence judges expect beyond contract and transaction links.
+The most useful mentor feedback would now be: (1) whether the 90-second replay makes the active → stale → revoked transition immediately legible, and (2) which claim or screen should be simplified for judging without weakening the evidence boundary.
 
 ## 中文核对稿
 
-我们已经完成 Shanhai Continuity Protocol 的合成端到端候选版本，参赛赛道为 Trust, Identity & AI Infrastructure。用户确认一条合成连续性材料，在浏览器中投影最小范围并加密；独立 Agent B 必须先查询 Monad Consent Registry，门禁通过后才能取得 envelope。目前协议向量 9/9、运行时/加密 13/13、授权门禁 5/5 均通过，合约以 solc 0.8.30 编译通过。
+我们已经完成 Shanhai Continuity Protocol 的 Monad 测试网证据门，参赛赛道为 Trust, Identity & AI Infrastructure。已核验合约部署在链 10143 的 `0xcda4d087900f47427b4956b9b1ee2543ec5575c0`。在两条固定合成材料下，记录序列依次得到 `ACTIVE_CONTEXT_DELIVERED`、发布 V2 后的 `VERSION_STALE`，以及撤销后的 `REVOKED`。旧版本与撤销请求的新增 envelope 获取、解密、上下文组装和受控 gateway 执行均为 0。
 
-下一项证据门是部署真实 Monad 测试网合约，并取得公开的 ACTIVE、VERSION_STALE 和 REVOKED 三联 receipt。Mera PRF 赏金仍在评估，只有真实 ceremony 和新 profile/第二设备复现通过后才会选择和申报。
+浏览器原始证据已逐字节归档，SHA-256 为 `49bd59c0ff054fbf2ef82ab009b1bccefaf88890240ff5b18b0d0cc8225a9864`。只读回放页会在浏览器中重新计算哈希，并链接对应 Monad 交易。真实外部模型行为仍明确标为 `NOT_MEASURED`；本证据证明的是授权与交付边界，不是模型智能或生产安全。
 
-希望导师重点反馈：四幕演示是否清楚表达了独立授权边界，以及评委除合约和交易链接外还期待哪些真实链证据。
+现在最希望导师反馈：90 秒回放是否能让评委立即看懂 ACTIVE → VERSION_STALE → REVOKED，以及哪些表述或画面可以继续简化而不削弱证据边界。

@@ -8,8 +8,10 @@ const dist = join(root, 'dist');
 await rm(dist, { recursive: true, force: true });
 await mkdir(join(dist, 'apps'), { recursive: true });
 await mkdir(join(dist, 'docs'), { recursive: true });
+await mkdir(join(dist, 'deployment'), { recursive: true });
 await cp(join(root, 'apps', 'demo'), join(dist, 'apps', 'demo'), { recursive: true });
 await cp(join(root, 'docs', 'EVIDENCE.md'), join(dist, 'docs', 'EVIDENCE.md'));
+await cp(join(root, 'deployment', 'raw-browser-evidence.monad-testnet.2026-10-11.json'), join(dist, 'deployment', 'raw-browser-evidence.monad-testnet.2026-10-11.json'));
 
 const landing = `<!doctype html>
 <html lang="en">
