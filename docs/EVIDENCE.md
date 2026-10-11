@@ -54,16 +54,15 @@
 
 ## 未闭合事项
 
-1. 把浏览器下载的原始证据 JSON 归档进仓库；当前结构化记录来自工作台回执、公开 RPC 复核及用户回传结果。
-2. 录制或重放一条适合评委查看的短演示，并完成外部复现。
-3. 独立安全复核合约与浏览器密钥生命周期。
-4. Mera 已移出主线，仅余量充足时评估。
+1. 录制或重放一条适合评委查看的短演示，并完成外部复现。
+2. 独立安全复核合约与浏览器密钥生命周期。
+3. Mera 已移出主线，仅余量充足时评估。
 
 ## 2026-10-11 冲刺证据
 
 完整回归 `npm test`：协议向量 9/9，protocol 44/44（既有 13、身份 20、贯通 11），Monad gate 5/5，wallet workbench 14/14。另复跑既有独立进程演示通过，合约编译、发布扫描与静态托管检查通过。依赖固定 `ethers@6.17.0`；官方 npm 审计 0 vulnerabilities 仅代表该次依赖报告，不代表生产安全审计。
 
-首次失败与修复见 [`SPRINT_QA_2026-10-11.md`](SPRINT_QA_2026-10-11.md)。2026-10-11 已取得真实 Monad Testnet 合约、四笔状态交易及 `ACTIVE → VERSION_STALE → REVOKED` 门禁证据；独立只读核验在区块 `70046454` 再次确认运行代码哈希。部署记录见 [`deployment-record.monad-testnet.2026-10-11.json`](../deployment/deployment-record.monad-testnet.2026-10-11.json)。这些证据不验证生产安全、真实模型质量、真人价值或商业护城河。
+首次失败与修复见 [`SPRINT_QA_2026-10-11.md`](SPRINT_QA_2026-10-11.md)。2026-10-11 已取得真实 Monad Testnet 合约、四笔状态交易及 `ACTIVE → VERSION_STALE → REVOKED` 门禁证据；独立只读核验在区块 `70046454` 再次确认运行代码哈希。部署记录见 [`deployment-record.monad-testnet.2026-10-11.json`](../deployment/deployment-record.monad-testnet.2026-10-11.json)，浏览器原始导出见 [`raw-browser-evidence.monad-testnet.2026-10-11.json`](../deployment/raw-browser-evidence.monad-testnet.2026-10-11.json)，SHA-256 为 `49bd59c0ff054fbf2ef82ab009b1bccefaf88890240ff5b18b0d0cc8225a9864`。这些证据不验证生产安全、真实模型质量、真人价值或商业护城河。
 
 ## 公开与托管证据（历史成功，当前已下线）
 

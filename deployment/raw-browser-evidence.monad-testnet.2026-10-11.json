@@ -1,0 +1,259 @@
+{
+  "evidenceType": "FIXED_SYNTHETIC_TESTNET_WORKBENCH",
+  "realModelBehavior": "NOT_MEASURED",
+  "parameters": {
+    "version": 1,
+    "scopeHash": "0x94c4994b7ed7bd11b0a4e5ac16a0930dd579e86462b12913199d7005abcdb839",
+    "contentCommitmentV1": "0x9fd3e7150dca7853b678080b7677f3f78670ece6971f0eb34ffdf03d055e3ea2",
+    "contentCommitmentV2": "0x46bd25bf91fc0bb3eb62965f9a90e3dc2a172c60e5ba4944fa3899bc6dfed0a4",
+    "assetId": "0x5f71feb9e849ba293cdf0cccef99f36bed0948c7a6cbae0d826fcf35aab7214f",
+    "consentId": "0x5c93b989eadd148402e20de0dab86ed6ac7fa086857f1a2250c3aa2f05b63d08"
+  },
+  "configuration": {
+    "status": "RUNTIME_BYTECODE_VERIFIED",
+    "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+    "runtimeBytecodeSha256": "f968181f3fe204013357563ff6c0e6a6ba23320340974036b32ee97c86f827f4",
+    "account": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+    "agentPid": 24672,
+    "agentKeyFingerprint": "sha256:Pu6SH4VF5j5sm1_yvGzKuWAVHvR8FuFY3s8Pz22_a6M",
+    "revision": 1
+  },
+  "receipts": [
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "registerAsset",
+      "txHash": "0x3c5679da6129d3397c75738adb8a83db0eb314adcfbaffa9afb1cb06142eafd9",
+      "blockNumber": "0x42cb6d2",
+      "blockHash": "0x153cf018b29311f787f4e7efb93d2211940989eceea946d8dc4006e337a044b6",
+      "contractAddress": null,
+      "gasUsed": "0x15897",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x3c5679da6129d3397c75738adb8a83db0eb314adcfbaffa9afb1cb06142eafd9"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "issueConsent",
+      "txHash": "0x96f8855379f391ea0285267e20ccf83b23f620e7262ad7b353fc28d413a0dd31",
+      "blockNumber": "0x42cb7fc",
+      "blockHash": "0x42f344a005857bcca3ace949c2e5a01c3c5350f2533257a4ee50ce42fed51a11",
+      "contractAddress": null,
+      "gasUsed": "0x1cb36",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x96f8855379f391ea0285267e20ccf83b23f620e7262ad7b353fc28d413a0dd31"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "publishVersion",
+      "txHash": "0x455bb6f7ad8d10977cc37bd3cca9fd0540a1fb5360c6a7ee10e16d7d18423e2c",
+      "blockNumber": "0x42cbc40",
+      "blockHash": "0xb1825028aec71a288923972771b00c1818a29d5679c5ed2e159b1f480588b431",
+      "contractAddress": null,
+      "gasUsed": "0x8f49",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x455bb6f7ad8d10977cc37bd3cca9fd0540a1fb5360c6a7ee10e16d7d18423e2c"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "revokeConsent",
+      "txHash": "0x32502800838f9e58896b9912b0a80d8e1c6a55e574c8746866b1747a13e33d32",
+      "blockNumber": "0x42cc24c",
+      "blockHash": "0x0588cbf87afcd876694ddf2cf5e5e4f5df8e01bb1defc572dd9243b997e2c9e0",
+      "contractAddress": null,
+      "gasUsed": "0xa981",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x32502800838f9e58896b9912b0a80d8e1c6a55e574c8746866b1747a13e33d32"
+    }
+  ],
+  "results": [
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "registerAsset",
+      "txHash": "0x3c5679da6129d3397c75738adb8a83db0eb314adcfbaffa9afb1cb06142eafd9",
+      "blockNumber": "0x42cb6d2",
+      "blockHash": "0x153cf018b29311f787f4e7efb93d2211940989eceea946d8dc4006e337a044b6",
+      "contractAddress": null,
+      "gasUsed": "0x15897",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x3c5679da6129d3397c75738adb8a83db0eb314adcfbaffa9afb1cb06142eafd9"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "issueConsent",
+      "txHash": "0x96f8855379f391ea0285267e20ccf83b23f620e7262ad7b353fc28d413a0dd31",
+      "blockNumber": "0x42cb7fc",
+      "blockHash": "0x42f344a005857bcca3ace949c2e5a01c3c5350f2533257a4ee50ce42fed51a11",
+      "contractAddress": null,
+      "gasUsed": "0x1cb36",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x96f8855379f391ea0285267e20ccf83b23f620e7262ad7b353fc28d413a0dd31"
+    },
+    {
+      "status": "ACTIVE_CONTEXT_DELIVERED",
+      "ownerReceipt": {
+        "outcome": "ACTIVE",
+        "chainId": 10143,
+        "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+        "assetId": "0x5f71feb9e849ba293cdf0cccef99f36bed0948c7a6cbae0d826fcf35aab7214f",
+        "consentId": "0x5c93b989eadd148402e20de0dab86ed6ac7fa086857f1a2250c3aa2f05b63d08",
+        "grantee": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+        "version": 1,
+        "scopeHash": "0x94c4994b7ed7bd11b0a4e5ac16a0930dd579e86462b12913199d7005abcdb839",
+        "assetCommitment": "0x9fd3e7150dca7853b678080b7677f3f78670ece6971f0eb34ffdf03d055e3ea2",
+        "blockNumber": 70039775,
+        "blockHash": "0xc5e4bdd1222996ae69be354de625787c6ca21f1290129e54696b4225eb749ee2"
+      },
+      "receipt": {
+        "outcome": "ACTIVE",
+        "chainId": 10143,
+        "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+        "assetId": "0x5f71feb9e849ba293cdf0cccef99f36bed0948c7a6cbae0d826fcf35aab7214f",
+        "consentId": "0x5c93b989eadd148402e20de0dab86ed6ac7fa086857f1a2250c3aa2f05b63d08",
+        "grantee": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+        "version": 1,
+        "scopeHash": "0x94c4994b7ed7bd11b0a4e5ac16a0930dd579e86462b12913199d7005abcdb839",
+        "assetCommitment": "0x9fd3e7150dca7853b678080b7677f3f78670ece6971f0eb34ffdf03d055e3ea2",
+        "blockNumber": 70039787,
+        "blockHash": "0xb9f3e31422efe70bb4bbc347f476cd87c3dad51ec603663c71b42a2625e212ae"
+      },
+      "counters": {
+        "totals": {
+          "chainChecks": 1,
+          "envelopeFetches": 1,
+          "envelopeReceived": 1,
+          "independentChainChecks": 1,
+          "decryptAttempts": 1,
+          "decryptSucceeded": 1,
+          "contextAssemblies": 1,
+          "controlledGatewayCalls": 1
+        },
+        "delta": {
+          "chainChecks": 1,
+          "envelopeFetches": 1,
+          "envelopeReceived": 1,
+          "independentChainChecks": 1,
+          "decryptAttempts": 1,
+          "decryptSucceeded": 1,
+          "contextAssemblies": 1,
+          "controlledGatewayCalls": 1
+        }
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "以下是用户按范围授权的连续性材料。必须保留来源等级与时间边界；不得把模型推断写成用户原话或客观事实；发生冲突时优先使用更高权威材料，并允许表达未知。"
+        },
+        {
+          "role": "user",
+          "content": "[材料 30000000-0000-4000-8000-000000000011]\n权威=用户已确认；原始来源=USER_UTTERANCE:用户原话；审阅=USER_CONFIRMED\n有效时间=1791676700..open(INSTANT)；记录时间=1791676800\n内容=Synthetic preference: explain complex ideas briefly; give the result first, then the evidence."
+        }
+      ],
+      "result": {
+        "status": "CONTROLLED_GATEWAY_ONLY",
+        "contextMessageCount": 2
+      },
+      "ownerPid": 21684,
+      "agentPid": 24672,
+      "realModelBehavior": "NOT_MEASURED"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "publishVersion",
+      "txHash": "0x455bb6f7ad8d10977cc37bd3cca9fd0540a1fb5360c6a7ee10e16d7d18423e2c",
+      "blockNumber": "0x42cbc40",
+      "blockHash": "0xb1825028aec71a288923972771b00c1818a29d5679c5ed2e159b1f480588b431",
+      "contractAddress": null,
+      "gasUsed": "0x8f49",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x455bb6f7ad8d10977cc37bd3cca9fd0540a1fb5360c6a7ee10e16d7d18423e2c"
+    },
+    {
+      "status": "DENIED",
+      "receipt": {
+        "outcome": "VERSION_STALE",
+        "chainId": 10143,
+        "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+        "assetId": "0x5f71feb9e849ba293cdf0cccef99f36bed0948c7a6cbae0d826fcf35aab7214f",
+        "consentId": "0x5c93b989eadd148402e20de0dab86ed6ac7fa086857f1a2250c3aa2f05b63d08",
+        "grantee": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+        "version": 1,
+        "scopeHash": "0x94c4994b7ed7bd11b0a4e5ac16a0930dd579e86462b12913199d7005abcdb839",
+        "assetCommitment": "0x46bd25bf91fc0bb3eb62965f9a90e3dc2a172c60e5ba4944fa3899bc6dfed0a4",
+        "blockNumber": 70041507,
+        "blockHash": "0xc8ea3dbe2e99cde7a8fdeb468a277dfbe3486a9b42467e4e13f9bf2a8833bdc4"
+      },
+      "counters": {
+        "totals": {
+          "chainChecks": 2,
+          "envelopeFetches": 1,
+          "envelopeReceived": 1,
+          "independentChainChecks": 1,
+          "decryptAttempts": 1,
+          "decryptSucceeded": 1,
+          "contextAssemblies": 1,
+          "controlledGatewayCalls": 1
+        },
+        "delta": {
+          "chainChecks": 1,
+          "envelopeFetches": 0,
+          "envelopeReceived": 0,
+          "independentChainChecks": 0,
+          "decryptAttempts": 0,
+          "decryptSucceeded": 0,
+          "contextAssemblies": 0,
+          "controlledGatewayCalls": 0
+        }
+      },
+      "realModelBehavior": "NOT_MEASURED"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "revokeConsent",
+      "txHash": "0x32502800838f9e58896b9912b0a80d8e1c6a55e574c8746866b1747a13e33d32",
+      "blockNumber": "0x42cc24c",
+      "blockHash": "0x0588cbf87afcd876694ddf2cf5e5e4f5df8e01bb1defc572dd9243b997e2c9e0",
+      "contractAddress": null,
+      "gasUsed": "0xa981",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x32502800838f9e58896b9912b0a80d8e1c6a55e574c8746866b1747a13e33d32"
+    },
+    {
+      "status": "DENIED",
+      "receipt": {
+        "outcome": "REVOKED",
+        "chainId": 10143,
+        "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+        "assetId": "0x5f71feb9e849ba293cdf0cccef99f36bed0948c7a6cbae0d826fcf35aab7214f",
+        "consentId": "0x5c93b989eadd148402e20de0dab86ed6ac7fa086857f1a2250c3aa2f05b63d08",
+        "grantee": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+        "version": 1,
+        "scopeHash": "0x94c4994b7ed7bd11b0a4e5ac16a0930dd579e86462b12913199d7005abcdb839",
+        "assetCommitment": "0x46bd25bf91fc0bb3eb62965f9a90e3dc2a172c60e5ba4944fa3899bc6dfed0a4",
+        "blockNumber": 70043660,
+        "blockHash": "0x03b28d3e4573b47f7ffa58969d043bb7f69bd7b5e883bdc3a621c59b49056776"
+      },
+      "counters": {
+        "totals": {
+          "chainChecks": 3,
+          "envelopeFetches": 1,
+          "envelopeReceived": 1,
+          "independentChainChecks": 1,
+          "decryptAttempts": 1,
+          "decryptSucceeded": 1,
+          "contextAssemblies": 1,
+          "controlledGatewayCalls": 1
+        },
+        "delta": {
+          "chainChecks": 1,
+          "envelopeFetches": 0,
+          "envelopeReceived": 0,
+          "independentChainChecks": 0,
+          "decryptAttempts": 0,
+          "decryptSucceeded": 0,
+          "contextAssemblies": 0,
+          "controlledGatewayCalls": 0
+        }
+      },
+      "realModelBehavior": "NOT_MEASURED"
+    }
+  ]
+}

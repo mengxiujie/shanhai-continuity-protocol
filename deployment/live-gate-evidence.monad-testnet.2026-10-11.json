@@ -64,7 +64,8 @@
   "provenance": {
     "walletOperation": "USER_CONFIRMED_IN_BROWSER",
     "codeVerification": "PASS",
-    "rawBrowserExport": "PENDING_ARCHIVAL_FROM_USER_DOWNLOAD",
+    "rawBrowserExport": "raw-browser-evidence.monad-testnet.2026-10-11.json",
+    "rawBrowserExportSha256": "49bd59c0ff054fbf2ef82ab009b1bccefaf88890240ff5b18b0d0cc8225a9864",
     "realModelBehavior": "NOT_MEASURED"
   }
 }

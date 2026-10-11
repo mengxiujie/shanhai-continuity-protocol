@@ -1,6 +1,6 @@
 # Metropolis submission copy
 
-> Sprint draft updated 2026-10-11. Repository temporarily PRIVATE and Pages OFF following owner instruction; reopen and verify links before submission. Real Monad deployment and the connected fixed-synthetic evidence path passed. Video, browser-export archival and final portal submission remain pending.
+> Sprint draft updated 2026-10-11. Repository temporarily PRIVATE and Pages OFF following owner instruction; reopen and verify links before submission. Real Monad deployment, the connected fixed-synthetic evidence path and raw browser-export archival passed. Video and final portal submission remain pending.
 
 ## Project name
 
@@ -93,7 +93,7 @@ Use `docs/EVIDENCE.md` and actual sprint run artifacts as the evidence source. A
 - Demo video: `[VIDEO_URL]`
 - Monad contract: https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0
 - Deployment transaction: https://testnet.monadscan.com/tx/0xfa9a1587b93c0786a59f5f39ec50734faa67fc8125271c35fee615b1949070d2
-- `ACTIVE / VERSION_STALE / REVOKED` gate evidence (available after repository reopening): https://github.com/mengxiujie/shanhai-continuity-protocol/blob/main/deployment/live-gate-evidence.monad-testnet.2026-10-11.json
+- Raw `ACTIVE / VERSION_STALE / REVOKED` browser evidence (available after repository reopening): https://github.com/mengxiujie/shanhai-continuity-protocol/blob/main/deployment/raw-browser-evidence.monad-testnet.2026-10-11.json
 - V2 transaction: https://testnet.monadscan.com/tx/0x455bb6f7ad8d10977cc37bd3cca9fd0540a1fb5360c6a7ee10e16d7d18423e2c
 - Revocation transaction: https://testnet.monadscan.com/tx/0x32502800838f9e58896b9912b0a80d8e1c6a55e574c8746866b1747a13e33d32
 
