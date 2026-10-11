@@ -42,7 +42,7 @@ for (const path of files) {
   }
 }
 
-const required = ['index.html', 'apps/demo/index.html', 'apps/demo/app.js', 'apps/demo/styles.css', 'apps/demo/evidence-panel.html', 'apps/demo/evidence-replay.html', 'apps/demo/evidence-replay.js', 'deployment/raw-browser-evidence.monad-testnet.2026-10-11.json', 'docs/EVIDENCE.md'];
+const required = ['index.html', 'apps/demo/index.html', 'apps/demo/app.js', 'apps/demo/styles.css', 'apps/demo/evidence-panel.html', 'apps/demo/evidence-replay.html', 'apps/demo/evidence-replay.js', 'deployment/raw-browser-evidence.monad-testnet.2026-10-11.json', 'protocol/reference/owner-web/sprint-fixture.mjs', 'docs/EVIDENCE.md'];
 for (const path of required) {
   try { await stat(join(dist, path)); }
   catch { findings.push({ rule: 'REQUIRED_ASSET_MISSING', path }); }

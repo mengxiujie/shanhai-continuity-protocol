@@ -14,7 +14,11 @@ The following success records preceded the owner's privacy instruction. They rem
 - Static walkthrough: https://mengxiujie.github.io/shanhai-continuity-protocol/ — anonymous HTTP 200.
 - Initial successful workflow: https://github.com/mengxiujie/shanhai-continuity-protocol/actions/runs/38090677884 — commit `008f85be96fcd29ec47463ed7f109f47025470e2`.
 - Hosted demo HTML, JavaScript and evidence document each returned anonymous HTTP 200. The workflow passed install, release audit, tests, independent-process check, compilation, build, hosting audit and deployment.
-- These are publication/reproducibility observations, not an external developer's independent adoption or browser-wallet execution. Final recording, real chain evidence and portal submission are still pending.
+- These are historical publication/reproducibility observations, not an external developer's independent adoption or browser-wallet execution. At this publication checkpoint, final recording, real chain evidence and portal submission were pending. Real chain execution and raw-evidence archival were subsequently completed on 2026-10-11; video, external developer reproduction and portal submission remain pending. See [EVIDENCE.md](EVIDENCE.md) for the current evidence.
+
+## Current local replay checkpoint
+
+`apps/demo/evidence-replay.html` now loads the exact archived raw evidence and recomputes its SHA-256. Local browser inspection confirmed MATCH and the recorded `ACTIVE`, `VERSION_STALE`, and `REVOKED` states. Its planned public URL is `https://mengxiujie.github.io/shanhai-continuity-protocol/apps/demo/evidence-replay.html`; this URL remains offline until the owner-authorized pre-submission reopening and a fresh anonymous-access check. The replay sends no wallet transaction and does not recreate the historical ACTIVE state.
 
 ## Build locally
 
@@ -52,4 +56,4 @@ The `dist/` directory contains only:
 - client-side gate/provider modules and tests bundled as static source;
 - the evidence-level document.
 
-It must not contain `.env`, deployment records, account screenshots, internal archives, submission drafts, wallet data, personal content, or unresolved evidence-link placeholders.
+It must not contain `.env`, operational deployment configuration, account screenshots, internal archives, submission drafts, wallet secrets, personal content, or unresolved evidence-link placeholders. The explicitly listed public raw-evidence JSON is the only deployment-directory artifact included in the static build.

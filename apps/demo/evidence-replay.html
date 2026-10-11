@@ -7,7 +7,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%238b5cf6'/%3E%3Cpath d='M8 20c4-8 8 3 16-8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .replay-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.replay-card{border-top:4px solid #8b5cf6}.replay-card.denied{border-top-color:#fb7185}.replay-card h2{display:flex;justify-content:space-between;gap:10px}.metric-list{display:grid;grid-template-columns:1fr auto;gap:8px 16px}.metric-list dt{color:#94a3b8}.metric-list dd{margin:0;font-family:ui-monospace,monospace}.proof-links{display:flex;flex-wrap:wrap;gap:10px}.proof-links a{overflow-wrap:anywhere}.hash{overflow-wrap:anywhere}.ok-text{color:#86efac}.bad-text{color:#fda4af}@media(max-width:800px){.replay-grid{grid-template-columns:1fr}}
+    .replay-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.replay-card{border-top:4px solid #8b5cf6}.replay-card.denied{border-top-color:#fb7185}.replay-card h2{display:flex;justify-content:space-between;gap:10px}.metric-list{display:grid;grid-template-columns:1fr auto;gap:8px 16px}.metric-list dt{color:#94a3b8}.metric-list dd{margin:0;font-family:ui-monospace,monospace}.proof-links{display:flex;flex-wrap:wrap;gap:10px}.proof-links a{overflow-wrap:anywhere}.hash{overflow-wrap:anywhere}.ok-text{color:#86efac}.bad-text{color:#fda4af}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.story-grid blockquote{margin:0;padding:16px;border-left:3px solid #a78bfa;background:#0d0c12}.story-note{font-size:14px;color:var(--muted)}@media(max-width:800px){.replay-grid,.story-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -15,6 +15,17 @@
   <p class="eyebrow">RECORDED RUN · MONAD TESTNET · FIXED SYNTHETIC DATA</p>
   <h1>Authority changes what Agent B may receive</h1>
   <p class="lead">This page replays one completed browser-wallet run from its archived JSON. It does not send transactions, request a wallet, or call an external model.</p>
+
+  <section class="card" id="story" style="margin-bottom:22px">
+    <h2>You asked for brief answers. This time you need detail.</h2>
+    <p>Should another AI keep using your old preference? The owner changes the version; the old request loses permission to receive that context.</p>
+    <div class="story-grid">
+      <div><h3>V1 · Previously authorized</h3><blockquote id="v1-material">Loading the executed fixed fixture…</blockquote></div>
+      <div><h3>V2 · Later correction</h3><blockquote id="v2-material">Loading the executed fixed fixture…</blockquote></div>
+    </div>
+    <p id="scope-note" class="story-note">The grant covers one selected item. The second synthetic private note is outside its scope.</p>
+    <p class="story-note">The recorded V1 request becomes stale after V2. This run does not demonstrate a newly authorized V2 delivery.</p>
+  </section>
 
   <section class="card">
     <h2>Evidence identity</h2>
@@ -39,8 +50,9 @@
       <li><code>ACTIVE</code> records controlled delivery into an independent Agent B process and a deterministic gateway.</li>
       <li><code>VERSION_STALE</code> and <code>REVOKED</code> each record zero new envelope fetch, decrypt, context assembly and gateway activity.</li>
       <li>The evidence does not establish production security, model quality, real-user value or deletion of plaintext previously obtained by an authorized recipient.</li>
+      <li>Checks use block snapshots; authority may change after the final check.</li>
     </ul>
-    <p><a href="index.html">Synthetic four-act explainer</a> · <a href="evidence-panel.html">Fresh current-state reader</a> · <a href="../../docs/EVIDENCE.md">Evidence boundary</a></p>
+    <p><a href="index.html">Synthetic four-act explainer</a> · <a href="evidence-panel.html">Fresh current-state reader</a> · <a href="../../deployment/raw-browser-evidence.monad-testnet.2026-10-11.json" download>Download exact raw evidence</a> · <a href="../../docs/EVIDENCE.md">Evidence boundary</a></p>
   </section>
 </main>
 <script type="module" src="evidence-replay.js"></script>

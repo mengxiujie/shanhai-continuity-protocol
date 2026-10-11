@@ -1,6 +1,6 @@
 # Metropolis submission copy
 
-> Sprint draft updated 2026-10-11. Repository temporarily PRIVATE and Pages OFF following owner instruction; reopen and verify links before submission. Real Monad deployment, the connected fixed-synthetic evidence path and raw browser-export archival passed. Video and final portal submission remain pending.
+> Sprint draft updated 2026-10-11. Repository temporarily PRIVATE and Pages OFF following owner instruction; reopen and verify links before submission. Real Monad deployment, the connected fixed-synthetic evidence path and raw browser-export archival passed. A local Chinese-narrated / English-subtitled review video is generated; final video review, upload and portal submission remain pending.
 
 ## Project name
 
@@ -16,7 +16,7 @@ Shanhai binds encrypted AI context to a user-chosen agent, scope and version, wi
 
 ## Short description
 
-Moving AI context between products is increasingly possible. The harder question is whether another agent may receive a particular scope and version now, especially after a correction or revocation. Shanhai Continuity Protocol couples encrypted, source-labeled context with a Monad authorization registry. Its sprint target is one connected path: current chain check → controlled envelope delivery → independent Agent B decryption and context construction. Stale, revoked and mismatched requests must stop before delivery. A simulated gateway measures the downstream boundary; no external model is called.
+Moving AI context between products is increasingly possible. The harder question is whether another agent may receive a particular scope and version now, especially after a correction or revocation. Shanhai Continuity Protocol couples encrypted, source-labeled context with a Monad authorization registry. Its connected path is: Owner chain check → controlled envelope delivery → independent Agent B chain check → decryption and context construction. Stale, revoked and mismatched requests detected by the Owner stop before delivery. B checks again before decryption if state changes between reads. A simulated gateway measures the downstream boundary; no external model is called.
 
 The protocol, encryption path, independent Agent B and deterministic tests pass locally. A user-operated test wallet deployed the registry on Monad Testnet and completed the connected `ACTIVE → VERSION_STALE → REVOKED` path with measured downstream activity. The repository remains private until the pre-submission reopening step.
 
@@ -33,9 +33,9 @@ Shanhai Continuity Protocol separates four concerns:
 1. **Source truth** — user-confirmed material outranks user utterance, traceable fact, and model inference.
 2. **Minimum disclosure** — the owner selects an exact scope instead of exporting a whole profile.
 3. **Encrypted portability** — the browser creates an encrypted envelope; plaintext remains off-chain.
-4. **Independent authorization** — Agent B reads Monad before the service returns the envelope.
+4. **Independent authorization** — the Owner reads Monad before releasing the envelope; independent Agent B reads Monad again before decrypting it.
 
-The target result is a small continuity primitive: an authorized agent can construct context from one confirmed fragment, while stale, revoked, expired, mismatched, malformed or wrong-chain requests stop before controlled envelope delivery. These are testable behaviors of the supplied implementation, not claims about every external agent or previously disclosed plaintext.
+The result is a small continuity primitive: an authorized agent can construct context from one confirmed fragment. Requests denied at the Owner's snapshot stop before controlled envelope delivery; a denial at B's later snapshot can occur after ciphertext delivery but before decryption. Checks are snapshot-based rather than atomic with subsequent use, so a state change after the final check remains a time-window limitation. These are testable behaviors of the supplied implementation, not claims about every external agent or previously disclosed plaintext.
 
 ### Why Monad
 
@@ -44,7 +44,7 @@ Monad provides a shared authorization record that a separate process can read wi
 ### Four-act demonstration
 
 1. Owner confirms one synthetic statement and authorizes its minimum scope and Agent B.
-2. The target connected runner verifies real `ACTIVE` state before envelope delivery; independent B decrypts and constructs source-labeled context, then invokes a clearly labeled simulated gateway.
+2. The connected runner verifies real `ACTIVE` state before envelope delivery; independent B reads the registry again before decryption, constructs source-labeled context, then invokes a clearly labeled simulated gateway.
 3. Owner publishes V2; the same V1 request must return `VERSION_STALE`, with no new envelope delivery, decryption, context construction or gateway invocation.
 4. Owner revokes the grant; a further request must return `REVOKED` with the same zero downstream activity.
 
@@ -80,8 +80,10 @@ Shanhai directly addresses protocol-level trust, provenance, and user-owned data
 - Local evidence: 9 conformance vectors, 44 protocol tests, 5 synthetic Monad gate tests and 14 wallet-workbench tests passed at the sprint checkpoint.
 - Monad E3 evidence: deployed registry, four confirmed state transactions and the connected `ACTIVE → VERSION_STALE → REVOKED` path. The two denial runs recorded zero new envelope fetch, decryption, context assembly or controlled-gateway work.
 - Independent verification: chain ID, deployed runtime length and runtime SHA-256 matched the local compiler artifact at block `70046454`.
+- Raw browser evidence is archived with SHA-256 `49bd59c0ff054fbf2ef82ab009b1bccefaf88890240ff5b18b0d0cc8225a9864`; the local recorded-evidence replay recomputed it as MATCH. Execution counters are project instrumentation, not third-party attestation.
 - Historical publication passed, then withdrawn: repository currently PRIVATE and Pages OFF; success and subsequent anonymous HTTP 404 checks recorded in `docs/HOSTING.md`.
-- Pending: recorded video, final link/field checks and portal confirmation.
+- Local review video: 92 seconds, Chinese generic installed-voice narration and burned-in English subtitles; archived evidence visualization, not a browser recording or new execution.
+- Pending: founder video review, upload/anonymous playback, external developer reproduction, final link/field checks and portal confirmation. Official judging weights are not independently verified.
 - Not demonstrated: external model behavior, real-user value, production security, market adoption or Mera recovery.
 
 Use `docs/EVIDENCE.md` and actual sprint run artifacts as the evidence source. A deployment receipt, a synthetic walkthrough and an independent encryption test do not by themselves prove the connected live claim.
@@ -90,6 +92,7 @@ Use `docs/EVIDENCE.md` and actual sprint run artifacts as the evidence source. A
 
 - Repository URL (currently private; reopen and verify before use): https://github.com/mengxiujie/shanhai-continuity-protocol
 - Planned hosted demo URL (currently offline; redeploy and verify before use): https://mengxiujie.github.io/shanhai-continuity-protocol/
+- Planned recorded-evidence replay URL (currently offline; redeploy and verify before use): https://mengxiujie.github.io/shanhai-continuity-protocol/apps/demo/evidence-replay.html
 - Demo video: `[VIDEO_URL]`
 - Monad contract: https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0
 - Deployment transaction: https://testnet.monadscan.com/tx/0xfa9a1587b93c0786a59f5f39ec50734faa67fc8125271c35fee615b1949070d2
@@ -107,7 +110,7 @@ OpenAI Codex and other AI-assisted tools supported research, specification organ
 
 ## Chinese positioning reference
 
-本届参赛主张收敛为：用户确认一份合成材料并限定对象、范围、版本；真实 Monad 授权检查决定密文是否可以交付给独立 Agent B。2026-10-11 已完成固定虚构材料的 `ACTIVE → VERSION_STALE → REVOKED` 实链路径，两个拒绝状态均记录到下游执行增量为零。网关仅作确定性模拟，真实模型调用始终为零。仓库重新公开、原始浏览器导出归档、视频和最终投稿仍待完成。
+本届参赛主张收敛为：用户确认一份合成材料并限定对象、范围、版本；Owner 的真实 Monad 授权检查决定密文是否可以交付，独立 Agent B 再读链核验后才解密。2026-10-11 已完成固定虚构材料的 `ACTIVE → VERSION_STALE → REVOKED` 实链路径，两个拒绝状态均记录到下游执行增量为零。原始浏览器导出已逐字节归档，只读回放已在本地核对哈希 MATCH；92 秒中文旁白＋英文字幕审阅视频已生成，属归档证据可视化。两次检查及之后的使用仍有时间窗，撤销不能追回先前取得的明文。网关仅作确定性模拟，真实模型行为仍为 `NOT_MEASURED`。仓库重新公开及匿名访问复核、视频最终审阅与上传、外部开发者复现和最终投稿仍待完成。
 
 ## Sponsor bounty
 

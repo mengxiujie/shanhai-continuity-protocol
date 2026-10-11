@@ -1,17 +1,27 @@
-import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, rm, writeFile, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { SPRINT_DOCUMENTS, SPRINT_ALLOWED_ITEM_IDS } from '../protocol/reference/owner-web/sprint-fixture.mjs';
+import { fixedScopeParameters } from '../protocol/reference/owner-web/sprint-runtime.mjs';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const dist = join(root, 'dist');
+
+const raw = JSON.parse(await readFile(join(root, 'deployment', 'raw-browser-evidence.monad-testnet.2026-10-11.json'), 'utf8'));
+for (const [index, document] of SPRINT_DOCUMENTS.entries()) {
+  const parameters = await fixedScopeParameters(document, SPRINT_ALLOWED_ITEM_IDS[index]);
+  if (parameters.contentCommitment !== raw.parameters[`contentCommitmentV${index + 1}`]) throw new Error('REPLAY_FIXTURE_COMMITMENT_MISMATCH');
+}
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(join(dist, 'apps'), { recursive: true });
 await mkdir(join(dist, 'docs'), { recursive: true });
 await mkdir(join(dist, 'deployment'), { recursive: true });
+await mkdir(join(dist, 'protocol', 'reference', 'owner-web'), { recursive: true });
 await cp(join(root, 'apps', 'demo'), join(dist, 'apps', 'demo'), { recursive: true });
 await cp(join(root, 'docs', 'EVIDENCE.md'), join(dist, 'docs', 'EVIDENCE.md'));
 await cp(join(root, 'deployment', 'raw-browser-evidence.monad-testnet.2026-10-11.json'), join(dist, 'deployment', 'raw-browser-evidence.monad-testnet.2026-10-11.json'));
+await cp(join(root, 'protocol', 'reference', 'owner-web', 'sprint-fixture.mjs'), join(dist, 'protocol', 'reference', 'owner-web', 'sprint-fixture.mjs'));
 
 const landing = `<!doctype html>
 <html lang="en">

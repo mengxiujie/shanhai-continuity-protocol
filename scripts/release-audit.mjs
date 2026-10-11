@@ -5,7 +5,7 @@ const root = new URL('../', import.meta.url);
 const excludedDirs = new Set(['.git', 'node_modules', 'coverage', 'dist']);
 const forbiddenDirs = new Set(['raw', 'private']);
 const forbiddenNames = [/^\.env(?!\.example$)/i, /deployment-record\.json$/i, /\.(pem|key|p12|pfx)$/i];
-const textExtensions = new Set(['', '.cjs', '.css', '.html', '.js', '.json', '.md', '.mjs', '.sol', '.txt', '.yml', '.yaml']);
+const textExtensions = new Set(['', '.cjs', '.css', '.html', '.js', '.json', '.md', '.mjs', '.ps1', '.sol', '.txt', '.yml', '.yaml']);
 const contentRules = [
   { name: 'PEM_PRIVATE_KEY', pattern: /-----BEGIN [A-Z ]*PRIVATE KEY-----/ },
   { name: 'LOCAL_WINDOWS_USER_PATH', pattern: /[A-Za-z]:\\Users\\[^\\\s]+/ },

@@ -70,6 +70,8 @@ Monad 不保存生活正文、来源记录或模型上下文。链上状态是�
 | 统一 RPC → 密文 → 独立 B → context 路径及并发/UNKNOWN | 本地合成 RPC PASS | sprint chain suite，11/11；真实模型未测 |
 | 本地钱包操作台、同源保护、ABI 与回执核验 | PASS | wallet suite 14/14；真实浏览器钱包流程完成 |
 | Monad 测试网真实合约部署与三类真实 receipt | **E3 PASS** | `0xcda4d087900f47427b4956b9b1ee2543ec5575c0`；见 `docs/EVIDENCE.md` |
+| 已记录实链证据回放 | PASS；原始 JSON SHA-256 MATCH | `apps/demo/evidence-replay.html`；只读回放，外部复现待完成 |
+| 中文旁白＋英文字幕审阅视频 | 本地 92 秒 / 1080p 已生成；需试听、上传 | `submission/VIDEO_90S.md`；归档证据可视化，不是现场录屏 |
 | Mera 真实 ceremony / 第二设备恢复 | **DEFERRED** | 已调起系统认证，受本机 Windows Hello PIN 阻断 |
 
 详细证据边界见 [`docs/EVIDENCE.md`](docs/EVIDENCE.md)。
@@ -126,7 +128,7 @@ npm run sprint:wallet
 
 ## 部署状态
 
-2026-10-11 已完成 Monad Testnet 部署和固定虚构材料的 `ACTIVE → VERSION_STALE → REVOKED` 路径。合约地址为 [`0xcda4d087900f47427b4956b9b1ee2543ec5575c0`](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)，部署与门禁记录见 [`docs/EVIDENCE.md`](docs/EVIDENCE.md)。浏览器原始导出仍待归档，生产安全、真实模型质量和真人价值均未据此成立。
+2026-10-11 已完成 Monad Testnet 部署和固定虚构材料的 `ACTIVE → VERSION_STALE → REVOKED` 路径。合约地址为 [`0xcda4d087900f47427b4956b9b1ee2543ec5575c0`](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)，部署与门禁记录见 [`docs/EVIDENCE.md`](docs/EVIDENCE.md)。浏览器原始导出已逐字节归档，SHA-256 为 `49bd59c0ff054fbf2ef82ab009b1bccefaf88890240ff5b18b0d0cc8225a9864`；[证据回放](apps/demo/evidence-replay.html)会重算并核对该哈希。录像、外部开发者复现和投稿前公开访问复核仍待完成；生产安全、真实模型质量和真人价值均未据此成立。
 
 ## 黑客松工作披露
 
