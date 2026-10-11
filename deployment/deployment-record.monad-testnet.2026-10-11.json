@@ -1,0 +1,49 @@
+{
+  "schema": "shanhai-deployment-record/0.1",
+  "network": {
+    "name": "Monad Testnet",
+    "chainId": 10143,
+    "rpcUrl": "https://testnet-rpc.monad.xyz"
+  },
+  "contract": {
+    "name": "ConsentRegistry",
+    "address": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+    "deploymentTxHash": "0xfa9a1587b93c0786a59f5f39ec50734faa67fc8125271c35fee615b1949070d2",
+    "deploymentBlockNumber": 70030915,
+    "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+    "runtimeBytecodeBytes": 2526,
+    "runtimeBytecodeSha256": "f968181f3fe204013357563ff6c0e6a6ba23320340974036b32ee97c86f827f4"
+  },
+  "deployer": {
+    "address": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+    "privateKeyRecorded": false
+  },
+  "transactions": {
+    "registerAsset": {
+      "txHash": "0x3c5679da6129d3397c75738adb8a83db0eb314adcfbaffa9afb1cb06142eafd9",
+      "blockNumber": 70039250
+    },
+    "issueConsent": {
+      "txHash": "0x96f8855379f391ea0285267e20ccf83b23f620e7262ad7b353fc28d413a0dd31",
+      "blockNumber": 70039548
+    },
+    "publishVersion": {
+      "txHash": "0x455bb6f7ad8d10977cc37bd3cca9fd0540a1fb5360c6a7ee10e16d7d18423e2c",
+      "blockNumber": 70040640
+    },
+    "revokeConsent": {
+      "txHash": "0x32502800838f9e58896b9912b0a80d8e1c6a55e574c8746866b1747a13e33d32",
+      "blockNumber": 70042188
+    }
+  },
+  "evidence": {
+    "gateEvidenceFile": "live-gate-evidence.monad-testnet.2026-10-11.json",
+    "rawBrowserExport": "PENDING_ARCHIVAL_FROM_USER_DOWNLOAD"
+  },
+  "verifiedAt": "2026-10-11T06:55:00Z",
+  "verification": {
+    "status": "PASS",
+    "verifiedAtBlock": 70046454
+  },
+  "notes": "Fixed synthetic materials only; no real-person data and no real model call. User operated every wallet confirmation."
+}

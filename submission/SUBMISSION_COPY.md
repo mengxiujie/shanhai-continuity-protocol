@@ -1,6 +1,6 @@
 # Metropolis submission copy
 
-> Sprint draft updated 2026-10-11. Repository temporarily PRIVATE and Pages OFF following owner instruction; reopen and verify links before submission. Historical publication passed, but real deployment, connected live delivery evidence, video and final portal submission remain pending. Replace remaining bracketed placeholders only with verified public evidence, and update the evidence section from final execution artifacts before submission.
+> Sprint draft updated 2026-10-11. Repository temporarily PRIVATE and Pages OFF following owner instruction; reopen and verify links before submission. Real Monad deployment and the connected fixed-synthetic evidence path passed. Video, browser-export archival and final portal submission remain pending.
 
 ## Project name
 
@@ -18,7 +18,7 @@ Shanhai binds encrypted AI context to a user-chosen agent, scope and version, wi
 
 Moving AI context between products is increasingly possible. The harder question is whether another agent may receive a particular scope and version now, especially after a correction or revocation. Shanhai Continuity Protocol couples encrypted, source-labeled context with a Monad authorization registry. Its sprint target is one connected path: current chain check → controlled envelope delivery → independent Agent B decryption and context construction. Stale, revoked and mismatched requests must stop before delivery. A simulated gateway measures the downstream boundary; no external model is called.
 
-At this draft checkpoint, local protocol, encryption and separate gate tests exist. A real deployment and recorded execution of the connected live path are still pending. The final submission must state the actual achieved evidence level.
+The protocol, encryption path, independent Agent B and deterministic tests pass locally. A user-operated test wallet deployed the registry on Monad Testnet and completed the connected `ACTIVE → VERSION_STALE → REVOKED` path with measured downstream activity. The repository remains private until the pre-submission reopening step.
 
 ## Long description
 
@@ -77,25 +77,25 @@ Shanhai directly addresses protocol-level trust, provenance, and user-owned data
 
 ## Evidence status at the editorial checkpoint
 
-- Existing local evidence: protocol conformance, encrypted-envelope implementation, separate independent-process test, synthetic Monad gate tests, contract compilation and release preparation. Exact counts and hashes must come from the final run, not this draft.
-- Pending: verified Monad contract deployment and its transaction/block evidence.
-- Pending: the same real-chain delivery path producing ACTIVE, VERSION_STALE and REVOKED receipts plus measured downstream activity.
+- Local evidence: 9 conformance vectors, 44 protocol tests, 5 synthetic Monad gate tests and 14 wallet-workbench tests passed at the sprint checkpoint.
+- Monad E3 evidence: deployed registry, four confirmed state transactions and the connected `ACTIVE → VERSION_STALE → REVOKED` path. The two denial runs recorded zero new envelope fetch, decryption, context assembly or controlled-gateway work.
+- Independent verification: chain ID, deployed runtime length and runtime SHA-256 matched the local compiler artifact at block `70046454`.
 - Historical publication passed, then withdrawn: repository currently PRIVATE and Pages OFF; success and subsequent anonymous HTTP 404 checks recorded in `docs/HOSTING.md`.
 - Pending: recorded video, final link/field checks and portal confirmation.
 - Not demonstrated: external model behavior, real-user value, production security, market adoption or Mera recovery.
 
 Use `docs/EVIDENCE.md` and actual sprint run artifacts as the evidence source. A deployment receipt, a synthetic walkthrough and an independent encryption test do not by themselves prove the connected live claim.
 
-## Evidence to insert only after completion
+## Evidence links
 
 - Repository URL (currently private; reopen and verify before use): https://github.com/mengxiujie/shanhai-continuity-protocol
 - Planned hosted demo URL (currently offline; redeploy and verify before use): https://mengxiujie.github.io/shanhai-continuity-protocol/
 - Demo video: `[VIDEO_URL]`
-- Monad contract: `[CONTRACT_ADDRESS]`
-- Deployment transaction: `[DEPLOY_TX_URL]`
-- `ACTIVE` receipt: `[ACTIVE_RECEIPT_URL]`
-- `VERSION_STALE` receipt: `[STALE_RECEIPT_URL]`
-- `REVOKED` receipt: `[REVOKED_RECEIPT_URL]`
+- Monad contract: https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0
+- Deployment transaction: https://testnet.monadscan.com/tx/0xfa9a1587b93c0786a59f5f39ec50734faa67fc8125271c35fee615b1949070d2
+- `ACTIVE / VERSION_STALE / REVOKED` gate evidence (available after repository reopening): https://github.com/mengxiujie/shanhai-continuity-protocol/blob/main/deployment/live-gate-evidence.monad-testnet.2026-10-11.json
+- V2 transaction: https://testnet.monadscan.com/tx/0x455bb6f7ad8d10977cc37bd3cca9fd0540a1fb5360c6a7ee10e16d7d18423e2c
+- Revocation transaction: https://testnet.monadscan.com/tx/0x32502800838f9e58896b9912b0a80d8e1c6a55e574c8746866b1747a13e33d32
 
 ## Pre-existing work and event-period work
 
@@ -107,7 +107,7 @@ OpenAI Codex and other AI-assisted tools supported research, specification organ
 
 ## Chinese positioning reference
 
-本届参赛主张收敛为：用户确认一份合成材料并限定对象、范围、版本；真实 Monad 授权检查决定密文是否可以交付给独立 Agent B。版本过期或授权撤销后，同一路径必须停止交付、解密和上下文构造。网关仅作确定性模拟，真实模型调用始终为零。当前稿中实链部署、贯通取证与公开链接仍待完成，以实际最终证据替换状态。
+本届参赛主张收敛为：用户确认一份合成材料并限定对象、范围、版本；真实 Monad 授权检查决定密文是否可以交付给独立 Agent B。2026-10-11 已完成固定虚构材料的 `ACTIVE → VERSION_STALE → REVOKED` 实链路径，两个拒绝状态均记录到下游执行增量为零。网关仅作确定性模拟，真实模型调用始终为零。仓库重新公开、原始浏览器导出归档、视频和最终投稿仍待完成。
 
 ## Sponsor bounty
 

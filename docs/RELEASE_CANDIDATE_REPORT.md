@@ -1,5 +1,7 @@
 # Release candidate report
 
+> Historical checkpoint: this report records the 2026-09-22 pre-deployment state. Current evidence is maintained in `EVIDENCE.md` and `STATUS.md`.
+
 > Candidate assembled: 2026-09-22  
 > External publication: not performed  
 > Live Monad deployment: not performed

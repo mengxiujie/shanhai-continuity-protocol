@@ -68,8 +68,8 @@ Monad 不保存生活正文、来源记录或模型上下文。链上状态是�
 | `ACTIVE / VERSION_STALE / REVOKED` envelope 门禁 | 合成 RPC PASS | `apps/demo/test/monad-gate.test.mjs`，5/5 |
 | 签名身份、临时 P-256 密钥、nonce/域/链/合约绑定 | 本地 PASS | request identity suite，20/20 |
 | 统一 RPC → 密文 → 独立 B → context 路径及并发/UNKNOWN | 本地合成 RPC PASS | sprint chain suite，11/11；真实模型未测 |
-| 本地钱包操作台、同源保护、ABI 与回执核验 | mock PASS | wallet suite，14/14；真实钱包交互未测 |
-| Monad 测试网真实合约部署与三类真实 receipt | **NOT YET EVIDENCE** | 需要部署地址与测试交易 |
+| 本地钱包操作台、同源保护、ABI 与回执核验 | PASS | wallet suite 14/14；真实浏览器钱包流程完成 |
+| Monad 测试网真实合约部署与三类真实 receipt | **E3 PASS** | `0xcda4d087900f47427b4956b9b1ee2543ec5575c0`；见 `docs/EVIDENCE.md` |
 | Mera 真实 ceremony / 第二设备恢复 | **DEFERRED** | 已调起系统认证，受本机 Windows Hello PIN 阻断 |
 
 详细证据边界见 [`docs/EVIDENCE.md`](docs/EVIDENCE.md)。
@@ -125,7 +125,7 @@ npm run sprint:wallet
 
 ## 部署状态
 
-当前没有可声明为本项目证据的 Monad 测试网合约地址。部署前后必须严格使用 [`deployment/README.md`](deployment/README.md)；部署记录必须由交易哈希、合约地址、链 ID、区块号和读取结果共同构成。没有这些字段时，页面应显示 `NOT YET EVIDENCE`，不得回退到 Demo Provider。
+2026-10-11 已完成 Monad Testnet 部署和固定虚构材料的 `ACTIVE → VERSION_STALE → REVOKED` 路径。合约地址为 [`0xcda4d087900f47427b4956b9b1ee2543ec5575c0`](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)，部署与门禁记录见 [`docs/EVIDENCE.md`](docs/EVIDENCE.md)。浏览器原始导出仍待归档，生产安全、真实模型质量和真人价值均未据此成立。
 
 ## 黑客松工作披露
 

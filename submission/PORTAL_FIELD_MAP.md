@@ -13,7 +13,7 @@
 | Public repository | https://github.com/mengxiujie/shanhai-continuity-protocol | BLOCKED: temporarily PRIVATE; reopen and verify anonymously before submission |
 | Hosted demo | https://mengxiujie.github.io/shanhai-continuity-protocol/ | BLOCKED: Pages OFF; redeploy and verify before submission |
 | Video | `[VIDEO_URL]` | PENDING |
-| Contract / transactions | evidence placeholders | BLOCKED: not deployed |
+| Contract / transactions | `docs/EVIDENCE.md` and MonadScan links | READY; insert verified URLs |
 | Team | Solo team | COMPLETE |
 | AI disclosure | `docs/AI_USAGE.md` | READY |
 | Prior/new work | `docs/BUILD_DISCLOSURE.md` | READY |

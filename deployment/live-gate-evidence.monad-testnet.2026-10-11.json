@@ -1,0 +1,70 @@
+{
+  "schema": "shanhai-live-gate-evidence/0.1",
+  "evidenceType": "FIXED_SYNTHETIC_MONAD_TESTNET",
+  "network": {
+    "chainId": 10143,
+    "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0"
+  },
+  "request": {
+    "assetId": "0x5f71feb9e849ba293cdf0cccef99f36bed0948c7a6cbae0d826fcf35aab7214f",
+    "consentId": "0x5c93b989eadd148402e20de0dab86ed6ac7fa086857f1a2250c3aa2f05b63d08",
+    "grantee": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+    "version": 1,
+    "scopeHash": "0x94c4994b7ed7bd11b0a4e5ac16a0930dd579e86462b12913199d7005abcdb839"
+  },
+  "observations": [
+    {
+      "observedAt": "2026-10-11T06:28:05.706Z",
+      "status": "ACTIVE_CONTEXT_DELIVERED",
+      "outcome": "ACTIVE",
+      "boundary": "Controlled deterministic gateway; real model behavior NOT_MEASURED."
+    },
+    {
+      "observedAt": "2026-10-11T06:36:43.573Z",
+      "status": "DENIED",
+      "outcome": "VERSION_STALE",
+      "blockNumber": 70041507,
+      "blockHash": "0xc8ea3dbe2e99cde7a8fdeb468a277dfbe3486a9b42467e4e13f9bf2a8833bdc4",
+      "delta": {
+        "chainChecks": 1,
+        "envelopeFetches": 0,
+        "envelopeReceived": 0,
+        "independentChainChecks": 0,
+        "decryptAttempts": 0,
+        "decryptSucceeded": 0,
+        "contextAssemblies": 0,
+        "controlledGatewayCalls": 0
+      }
+    },
+    {
+      "observedAt": "2026-10-11T06:47:34.586Z",
+      "status": "DENIED",
+      "outcome": "REVOKED",
+      "blockNumber": 70043660,
+      "blockHash": "0x03b28d3e4573b47f7ffa58969d043bb7f69bd7b5e883bdc3a621c59b49056776",
+      "delta": {
+        "chainChecks": 1,
+        "envelopeFetches": 0,
+        "envelopeReceived": 0,
+        "independentChainChecks": 0,
+        "decryptAttempts": 0,
+        "decryptSucceeded": 0,
+        "contextAssemblies": 0,
+        "controlledGatewayCalls": 0
+      }
+    }
+  ],
+  "transactions": {
+    "deployment": "0xfa9a1587b93c0786a59f5f39ec50734faa67fc8125271c35fee615b1949070d2",
+    "registerAsset": "0x3c5679da6129d3397c75738adb8a83db0eb314adcfbaffa9afb1cb06142eafd9",
+    "issueConsent": "0x96f8855379f391ea0285267e20ccf83b23f620e7262ad7b353fc28d413a0dd31",
+    "publishVersion": "0x455bb6f7ad8d10977cc37bd3cca9fd0540a1fb5360c6a7ee10e16d7d18423e2c",
+    "revokeConsent": "0x32502800838f9e58896b9912b0a80d8e1c6a55e574c8746866b1747a13e33d32"
+  },
+  "provenance": {
+    "walletOperation": "USER_CONFIRMED_IN_BROWSER",
+    "codeVerification": "PASS",
+    "rawBrowserExport": "PENDING_ARCHIVAL_FROM_USER_DOWNLOAD",
+    "realModelBehavior": "NOT_MEASURED"
+  }
+}

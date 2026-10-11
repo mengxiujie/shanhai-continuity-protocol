@@ -33,14 +33,14 @@ The final-mile sprint adds the connection between the previously separate author
 
 The sprint checkpoint reported 9 conformance vectors, 44 protocol tests (13 runtime + 20 signed-request identity + 11 connected sprint), 5 gate tests and 14 wallet-workbench tests passing. Contract compilation, release audit and hosting build/audit also passed locally. Reproduce the actual behavior with `npm test`, `npm run test:process`, `npm run compile:contract`, `npm run audit:release`, `npm run build:pages` and `npm run audit:hosting`; final execution artifacts and real Git timestamps govern later claims.
 
-The connected-path tests use fixed synthetic material and controlled RPC fixtures. At the initial implementation checkpoint the user had not yet supplied a dedicated test wallet; there was no completed real deployment, signed real state-transition sequence or live ACTIVE → VERSION_STALE → REVOKED evidence. The subsequent authorized repository/static publication and its later owner-requested withdrawal are recorded in `docs/HOSTING.md`. The repository is temporarily private and Pages is off; real chain evidence, final recording and submission remain incomplete. Preparing or starting the local wallet workbench does not establish those steps.
+The connected-path tests use fixed synthetic material. At the initial implementation checkpoint the user had not yet supplied a dedicated test wallet. On 2026-10-11 the user operated a dedicated test wallet to deploy the registry and complete the real Monad Testnet `ACTIVE → VERSION_STALE → REVOKED` path; the address, transactions and gate observations are recorded in `docs/EVIDENCE.md` and `deployment/`. The authorized repository/static publication and its later owner-requested withdrawal are recorded in `docs/HOSTING.md`. The repository remains temporarily private and Pages is off; browser export archival, final recording and submission remain incomplete.
 
 ## Explicitly outside the submission claim
 
 - The full Unsaid Shanhai product, private governance corpus, private prompts, user database, payment flows, or commercial operating system.
 - Real-user effectiveness, willingness to pay, retention, medical or psychological benefit.
 - Production security, audited cryptography, audited contracts, or regulatory compliance.
-- Live Monad receipts until contract address and transactions are published.
+- Production or real-person use of the live Monad path; current evidence uses fixed synthetic material only.
 - Mera bounty compliance: excluded from this sprint; no PRF ceremony or fresh-profile/second-device recovery is claimed.
 
 ## History rule

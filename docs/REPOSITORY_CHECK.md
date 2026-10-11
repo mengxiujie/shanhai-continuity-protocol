@@ -1,5 +1,7 @@
 # Repository closure check
 
+> Historical checkpoint: this report records the 2026-09-22 pre-deployment state. Current evidence is maintained in `EVIDENCE.md` and `STATUS.md`.
+
 > Checked: 2026-09-22
 
 ## Included

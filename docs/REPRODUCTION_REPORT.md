@@ -1,5 +1,7 @@
 # Controlled clean-room reproduction report
 
+> Historical checkpoint: this report records the 2026-09-22 pre-deployment reproduction. Current evidence is maintained in `EVIDENCE.md` and `STATUS.md`.
+
 > Date: 2026-09-22  
 > Reproduced code commit: `8e9f882`  
 > Evidence class: controlled clean environment, same operator  

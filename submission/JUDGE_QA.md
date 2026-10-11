@@ -1,6 +1,6 @@
 # Judge Q&A
 
-> Sprint editorial update: 2026-10-11. Live deployment, the connected real-chain delivery flow and public submission artifacts are pending until their execution records exist. Answers below distinguish the intended live proof from existing separate local tests.
+> Sprint evidence update: 2026-10-11. The registry deployment and connected fixed-synthetic `ACTIVE → VERSION_STALE → REVOKED` flow passed on Monad Testnet. Repository reopening, video and final public-link checks remain pending.
 
 ## 1. Why is this not just a database permission table?
 
@@ -32,7 +32,7 @@ The gateway in this submission is simulated, so external model calls are zero on
 
 ## 8. What is live today?
 
-At this editorial checkpoint, the local protocol, encryption reference, separate independent Agent B test, Solidity compilation, RPC reader and synthetic four-act demo exist. A real contract and the same-path live ACTIVE / VERSION_STALE / REVOKED proof remain pending. Each final claim must link to the actual artifact. A running read-only RPC panel alone is not a live end-to-end delivery proof.
+The local protocol, encryption reference, independent Agent B test, Solidity registry and RPC reader are joined by a user-operated Monad Testnet run. The same path returned `ACTIVE_CONTEXT_DELIVERED`, then denied the old request as `VERSION_STALE`, then denied it as `REVOKED`; both denial deltas recorded zero new downstream work. Each final claim links to the contract, state transactions and structured gate evidence. A running read-only RPC panel alone would not establish this connected result.
 
 ## 9. Is this already a validated consumer business?
 
