@@ -13,7 +13,7 @@ The Founder supplied the current authenticated track-page text on 2026-10-12. Th
 ## Deliverable reconciliation
 
 - The track page calls for a **Public GitHub Repository**, while the organizer's direct written reply and authenticated submission form allow a **private** repository shared with the official review address. The authorized private route is in use; GitHub shows an invitation to organizer account `MonadMetropolis`, but acceptance and actual access remain unverified. Do not silently convert this into a general waiver of later open-source obligations.
-- The track page names **YouTube, Loom or Vimeo** for demo and pitch videos; the authenticated form says those or another video host. Current videos are on the public HTTPS verifier site. Their field acceptance and reviewer playback must be checked; moving copies to one of the named hosts would remove this ambiguity if feasible before the deadline.
+- The track page names **YouTube, Loom or Vimeo** for demo and pitch videos. Both are now on YouTube; the Founder reports playback without login. Tool-side YouTube playback and actual submission-field acceptance remain unverified. The demo still shows post-run read-only verification, not original wallet signing.
 - The track page says the live product must be on Monad Mainnet or Testnet. The public page performs fresh, read-only Monad Testnet receipt checks; it is not the original wallet-signing workbench or new Agent B execution. Judges may judge that narrower demonstration insufficient.
 - The portal's logo upload rule is stricter (2 MB) than the track page's 3 MB. The prepared 1024×1024 PNG is 335 KB and meets both stated size limits.
 

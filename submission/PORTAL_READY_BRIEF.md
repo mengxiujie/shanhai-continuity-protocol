@@ -46,14 +46,14 @@ https://shanhai-brief-proof.open-wand-0634.chatgpt.site/
 
 This is a public, read-only evidence verifier that actually calls Monad Testnet RPC. It is not a hosted wallet-signing workbench. The portal's interpretation of “live product” remains a judging risk.
 
-## Verified public video page URLs
+## Founder-tested YouTube video URLs
 
-- Working verifier demo, 69 seconds: https://shanhai-brief-proof.open-wand-0634.chatgpt.site/demo-video.html
-- Separate project pitch, 70 seconds: https://shanhai-brief-proof.open-wand-0634.chatgpt.site/pitch-video.html
+- Working verifier demo, 69 seconds: https://youtu.be/nTZoqwLfsjo
+- Separate project pitch, 70 seconds: https://youtu.be/hig7qjxeCFQ
 
-Both are hosted with HTML5 players and direct MP4 links. Anonymous HEAD requests returned HTTP 200 and `video/mp4` for the assets. Local browser previews loaded each video's metadata and dimensions; direct public-browser playback was not independently completed because the browser tool timed out. The demo is a post-run read-only verifier operation, not original wallet footage. Judge acceptance remains uncertain.
+The Founder reports both YouTube links playable without login. Tool-side YouTube fetching failed, so independent playback and portal-field validation remain unverified. The earlier self-hosted copies remain archival fallbacks; their direct MP4 links later returned 403 to an external command-line check and should not be the primary video entries. The demo is a post-run read-only verifier operation, not original wallet footage. Judge acceptance remains uncertain.
 
 ## Unfilled until portal action
 
 - Repository URL: `https://github.com/mengxiujie/shanhai-continuity-protocol`. Organizer account `MonadMetropolis` has a pending `write` invitation; acceptance and actual reviewer access are not yet confirmed.
-- Logo upload and final portal submission receipt.
+- Logo upload, both YouTube links, remaining form fields and final portal submission receipt are not yet confirmed entered or accepted.

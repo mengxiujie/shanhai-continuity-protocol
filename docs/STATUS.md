@@ -30,10 +30,10 @@ Current repository review checkpoint (2026-10-12): isolated contest code and evi
 | New client-brief evidence | PASS locally; two raw exports hash MATCH; five tx receipts independently re-read via public RPC with status `0x1`; four gate outcomes verified; [read-only replay](../apps/demo/brief-evidence.html) works locally |
 | 92-second Chinese narration / English subtitles | GENERATED locally; metadata/timing/visual contact sheet PASS; founder review PENDING |
 | Preferred narration V2 / English caption plan | TEXT READY locally; source claims reviewed; 92-second windows planned; V2 audio/video NOT RENDERED; existing MP4 remains V1 |
-| Hosted demo and separate pitch video URLs | PUBLIC: 69-second narrated post-run verifier demo and 70-second synthetic-narrated project pitch have separate HTTPS player pages. Local browser video metadata PASS; anonymous page/MP4 HEAD 200. Direct public-browser playback remains unverified after browser-tool timeout; judge acceptance uncertain |
+| Hosted demo and separate pitch video URLs | FOUNDER-TESTED YOUTUBE: demo `https://youtu.be/nTZoqwLfsjo` (69 seconds) and pitch `https://youtu.be/hig7qjxeCFQ` (70 seconds). Founder reports both open without login; tool-side independent playback and portal-field acceptance remain unverified |
 | External developer reproduction | PENDING |
 | Track judging weights | Founder-supplied current authenticated track page: Technical Execution 20%, Design & Craft 20%, Originality & Track Insight 15%, Founder & Market Readiness 25%, Traction & Path Forward 20%. This supersedes the earlier generic 20%-each scorecard; current page was not independently retrievable by the web tool |
-| Official video limit / operational footage | Track page: demo ≤3 minutes and pitch ≤2 minutes, hosted via YouTube/Loom/Vimeo; authenticated form also says other hosts. Existing 69-second public-origin read-only verifier demo and 70-second pitch are self-hosted; field acceptance, playback and judges' working-product interpretation remain uncertain |
+| Official video limit / operational footage | Track page: demo ≤3 minutes and pitch ≤2 minutes, hosted via YouTube/Loom/Vimeo. Both new URLs use YouTube and meet the measured local durations; demo is read-only post-run verification, not original wallet signing. Judges' working-product interpretation remains uncertain |
 | Final portal submission receipt | PENDING |
 | Mera ceremony | DEFERRED |
 | Production or real-user release | NOT AUTHORIZED |
@@ -42,7 +42,7 @@ Current repository review checkpoint (2026-10-12): isolated contest code and evi
 
 参赛源码仓库按用户指令继续私有；原 GitHub Pages 公开演示仍下线。用户另行授权的、仅含固定虚构材料的独立只读核验页已公开，不能把它等同于公开源码或钱包操作台。2026-10-12 主办方回复允许私有评审，但所附规则 §4.1/7.2 的公开/开源要求与私有路线的阶段关系仍需澄清；不能把私有评审许可等同于豁免开源或保密。GitHub 已发出官方账号邀请；接受与实际访问仍待确认。
 
-固定虚构材料的 Monad 真门禁路径已完成，浏览器原始导出已按 SHA-256 归档，并通过独立代码核验。只读证据回放页已在本地显示三个历史结果及哈希 MATCH；92 秒中文合成旁白＋英文字幕审阅稿已生成，画面与元数据已核验。当前仍需主理人试听/审阅、最终视频上传、外部开发者复现并核对实际投稿字段。视频是归档证据可视化，不是现场录屏。独立进程与代码核验不等于外部开发者复现；不得将本结果描述为生产安全、真实模型质量、真人价值或市场验证。
+固定虚构材料的 Monad 真门禁路径已完成，浏览器原始导出已按 SHA-256 归档，并通过独立代码核验。只读证据回放页已在本地显示三个历史结果及哈希 MATCH；92 秒中文合成旁白＋英文字幕审阅稿是旧检查点。新的 69 秒技术演示与 70 秒项目介绍现有 YouTube 链接，主理人称未登录可播放。当前仍需外部开发者复现并核对实际投稿字段及回执。演示视频是事后只读核验，不是原始钱包现场录屏。独立进程与代码核验不等于外部开发者复现；不得将本结果描述为生产安全、真实模型质量、真人价值或市场验证。
 
 Owner 与 B 各自在区块快照上检查资格，两次检查之间以及检查后仍有状态变化时间窗。实链证据证明记录时的许可与拒绝结果，不证明原子交付或已取得明文可被追回。
 
