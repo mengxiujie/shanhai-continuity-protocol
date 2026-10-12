@@ -1,10 +1,10 @@
 # Judge Q&A
 
-> Sprint evidence update: 2026-10-11. The registry deployment and connected fixed-synthetic `ACTIVE → VERSION_STALE → REVOKED` flow passed on Monad Testnet. Repository reopening, video and final public-link checks remain pending.
+> Current evidence: 2026-10-13. The fixed-fictional brief run records `ACTIVE V1 → VERSION_STALE V1 → ACTIVE V2 → REVOKED V2`, with five confirmed Monad Testnet state transactions. See [the judge guide](../JUDGES.md) and [current status](../docs/STATUS.md). The portal is Ready for judging according to the owner's authenticated transcription; external developer reproduction is still pending.
 
 ## 1. Why is this not just a database permission table?
 
-A database controlled by Shanhai requires Agent B to trust Shanhai's latest answer and audit trail. Monad makes the minimum grant fact independently readable across organizational boundaries. The encrypted content remains off-chain; the shared trust fact does not.
+A database may be simpler when one organization controls both sides. A shared registry is useful when different tools need the same independently readable grant state rather than trusting the sender platform's latest answer. Monad supplies that record; compliant off-chain software still enforces release. The current run uses two local processes, not two organizations. See [the adoption hypothesis](../ADOPTION.md).
 
 ## 2. Why not export the entire ChatGPT or journal history?
 
@@ -12,7 +12,7 @@ Whole-history export over-discloses and collapses source quality. SCP projects a
 
 ## 3. What happens after revocation?
 
-Future access is denied before envelope delivery. The project does not falsely claim that revocation can claw back plaintext already obtained during a previously valid authorization.
+In the recorded revoked request, the sender read the revoked state and denied release before a new envelope fetch. If state changes after the sender's check, ciphertext may already reach B; B performs a fresh check before decryption. The check/use race is not eliminated, and revocation cannot claw back plaintext already obtained.
 
 ## 4. Can the model decide what to remember or authorize?
 
@@ -20,7 +20,7 @@ No. Models may propose structure, but deterministic code and explicit user state
 
 ## 5. What exactly is stored on Monad?
 
-Only minimum authorization facts: identifiers/commitments, current version, grantee, scope hash, expiry and revocation state. No personal statement, conversation, voice, biography, or model context is placed on-chain.
+Authorization metadata: identifiers/commitments, owner and grantee addresses, current version, scope hash, expiry and revocation state. No personal statement, conversation, voice, biography, or model context is placed on-chain. Metadata and timing remain public; encryption of off-chain content does not hide those relationships.
 
 ## 6. What makes the result portable?
 
@@ -28,11 +28,11 @@ The protocol object, canonical serialization, provenance commitment, scope rules
 
 ## 7. How do you prove zero model calls?
 
-The gateway in this submission is simulated, so external model calls are zero on every path. The useful evidence is whether actual envelope delivery, local decryption, context construction and simulated gateway invocation occur. The live target instruments those steps in one connected path and requires zero downstream activity for non-active requests. A number painted onto the browser UI does not prove this, and a read-only receipt alone does not measure it.
+There is no external model call in this path. The useful measurements are new envelope fetch/receipt, local decryption, context construction and controlled template-gateway calls. Both recorded sender-side denials have zero downstream increments. These are project-instrumented counters, not a cryptographic proof of off-chain non-execution. A recipient-side refusal after a state change can have a nonzero ciphertext delivery count; missing completion is reported as `UNKNOWN`, not invented zeros. A transaction receipt alone does not measure any of those steps.
 
 ## 8. What is live today?
 
-The local protocol, encryption reference, independent Agent B test, Solidity registry and RPC reader are joined by a user-operated Monad Testnet run. The same path returned `ACTIVE_CONTEXT_DELIVERED`, then denied the old request as `VERSION_STALE`, then denied it as `REVOKED`; both denial deltas recorded zero new downstream work. Each final claim links to the contract, state transactions and structured gate evidence. A running read-only RPC panel alone would not establish this connected result.
+The registry is deployed on Monad Testnet. The owner-operated brief run delivered Friday V1, refused it after Saturday V2 was published, delivered V2 after a separate grant, then refused V2 after revocation. Two original browser exports preserve this run across a page reload. The public HTTPS page checks their hashes and re-reads five transaction receipts. It is a live read-only verifier, not a hosted signing service, remote Agent B or live model. New full-path execution requires the local reference runner, testnet funds and owner-confirmed wallet operations.
 
 ## 9. Is this already a validated consumer business?
 
@@ -54,13 +54,13 @@ Production key lifecycle, browser compromise, multi-party delivery, contract/sec
 
 No. Open memory formats, encrypted stores, Solid-style permissions and agent memory frameworks cover related capabilities. Our narrow submission target is a reproducible combination of source-labeled context, exact version/scope, a real shared authorization check before controlled delivery, and an independent recipient process. Novelty is assessed on the implemented combination and evidence, not on a claim that prior art is absent.
 
-## 14. Can a judge replay all three chain states on the hosted page?
+## 14. Can a judge reproduce the four outcomes on the hosted page?
 
-A → B → C is a recorded transition of one consent. Once revoked, that consent remains revoked. Historical receipts carry their own block anchors; a fresh RPC query reports current state. Synthetic walkthrough buttons can replay the explanation, but cannot reset the real chain. A separate fresh ACTIVE fixture, if actually created, must use a different consent and be labeled accordingly.
+The page shows four archived outcomes involving separate V1 and V2 grants. Its button performs fresh read-only receipt checks, not fresh executions of those outcomes. The archived V1 is stale and V2 is revoked; the page cannot reset chain history. Use [the developer quickstart](../docs/DEVELOPER_QUICKSTART.md) to distinguish archived evidence verification, local synthetic reproduction and an optional new wallet-confirmed testnet run.
 
 ## 15. What does the proof say about the recipient's identity?
 
-The envelope is bound to the specified recipient key and the tested grant. The final live runner must show how that key and requested grantee are bound in its trusted request path. A caller-supplied address string is not wallet authentication. We claim only the identity binding actually tested; external authentication, adversarial agents and production delivery policies require further work.
+The request challenge binds the wallet signer, chain, registry, domain, consent, asset, scope/version, nonce and B's ephemeral key fingerprint. The code recovers the signed request's address instead of accepting a caller-supplied address as authentication. The testnet run uses the same test wallet for Owner and requester, with B's key in a separate local process. This demonstrates that implementation boundary, not distinct real-world identities, a separate administrative trust domain or authenticated cross-organization adoption.
 
 ## 16. Why is there no Mera demonstration?
 

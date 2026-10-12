@@ -1,8 +1,48 @@
 # Shanhai Continuity Protocol
 
-> A user-owned continuity layer for AI: disclose the minimum, prove the source, and revoke future access.
+> Versioned, revocable handoffs for client-approved AI context.
 
 **Metropolis 2026 candidate repository · Track: Trust, Identity & AI Infrastructure**
+
+## Judge quick path
+
+**Question:** when a client corrects an approved brief, may the next AI tool still receive the old version?
+
+This repository records one fixed-fictional Monad Testnet run:
+
+```text
+V1 approved and delivered (Friday, 19:00)
+        -> V2 published
+old V1 request -> VERSION_STALE, zero new downstream execution
+        -> V2 separately approved and delivered (Saturday, 15:00)
+V2 revoked -> REVOKED, zero new downstream execution
+```
+
+- [60-second judge guide](JUDGES.md)
+- [Public read-only evidence verifier](https://shanhai-brief-proof.open-wand-0634.chatgpt.site/)
+- [69-second technical demo](https://youtu.be/nTZoqwLfsjo)
+- [70-second pitch](https://youtu.be/hig7qjxeCFQ)
+- [ConsentRegistry on Monad Testnet](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)
+- [Who could adopt it, and why](ADOPTION.md)
+- [Developer quickstart and feedback](docs/DEVELOPER_QUICKSTART.md)
+
+Fast local verification (Node.js 24+, from a cloned repository):
+
+```bash
+npm ci
+npm run verify:brief-evidence
+npm run verify:brief-live
+```
+
+The first verifier checks the exact hashes and internal consistency of the two original browser exports. The second performs fresh read-only Monad Testnet receipt checks and expects five matching successful transactions. Transaction receipts prove inclusion and success; the archived project execution counters are the evidence for the off-chain fetch/decrypt/context/gateway deltas.
+
+For a fresh local execution of the handoff boundary, run:
+
+```bash
+node examples/brief-handoff.mjs
+```
+
+This small example calls the existing runtime with a loopback **mock registry** and generated test identity. It exercises real local encryption, signature checks and separate recipient processes across four outcomes, without a wallet extension or test coins. It does not execute Solidity or contact Monad. See [the developer guide](docs/DEVELOPER_QUICKSTART.md) and [blank feedback form](docs/EXTERNAL_REPRO_FEEDBACK.md).
 
 ### Latest local use case: client-approved brief handoff
 
@@ -10,15 +50,13 @@ A fictional client asks another assistant to prepare an event announcement. Only
 
 Run `npm run sprint:brief` and follow [`deployment/BRIEF_TRANSACTION_SEQUENCE.md`](deployment/BRIEF_TRANSACTION_SEQUENCE.md). The Founder-operated new case now has five successful Monad Testnet transactions and four recorded gate outcomes; two original browser exports pass `npm run verify:brief-evidence`. See the [read-only brief evidence replay](apps/demo/brief-evidence.html) and [QA/evidence boundary](docs/BRIEF_QA_2026-10-12.md). The browser was reloaded between exports, so there is no single uninterrupted raw file. The 2026-10-11 testnet record below belongs to a separate preference case.
 
-Current visibility: **temporarily PRIVATE; GitHub Pages OFF**, by owner instruction on 2026-10-11. Repository/demo links are not currently available to anonymous judges. Reopen before submission and verify access again; see the [publication and withdrawal record](docs/HOSTING.md). Local reproduction remains available. Static hosting is not the local dual-process wallet workbench or a live testnet proof.
-
 ## In one minute
 
-Shanhai Continuity Protocol (SCP) is a user-controlled continuity reference for AI agents. A wallet-signed request binds an exact scope/version to an ephemeral Agent B key. The Owner reads Monad before releasing that encrypted disclosure; an independent B process reads the registry again, decrypts, verifies full content and provenance commitments, and assembles a controlled context. An Owner-side stale/revoked/invalid gate stops before delivery. If state changes between the two checks, B can stop before decryption even though ciphertext has already been delivered. This is snapshot-based enforcement, not instantaneous revocation of past plaintext.
+Shanhai Continuity Protocol (SCP) is a user-controlled continuity reference for AI agents. A wallet-signed request binds an exact scope/version to an ephemeral Agent B key. The Owner reads Monad before releasing that encrypted disclosure; a separately running local B process reads the registry again, decrypts, verifies full content and provenance commitments, and assembles a controlled context. An Owner-side stale/revoked/invalid gate stops before delivery. If state changes between the two checks, B can stop before decryption even though ciphertext has already been delivered. This is process separation and snapshot-based enforcement, not a separate administrative trust domain or instantaneous revocation of past plaintext.
 
 The repository is an independently publishable hackathon module. It is not the complete Unsaid Shanhai commercial product and contains no real user data, production credentials, payment system, private operating documents, or proprietary prompt corpus.
 
-### Reproduce the synthetic evidence
+### Full regression and build checks
 
 ```bash
 npm ci
@@ -42,11 +80,11 @@ Current evidence boundaries are explicit: the integrated dual-process route pass
 
 未叙山海（Shanhai）正在探索一种不同于“平台替用户记住一切”的个人 AI 记忆方式：用户先确认材料，再决定向哪个 Agent 开放哪个范围；正文保持离链加密，Monad 只保存独立验证授权所需的最小事实。
 
-本仓库是 Metropolis 黑客松参赛模块的公开工程包，不是未叙山海完整商业产品，也不包含真人数据、生产凭据或私有业务材料。
+本仓库是 Metropolis 黑客松参赛模块的隔离工程包，不是未叙山海完整商业产品，也不包含真人数据、生产凭据或私有业务材料。当前访问状态见 [`docs/STATUS.md`](docs/STATUS.md)。
 
 ## 四幕演示
 
-1. **Owner 授权**：用户确认合成材料，选择最小披露范围，在浏览器生成加密 envelope。
+1. **Owner 授权**：用户确认合成材料，选择最小披露范围，由参考发送端生成加密 envelope。
 2. **Agent B 接续**：Owner 先读授权，只有 `ACTIVE` 才释放精确 envelope；独立 B 再自行读链，授权有效才解密，随后核验完整正文与来源承诺，最后构造受控上下文。
 3. **版本失效**：Owner 读取到 V2 后，旧 V1 授权得到 `VERSION_STALE`；该次请求的 envelope、解密、context、受控 gateway 增量均为 0。
 4. **撤销生效**：Owner 撤销授权后，新请求得到 `REVOKED`；不得返回正文或构造上下文。
@@ -60,9 +98,11 @@ Current evidence boundaries are explicit: the integrated dual-process route pass
 - 请求版本是否仍是当前版本；
 - 授权是否已经撤销或过期。
 
-Monad 不保存生活正文、来源记录或模型上下文。链上状态是授权事实层，不是个人资料库。
+Monad 不保存生活正文、来源记录或模型上下文。链上状态是授权事实层，不是个人资料库。但地址、标识、承诺、版本与时间等元数据仍公开可见；正文离链不等于没有隐私泄露面。单一组织内部也可能更适合使用数据库权限表，链上登记不能强迫任意接收者遵守离链协议。
 
 ## 当前可验证能力
+
+下列测试数量来自已有 QA 记录，并非外部开发者验收。最新简报案例详见 [`docs/BRIEF_QA_2026-10-12.md`](docs/BRIEF_QA_2026-10-12.md)；旧偏好案例与视频历史不作为新案例替代证据。
 
 | 能力 | 状态 | 证据 |
 |---|---|---|
@@ -74,10 +114,10 @@ Monad 不保存生活正文、来源记录或模型上下文。链上状态是�
 | `ACTIVE / VERSION_STALE / REVOKED` envelope 门禁 | 合成 RPC PASS | `apps/demo/test/monad-gate.test.mjs`，5/5 |
 | 签名身份、临时 P-256 密钥、nonce/域/链/合约绑定 | 本地 PASS | request identity suite，20/20 |
 | 统一 RPC → 密文 → 独立 B → context 路径及并发/UNKNOWN | 本地合成 RPC PASS | sprint chain suite，11/11；真实模型未测 |
-| 本地钱包操作台、同源保护、ABI 与回执核验 | PASS | wallet suite 14/14；真实浏览器钱包流程完成 |
+| 本地钱包操作台、同源保护、ABI 与回执核验 | 本地 PASS | wallet/API/controller suite 19/19；固定虚构简报的真实浏览器钱包流程另有原始导出 |
 | Monad 测试网真实合约部署与三类真实 receipt | **E3 PASS** | `0xcda4d087900f47427b4956b9b1ee2543ec5575c0`；见 `docs/EVIDENCE.md` |
-| 已记录实链证据回放 | PASS；原始 JSON SHA-256 MATCH | `apps/demo/evidence-replay.html`；只读回放，外部复现待完成 |
-| 中文旁白＋英文字幕审阅视频 | 本地 92 秒 / 1080p 已生成；需试听、上传 | `submission/VIDEO_90S.md`；归档证据可视化，不是现场录屏 |
+| 最新简报实链证据回放 | PASS；两份原始 JSON SHA-256 MATCH，四次结果及五笔交易 | `apps/demo/brief-evidence.html`；只读回放，外部开发者复现待完成 |
+| 技术演示与项目介绍视频 | PASS；分别为 69 秒和 70 秒，主理人已在未登录窗口验证播放 | YouTube 链接见本页 `Judge quick path`；技术演示是事后只读核验，不是钱包现场录屏 |
 | Mera 真实 ceremony / 第二设备恢复 | **DEFERRED** | 已调起系统认证，受本机 Windows Hello PIN 阻断 |
 
 详细证据边界见 [`docs/EVIDENCE.md`](docs/EVIDENCE.md)。
@@ -98,7 +138,7 @@ submission/        提交文案、视频脚本、评分映射与评委问答
 tech-design.md     完整技术设计
 ```
 
-评委可先运行四幕引导演示，再查看 [`submission/SCORECARD.md`](submission/SCORECARD.md) 和 [`submission/JUDGE_QA.md`](submission/JUDGE_QA.md)。最终提交草案中的方括号链接仍是待真实证据替换的占位符，不得原样提交。
+评委请先查看 [`JUDGES.md`](JUDGES.md)，再按需要阅读 [`submission/SCORECARD.md`](submission/SCORECARD.md) 和 [`submission/JUDGE_QA.md`](submission/JUDGE_QA.md)。`submission/` 内保留历史候选稿；当前评审入口以根目录 README 与 `JUDGES.md` 为准。
 
 完整的一键复现脚本是 `scripts/reproduce.ps1`（Windows）和 `scripts/reproduce.sh`（POSIX）。静态托管候选与手动 GitHub Pages 流程见 [`docs/HOSTING.md`](docs/HOSTING.md)；工作流不会因普通 push 自动发布。
 
@@ -107,7 +147,8 @@ tech-design.md     完整技术设计
 前提：Node.js 24+；Python 仅用于启动静态页面。
 
 ```bash
-npm install
+npm ci
+npm ci --prefix contracts
 npm test
 npm run compile:contract
 npm run probe:monad
@@ -117,6 +158,7 @@ npm run serve:demo
 然后打开：
 
 - 四幕合成演示：`http://localhost:4173/apps/demo/index.html`
+- 最新简报证据回放：`http://localhost:4173/apps/demo/brief-evidence.html`
 - Monad 真实只读证据面板：`http://localhost:4173/apps/demo/evidence-panel.html`
 - Monad 已记录证据回放：`http://localhost:4173/apps/demo/evidence-replay.html`
 
@@ -134,7 +176,7 @@ npm run sprint:wallet
 
 ## 部署状态
 
-2026-10-11 已完成 Monad Testnet 部署和固定虚构材料的 `ACTIVE → VERSION_STALE → REVOKED` 路径。合约地址为 [`0xcda4d087900f47427b4956b9b1ee2543ec5575c0`](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)，部署与门禁记录见 [`docs/EVIDENCE.md`](docs/EVIDENCE.md)。浏览器原始导出已逐字节归档，SHA-256 为 `49bd59c0ff054fbf2ef82ab009b1bccefaf88890240ff5b18b0d0cc8225a9864`；[证据回放](apps/demo/evidence-replay.html)会重算并核对该哈希。录像、外部开发者复现和投稿前公开访问复核仍待完成；生产安全、真实模型质量和真人价值均未据此成立。
+2026-10-12 已完成最新固定虚构简报案例：V1 `ACTIVE`、旧 V1 `VERSION_STALE`、单独批准的 V2 `ACTIVE`、撤销后的 V2 `REVOKED`。合约地址为 [`0xcda4d087900f47427b4956b9b1ee2543ec5575c0`](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)。两份原始浏览器导出逐字节归档，分别通过 SHA-256 和内部一致性核验；五笔交易已通过公开 Monad RPC 重新读取并匹配状态、区块号和区块哈希。详见 [`docs/BRIEF_QA_2026-10-12.md`](docs/BRIEF_QA_2026-10-12.md)。外部开发者复现仍待完成；生产安全、真实模型质量和真人价值均未据此成立。
 
 ## 黑客松工作披露
 
@@ -155,7 +197,7 @@ npm run sprint:wallet
 - Monad Consent Registry、只读 Verifier、状态门禁测试与四幕演示；
 - 证据面板和可复核的测试网部署操作包。
 
-提交前将以公开 Git 历史为准再次核对开发窗口内的工作比例。
+Git 历史与上述披露用于区分赛前积累和赛中进展，不将整套未叙产品描述为六周内从零开发。
 
 ### AI 工具使用
 

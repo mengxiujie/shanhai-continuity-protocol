@@ -1,5 +1,30 @@
 # Repository status
 
+## Current checkpoint — 2026-10-13
+
+This section is the current status. Everything under **Historical checkpoints (superseded)** is retained for provenance, not a current to-do list.
+
+| Area | Current status and evidence source |
+|---|---|
+| Portal | **Ready for judging**, from the owner's authenticated portal transcription; last saved 2026-10-12 16:01 UTC. Track, project details, logo, live product and both videos are populated. This is not an award or technical acceptance decision. |
+| Deadline / track | Portal: 14 Oct 2026, 11:59 GMT+8; Trust, Identity & AI Infrastructure; no sponsor bounties selected. |
+| Public live-product URL | [Read-only verifier](https://shanhai-brief-proof.open-wand-0634.chatgpt.site/); owner tested without login and observed `5/5 PASS`. It checks archived evidence and fresh receipts, not a new wallet run. |
+| Videos | [Technical demo](https://youtu.be/nTZoqwLfsjo), 69 seconds, and [pitch](https://youtu.be/hig7qjxeCFQ), 70 seconds; owner reported both playable without login. Demo is a post-run verifier capture, not original signing footage. |
+| Testnet brief | Five successful state transactions; V1 `ACTIVE`, old V1 `VERSION_STALE`, separately approved V2 `ACTIVE`, V2 `REVOKED`. Original exports remain unchanged. |
+| Source access | GitHub API read on 2026-10-13 confirms repository **private** and the `MonadMetropolis` invitation still pending (`write`). Invitation sent does not prove access accepted. Owner plans public visibility on the evening of 13 Oct; that change has not been performed here. |
+| External evidence | Developer reproduction requested; no completed external reproduction, integration or customer adoption is claimed. |
+| Developer packet | [Quickstart](DEVELOPER_QUICKSTART.md), [blank feedback form](EXTERNAL_REPRO_FEEDBACK.md) and [runnable local example](../examples/brief-handoff.mjs) prepared. The example locally passed all four mock lifecycle outcomes; this remains an internal check. |
+| Technical article | [English article draft](../submission/TECHNICAL_ARTICLE.md) complete with verified links and evidence boundaries; not posted to an external publishing platform. |
+| Remaining risks | Reviewer source access; public-source rule versus private-review allowance; read-only demo's fit to the working-product requirement; external integration evidence. No assumption that these are waived. |
+
+The announcement is a deterministic template using fixed fictional data. The same test wallet signed Owner and requester operations; B ran in a separate local process. Receipt checks establish inclusion/success/block matching; off-chain execution deltas remain project-instrumented. Snapshot reads do not eliminate the state-change race, and revocation cannot recall delivered plaintext. Production security and live-model quality are not established.
+
+The 2026-10-13 local verification and focused documentation findings are recorded in [audit-report.md](audit-report.md), including the initial sandbox child-process failure and the approved-process successful retry. The Windows reproduction script now stops on a failed native command instead of relying on a final PASS label.
+
+## Historical checkpoints (superseded)
+
+The following October 11–12 preparation notes predate the portal's **Ready for judging** state and the latest media checks. Their pending statuses, counters and commit IDs describe those earlier checkpoints only.
+
 Latest 2026-10-12 checkpoint: client-approved activity brief and independent V2 reauthorization are implemented. Local protocol tests 48/48, gate tests 5/5, wallet/API/controller tests 19/19 and conformance 9/9 pass. Founder-operated Monad Testnet has produced five confirmed transaction records and four gate outcomes: V1 `ACTIVE` Friday 19:00; old V1 `VERSION_STALE`; separately approved V2 `ACTIVE` Saturday 15:00; V2 `REVOKED`. Both denials have zero downstream execution delta. Two original browser exports, split by a page reload after V2 receipt recovery, are archived unchanged and pass `npm run verify:brief-evidence`; see `BRIEF_QA_2026-10-12.md`. This is fixed synthetic material and a deterministic announcement template, not a live model or production service. The 2026-10-11 results below remain a separate preference case. The older `../submission/BRIEF_DEMO_90S.md` script was not filmed as written; the public 69-second narrated verifier demo is a separately scoped post-run read-only capture. The isolated repository remains private, with an organizer invitation pending acceptance; portal submission has not been performed.
 
 Submission-prep update: [new brief-case portal copy](../submission/BRIEF_SUBMISSION_COPY.md), [English film narration candidate](../submission/BRIEF_NARRATION_EN.md), [operational capture plan](../submission/BRIEF_VIDEO_CAPTURE.md), and the track-specific [scorecard](../submission/SCORECARD.md) point to this executed case. `npm run verify:brief-live` and the replay's click-to-check button independently re-read all five transaction receipts; the browser showed `5/5 PASS` with matching block hashes. These are read-only chain checks, not a fresh wallet run. The Founder confirmed no original wallet-run screen recording exists. A new 69-second continuous read-only browser walkthrough was captured from the public HTTPS page with a fresh button click and `5/5 PASS`; details and SHA-256 are in `../HACK-001_VIDEO_REVIEW_2026-10-12_BRIEF/CAPTURE_MANIFEST.md`. It is not original wallet footage. The 69-second narrated demo and separate 70-second pitch are now publicly hosted with synthetic English voice; local browser media metadata passed and anonymous page/MP4 HEAD returned 200, but direct public-browser playback was not completed. **Repository invitation acceptance and portal receipt remain pending.**
