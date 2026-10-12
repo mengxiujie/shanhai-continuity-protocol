@@ -6,12 +6,14 @@ Submission-prep update: [new brief-case portal copy](../submission/BRIEF_SUBMISS
 
 Authenticated portal transcription received 2026-10-12: the displayed deadline is **14 Oct 11:59 GMT+8**, checklist **1/5**, with only the primary track complete. The form expressly accepts a public source repository **or** a private repository shared with its specified organizer review mailbox. It separately requires a Monad-running HTTPS live product, a working-product demo video (≤3 minutes), a team/problem/motivation pitch video (≤2 minutes), a compliant logo, project detail fields and steps to try. Actual field map: [PORTAL_FIELD_MAP.md](../submission/PORTAL_FIELD_MAP.md); candidate English answers: [PORTAL_READY_BRIEF.md](../submission/PORTAL_READY_BRIEF.md). A separate, authorized [public read-only evidence verifier](https://shanhai-brief-proof.open-wand-0634.chatgpt.site/) now returns anonymous HTTP 200 and, when operated from the public origin, verifies both evidence hashes and five Monad Testnet receipts (`5/5 PASS`). It is not the signing workbench or a production AI service; whether judges accept it as the required live product remains uncertain. A compliant local PNG logo and silent 69-second public-origin walkthrough also exist. No portal fields were edited by this checkpoint.
 
+Current repository review checkpoint (2026-10-12): isolated contest code and evidence are on private GitHub `main` at `5fee936`. GitHub shows a pending `write` invitation to organizer account `MonadMetropolis` (invitation ID `337336571`). Invitation sent is not invitation accepted or reviewer access tested. The portal is still unsubmitted. Earlier paragraphs below retain their original production-history context where applicable; this checkpoint supersedes their older "no invitation / only local" claims.
+
 ## Submission readiness
 
 | Area | Status |
 |---|---|
 | Repository structure | READY; remote temporarily PRIVATE |
-| Repository review access | PENDING: owner-supplied organizer reply permits private review; conflicts with rules §§4.1/7.2 public-code requirement await clarification. No invitation or visibility change performed |
+| Repository review access | INVITED, NOT YET ACCEPTED: `MonadMetropolis` has a pending `write` invitation to the private repo. Actual reviewer access not verified; rules §§4.1/7.2 public-code timing still requires clarification |
 | GitHub Pages | OFF; anonymous root/demo/evidence HTTP 404 |
 | Separate public HTTPS verifier | LIVE; fixed fictional brief, archived evidence and read-only Monad Testnet receipt check; source repository remains PRIVATE |
 | Portal logo PNG | READY locally; 1024×1024, 335313 bytes |
@@ -38,10 +40,10 @@ Authenticated portal transcription received 2026-10-12: the displayed deadline i
 
 ## Go / no-go
 
-参赛源码仓库按用户指令继续私有；原 GitHub Pages 公开演示仍下线。用户另行授权的、仅含固定虚构材料的独立只读核验页已公开，不能把它等同于公开源码或钱包操作台。2026-10-12 主办方回复允许私有评审，但所附规则 §4.1/7.2 的公开/开源要求与私有路线的阶段关系仍需澄清；不能把私有评审许可等同于豁免开源或保密。私有路线仍须确认评委实际访问。没有自动公开参赛仓库或邀请评委。
+参赛源码仓库按用户指令继续私有；原 GitHub Pages 公开演示仍下线。用户另行授权的、仅含固定虚构材料的独立只读核验页已公开，不能把它等同于公开源码或钱包操作台。2026-10-12 主办方回复允许私有评审，但所附规则 §4.1/7.2 的公开/开源要求与私有路线的阶段关系仍需澄清；不能把私有评审许可等同于豁免开源或保密。GitHub 已发出官方账号邀请；接受与实际访问仍待确认。
 
 固定虚构材料的 Monad 真门禁路径已完成，浏览器原始导出已按 SHA-256 归档，并通过独立代码核验。只读证据回放页已在本地显示三个历史结果及哈希 MATCH；92 秒中文合成旁白＋英文字幕审阅稿已生成，画面与元数据已核验。当前仍需主理人试听/审阅、最终视频上传、外部开发者复现并核对实际投稿字段。视频是归档证据可视化，不是现场录屏。独立进程与代码核验不等于外部开发者复现；不得将本结果描述为生产安全、真实模型质量、真人价值或市场验证。
 
 Owner 与 B 各自在区块快照上检查资格，两次检查之间以及检查后仍有状态变化时间窗。实链证据证明记录时的许可与拒绝结果，不证明原子交付或已取得明文可被追回。
 
-2026-10-11 文稿优化：当前首选旁白为 `submission/VIDEO_90S.md` 的 V2 文稿及 `submission/VIDEO_90S_V2.json`。已加入具体更正冲突、独立核验共享授权记录的理由，以及单独标明的本地来源保留协议测试。中文朗读稿和计划英文字幕已保存；现有 MP4、音频、V1 字幕和历史 QA 未改写。V2 尚未录制/渲染或测量实际时长，不得把文字完成记成新视频完成。此次变更仅在本地，未提交或推送，远端检查点仍为此前的 `91f0e4e`。
+2026-10-11 文稿优化（历史检查点）：当时首选旁白为 `submission/VIDEO_90S.md` 的 V2 文稿及 `submission/VIDEO_90S_V2.json`，当时尚未渲染；此后已制作并托管分别为 69 秒和 70 秒的新英文视频。参赛更新现已推送私有远端 `5fee936`，`91f0e4e` 不再是当前远端检查点。

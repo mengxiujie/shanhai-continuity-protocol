@@ -55,5 +55,5 @@ Both are hosted with HTML5 players and direct MP4 links. Anonymous HEAD requests
 
 ## Unfilled until portal action
 
-- Repository URL and reviewer access confirmation.
+- Repository URL: `https://github.com/mengxiujie/shanhai-continuity-protocol`. Organizer account `MonadMetropolis` has a pending `write` invitation; acceptance and actual reviewer access are not yet confirmed.
 - Logo upload and final portal submission receipt.
