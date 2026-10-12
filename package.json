@@ -10,8 +10,9 @@
     "test:protocol": "npm --prefix protocol test",
     "test:process": "npm --prefix protocol run test:process",
     "test:sprint": "node --test --test-isolation=none protocol/test/e2e/sprint-chain.test.mjs",
-    "test:wallet": "node --test --test-isolation=none deployment/test/wallet-workbench.test.mjs",
+    "test:wallet": "node --test --test-isolation=none deployment/test/wallet-workbench*.test.mjs",
     "sprint:wallet": "node deployment/wallet-workbench.mjs",
+    "sprint:brief": "node deployment/wallet-workbench.mjs --brief",
     "test:monad-gate": "node --test --test-isolation=none apps/demo/test/monad-gate.test.mjs",
     "compile:contract": "npm --prefix contracts run compile",
     "audit:release": "node scripts/release-audit.mjs",
@@ -19,6 +20,8 @@
     "audit:hosting": "node scripts/audit-hosting.mjs",
     "probe:monad": "node apps/demo/probe-monad-rpc.mjs",
     "verify:deployment": "node deployment/verify-deployment.mjs",
+    "verify:brief-evidence": "node scripts/verify-brief-evidence.mjs",
+    "verify:brief-live": "node scripts/verify-brief-live.mjs",
     "serve:demo": "python -m http.server 4173"
   }
 }

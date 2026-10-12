@@ -1,6 +1,6 @@
 # Evidence and claim boundary
 
-> Updated: 2026-10-11
+> Updated: 2026-10-12
 > Data class: synthetic only
 
 本页是仓库证据主入口。技术设计描述目标；本页只登记已经获得的工程证据和仍缺失的证据。
@@ -58,7 +58,26 @@
 1. 已完成原始记录归档与只读回放；短视频录制、外部开发者复现仍待完成。
 2. 独立安全复核合约与浏览器密钥生命周期。
 3. Mera 已移出主线，仅余量充足时评估。
-4. 投稿前重新公开仓库与 Pages，复核匿名访问、最终字段和提交回执；官方评审权重仍未独立核实。
+4. 投稿前解决私有评审许可与规则公开源码要求的适用关系，复核评委访问、最终字段和提交回执；主理人提供的规则列五项各 20%，未独立获取在线规则最新版本。
+
+## 2026-10-12 客户批准简报交接：新增实链证据
+
+这是一组与 2026-10-11 偏好案例分开的固定虚构材料。原始浏览器导出分为 [第一段](../deployment/raw-browser-evidence.brief-part1.monad-testnet.2026-10-12.json)（SHA-256 `dea1b5ce0deddf72ac8d9a116e97414f2e227e68c12f6e6cfc66285f381c63b2`）和 [第二段](../deployment/raw-browser-evidence.brief-part2.monad-testnet.2026-10-12.json)（SHA-256 `17e13b028035ef5daab8a3ec272c9602d6c302476509193080ab659e8d60e5be`）。页面重载发生在 V2 授权回执恢复之后，因此没有一个涵盖全部九步的单一原始导出；第二段的五笔回执仍含同一笔 V2 授权。运行 `npm run verify:brief-evidence` 可重新计算两份哈希，核对合成 fixture 的内容承诺、共同标识、五笔交易记录与四次门禁结果。
+
+| 实际顺序 | 浏览器记录 | 可观察输出 |
+|---|---|---|
+| V1 批准并请求 | `ACTIVE` | 仅批准的 Friday 19:00 简报进入独立 B，固定模板生成公告 |
+| 发布 V2 后再次请求旧 V1 | `VERSION_STALE` | 只有链检查增量；无新密文获取、解密、上下文或 gateway 增量 |
+| 单独批准 V2 后请求 | `ACTIVE` | 仅批准的 Saturday 15:00 简报进入独立 B，固定模板更新公告 |
+| 撤销 V2 后再请求 | `REVOKED` | 只有链检查增量；无新下游执行增量 |
+
+五笔交易分别为 [登记 V1](https://testnet.monadscan.com/tx/0x7d4be6f6beaf502b56867896abbc67febc348e8553f515e8cb9f67a32d32eb9b)、[批准 V1](https://testnet.monadscan.com/tx/0xf85ae48dd0d78b2108f4dfe0b9dc14f172623a3f2f6839c5003182a0962e96e2)、[发布 V2](https://testnet.monadscan.com/tx/0xcc0e0afd89d55f05d3979c2ca897f1efcdef869be30423d9005f15159669e8c2)、[单独批准 V2](https://testnet.monadscan.com/tx/0x4d76dcc55a6a445493a1b24d3d76a479e8b1ed0a000ea19d7dbea7d23c80881a)、[撤销 V2](https://testnet.monadscan.com/tx/0xa65d821b9a127529b8fdf6d185cea29dbb35e9c3c1a477255d8269fc4df029d6)。导出中的交易状态为 `CONFIRMED_ON_TESTNET`；哈希校验和浏览器记录一致性不等同于独立链上重演。
+
+2026-10-12 另以公共 Monad RPC 只读查询上述五个交易哈希，均返回 `status=0x1`，区块号均与导出相符。这独立核实交易入链与成功，不独立证明 Agent B 的链下执行；链下结果仍来自两份原始浏览器导出及本地可复现实现。
+
+`npm run verify:brief-live` 可重做上述只读回执核对；[简报证据回放页](../apps/demo/brief-evidence.html)提供需主动点击的同等只读复查按钮，2026-10-12 本地浏览器实测显示 `5/5` 和区块哈希匹配。它们都不请求钱包签名或产生交易，也不重放历史门禁执行。
+
+没有调用真实模型。公告证据类型是 `DETERMINISTIC_TEMPLATE_NOT_AI`，真人、产品价值和生产安全仍未测。Owner 与代理签名使用同一个测试钱包，B 在独立本机进程；该演示不声称跨机构采用。已收到的旧明文不能因撤销而追回，链检查与交付也不是原子事务。页面重载前存在 V2 授权回执已确认但按钮未即时恢复的 UI 问题；原始失败和恢复经过见 [QA 记录](BRIEF_QA_2026-10-12.md)。
 
 ## 2026-10-11 冲刺证据
 

@@ -77,6 +77,6 @@ export async function openEnvelopeAndContinue({ envelope, session, requestedItem
   const messages = buildAgentBContext({ disclosure: payload, provenanceCommitment: envelope.provenanceCommitment });
   onStage('contextAssemblies');
   onStage('controlledGatewayCalls');
-  const result = await modelGateway(messages);
+  const result = await modelGateway(messages, { disclosure: payload });
   return { messages, result };
 }

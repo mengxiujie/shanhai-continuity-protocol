@@ -195,3 +195,45 @@ test('frontend transaction and request signatures are click-only and use no raw 
   assert.match(page, /NOT_MEASURED/);
   assert.doesNotMatch(page, /eth_sendRawTransaction|Wallet\(|privateKey|localStorage|sessionStorage/);
 });
+
+test('brief workbench builds separate fixed V2 grant/revoke and initializes two version-bound recipients', async (t) => {
+  const h = await harness(t, { scenario: 'brief' });
+  assert.equal(h.config.scenario.id, 'CLIENT_BRIEF_HANDOFF');
+  assert.notEqual(h.config.parameters.consentId, h.config.parameters.consentIdV2);
+  assert.notEqual(h.config.parameters.scopeHash, h.config.parameters.scopeHashV2);
+  assert.equal(h.calls.length, 0, 'startup does not submit or read chain');
+  await h.configure();
+  const configurations = h.runtimeCalls.filter((entry) => typeof entry === 'object' && entry.document);
+  assert.deepEqual(configurations.map((entry) => entry.document.version), [1, 2]);
+  assert.deepEqual(configurations.map((entry) => entry.consentId), [h.config.parameters.consentId, h.config.parameters.consentIdV2]);
+  assert.ok(configurations.every((entry) => entry.outputMode === 'BRIEF_TEMPLATE'));
+  const grant = (await h.post('/api/prepare', { action: 'issueConsentV2', account })).body;
+  const decoded = h.artifact.abi.parseTransaction(grant.transaction);
+  assert.equal(decoded.name, 'issueConsent');
+  assert.equal(decoded.args[0], h.config.parameters.consentIdV2);
+  assert.equal(decoded.args[3], h.config.parameters.scopeHashV2);
+  assert.equal(decoded.args[4], 2n);
+  const revoke = (await h.post('/api/prepare', { action: 'revokeConsentV2', account })).body;
+  assert.equal(h.artifact.abi.parseTransaction(revoke.transaction).args[0], h.config.parameters.consentIdV2);
+  assert.equal((await h.post('/api/prepare', { action: 'issueConsentV2', account, version: 1 })).body.code, 'INVALID_REQUEST_FIELDS');
+  assert.equal((await h.post('/api/request-challenge-v2', {})).status, 200);
+  assert.equal((await h.post('/api/continue-v2', { declaration: { nonce: 'test-nonce' }, signature })).body.status, 'DENIED');
+  assert.equal(h.calls.some(({ method }) => method.startsWith('eth_send')), false);
+});
+
+test('brief V2 configuration failure closes both candidates and leaves no usable previous configuration', async (t) => {
+  const versionsClosed = [];
+  const h = await harness(t, { scenario: 'brief', runtimeFactory: async ({ document }) => ({
+    publicParameters: document.version === 2 ? { version: 1 } : undefined,
+    async close() { versionsClosed.push(document.version); },
+  }) });
+  assert.equal((await h.configure()).body.code, 'RUNTIME_PARAMETERS_MISMATCH');
+  assert.deepEqual(versionsClosed.sort(), [1, 2]);
+  assert.equal((await h.post('/api/request-challenge-v2', {})).body.code, 'VERIFIED_CONFIGURATION_REQUIRED');
+});
+
+test('legacy preference endpoint cannot request the new scenario grant or V2 runtime', async (t) => {
+  const h = await harness(t); await h.configure();
+  assert.equal((await h.post('/api/prepare', { action: 'issueConsentV2', account })).body.code, 'ACTION_OR_ACCOUNT_INVALID');
+  assert.equal((await h.post('/api/request-challenge-v2', {})).status, 404);
+});

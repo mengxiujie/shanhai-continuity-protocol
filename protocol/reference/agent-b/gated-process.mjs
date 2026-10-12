@@ -5,6 +5,7 @@ import { invariant } from '../../src/errors.mjs';
 import { assertEnvelopeBinding } from '../owner-web/authorized-release.mjs';
 import { MonadConsentRegistryAdapter } from '../../../apps/demo/monad-gate.js';
 import { MonadConsentRegistryRpcProvider, MonadJsonRpcClient } from '../../../apps/demo/monad-rpc-provider.js';
+import { renderBriefAnnouncement } from './brief-announcement.mjs';
 
 let config;
 let session;
@@ -42,7 +43,10 @@ process.on('message', (message) => {
       const result = await openEnvelopeAndContinue({
         envelope: message.envelope, session, requestedItemIds: message.requestedItemIds,
         onStage(stage) { counters[stage] += 1; },
-        modelGateway: async (messages) => ({ status: 'CONTROLLED_GATEWAY_ONLY', contextMessageCount: messages.length }),
+        modelGateway: async (messages, { disclosure }) => ({
+          status: 'CONTROLLED_GATEWAY_ONLY', contextMessageCount: messages.length,
+          ...(config.outputMode === 'BRIEF_TEMPLATE' ? { announcement: renderBriefAnnouncement(disclosure) } : {}),
+        }),
       });
       process.send({ id: message.id, ok: true, receipt, counters, messages: result.messages, result: result.result });
     } catch (error) { process.send({ id: message.id, ok: false, code: error.code ?? 'PROCESS_ERROR', counters }); }

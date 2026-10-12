@@ -1,5 +1,7 @@
 # Monad testnet deployment runbook
 
+2026-10-12 client-brief enhancement: use `npm run sprint:brief` and [`BRIEF_TRANSACTION_SEQUENCE.md`](BRIEF_TRANSACTION_SEQUENCE.md) for the five-transaction / four-request sequence, including explicit V2 authorization and positive delivery. The existing contract was verified by read-only RPC and reused. The Founder completed the new-case testnet sequence; two original browser exports are archived here, and `npm run verify:brief-evidence` verifies their hashes, shared IDs, commitments, transactions and gate outcomes. The older preference run remains separate historical evidence.
+
 本操作包用于把 `ConsentRegistry` 部署到 Monad 测试网并形成可复核证据。它不保存私钥，也不自动代表用户签名。
 
 ## 2026-10-11 冲刺准入核查与用户操作卡

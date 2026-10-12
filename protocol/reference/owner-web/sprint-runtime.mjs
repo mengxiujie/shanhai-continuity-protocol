@@ -21,7 +21,8 @@ export async function fixedScopeParameters(document, allowedItemIds) {
   return { version: document.version, scopeHash: scopeCommitmentBytes32(await scopeHash(allowedItemIds)), contentCommitment: contentCommitment(disclosure) };
 }
 
-export async function createSprintRuntime({ rpcUrl, registryAddress, assetId, consentId, grantee, domain = 'localhost', document, allowedItemIds, agentTimeoutMs = 30000 }) {
+export async function createSprintRuntime({ rpcUrl, registryAddress, assetId, consentId, grantee, domain = 'localhost', document, allowedItemIds, agentTimeoutMs = 30000, outputMode = 'COUNTERS_ONLY' }) {
+  invariant(['COUNTERS_ONLY', 'BRIEF_TEMPLATE'].includes(outputMode), 'SPRINT_OUTPUT_MODE_INVALID');
   const normalizedGrantee = getAddress(grantee).toLowerCase();
   const normalizedRegistry = getAddress(registryAddress).toLowerCase();
   invariant(/^0x[0-9a-fA-F]{64}$/.test(assetId) && /^0x[0-9a-fA-F]{64}$/.test(consentId), 'SPRINT_IDS_INVALID');
@@ -47,7 +48,7 @@ export async function createSprintRuntime({ rpcUrl, registryAddress, assetId, co
   });
   const close = async () => { if (closed) return; closed = true; try { await send('close'); } finally { if (child.connected) child.disconnect(); child.kill(); } };
   try {
-    const agent = await send('initialize', { config: { rpcUrl, registryAddress: normalizedRegistry, grantee: normalizedGrantee, domain, selectors: REGISTRY_SELECTORS } });
+    const agent = await send('initialize', { config: { rpcUrl, registryAddress: normalizedRegistry, grantee: normalizedGrantee, domain, selectors: REGISTRY_SELECTORS, outputMode } });
     invariant(agent.ok, agent.code ?? 'AGENT_INITIALIZE_FAILED');
     const envelope = await createEncryptedGrantEnvelope({ document, allowedItemIds, consentId: publicParameters.consentId, grantee: normalizedGrantee, agentPublicJwk: agent.publicJwk });
     const envelopeStore = {

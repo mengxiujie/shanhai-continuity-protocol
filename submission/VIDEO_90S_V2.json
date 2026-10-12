@@ -1,0 +1,164 @@
+{
+  "revision": "2026-10-11-script-v2",
+  "status": "TEXT_REVIEWED_NOT_RENDERED",
+  "plannedDurationSeconds": 92,
+  "timingEvidence": "PLANNED_EDITORIAL_WINDOWS_NOT_RECORDED_AUDIO_ALIGNMENT",
+  "existingVideoRevision": "V1_UNCHANGED",
+  "persistentLabel": "固定合成材料；证据类型随场景标明 / Fixed synthetic material; evidence type labeled by scene",
+  "closingDisclosure": {
+    "start": 77,
+    "end": 92,
+    "lines": [
+      "Testnet prototype; archived evidence",
+      "External model not called; human value and production security unvalidated",
+      "Snapshot checks; delivery is not atomic with chain state"
+    ],
+    "placement": "A dedicated readable card beside captions, not tiny footer text. Detail remains in docs/EVIDENCE.md."
+  },
+  "scenes": [
+    {
+      "start": 0,
+      "end": 10,
+      "chinese": "我把给 AI 的要求从“简短结论”改成“详细解释”。下一位助手，还能收到旧版本吗？",
+      "english": "I changed my instruction from “brief conclusions” to “detailed explanations.” Can the next assistant still receive the old version?",
+      "evidenceKind": "ILLUSTRATIVE_SYNTHETIC_SCENARIO",
+      "screen": "简短结论 → 本次详细解释 / Brief → Detailed",
+      "source": "protocol/reference/owner-web/sprint-fixture.mjs"
+    },
+    {
+      "start": 10,
+      "end": 22,
+      "chinese": "这是山海连续性协议。它保留内容来源：在协议测试中，用户认可 AI 推断，也不会把它变成用户原话。",
+      "english": "This is Shanhai Continuity Protocol. Our protocol tests preserve source: Even when a user accepts an AI inference, it does not become their own words.",
+      "evidenceKind": "E1_SEPARATE_LOCAL_SYNTHETIC_PROTOCOL_TEST",
+      "screen": "MODEL_INFERENCE remains MODEL_INFERENCE; reviewStatus becomes USER_CONFIRMED. 明显标注：独立的本地合成协议测试 / Separate local synthetic protocol test.",
+      "source": "protocol/test/vectors/02-valid-confirmed-correction.json"
+    },
+    {
+      "start": 22,
+      "end": 37,
+      "chinese": "正文加密留在链外，授权和版本记录在 Monad。发送方与接收方各自核验，接收方不必只相信山海服务器的回答。",
+      "english": "Encrypted content stays off-chain. Monad records authorization and versions. Sender and recipient each verify that record. The recipient need not rely only on our server.",
+      "evidenceKind": "IMPLEMENTED_ARCHITECTURE",
+      "screen": "Encrypted content off-chain ↔ Owner check → Monad authorization/version record ← Agent B check. 两次读取为区块快照，并非原子交付。",
+      "source": "submission/JUDGE_QA.md"
+    },
+    {
+      "start": 37,
+      "end": 51,
+      "chinese": "看这次测试网记录：用户只授权一条偏好，私密备注未进入上下文。授权有效时，独立接收进程解密，并把获准材料组装进上下文。",
+      "english": "In this recorded testnet run, only one preference was authorized. A private note stayed out of context. With valid authorization, a separate recipient process decrypted and assembled the approved material into context.",
+      "evidenceKind": "E3_ARCHIVED_MONAD_TESTNET_EXECUTION",
+      "screen": "ACTIVE_CONTEXT_DELIVERED / ACTIVE. Show the selected preference, excluded note and measured Owner/B execution increments; label Agent B as a separate local process.",
+      "source": "deployment/raw-browser-evidence.monad-testnet.2026-10-11.json"
+    },
+    {
+      "start": 51,
+      "end": 65,
+      "chinese": "用户随后更正为“这次需要详细解释”。发布第二版后，旧请求被阻断，没有新增取材、解密或上下文组装。",
+      "english": "The user then changed the instruction: “This task needs a detailed explanation.” After version two was published, the old request was denied: no new material fetch, decryption, or context assembly.",
+      "evidenceKind": "E3_ARCHIVED_MONAD_TESTNET_EXECUTION",
+      "screen": "V2: detailed explanation. DENIED / VERSION_STALE; no new fetch/decrypt/context/gateway. No new V2 grant or delivery is shown.",
+      "source": "deployment/raw-browser-evidence.monad-testnet.2026-10-11.json"
+    },
+    {
+      "start": 65,
+      "end": 77,
+      "chinese": "撤销授权后，下一次请求也在交付前停止。此前合法取得的明文无法追回；原型约束的是后续交付。",
+      "english": "After revocation, the next request was also stopped before delivery. Previously received plaintext cannot be reclaimed. This prototype controls subsequent delivery.",
+      "evidenceKind": "E3_ARCHIVED_MONAD_TESTNET_EXECUTION",
+      "screen": "DENIED / REVOKED; downstream increments 0. Previously delivered plaintext cannot be reclaimed.",
+      "source": "deployment/raw-browser-evidence.monad-testnet.2026-10-11.json"
+    },
+    {
+      "start": 77,
+      "end": 85,
+      "chinese": "三种结果、四笔状态交易，都能沿链上记录和执行回执核查。",
+      "english": "Three outcomes and four state transactions can be checked against on-chain records and execution receipts.",
+      "evidenceKind": "ARCHIVED_EVIDENCE_NAVIGATION",
+      "screen": "Three outcomes / four state transactions. Permission state: on-chain. Execution counters: project instrumentation. Hash match checks archive identity; it is not external reproduction.",
+      "source": "apps/demo/evidence-replay.html"
+    },
+    {
+      "start": 85,
+      "end": 92,
+      "chinese": "山海连续性协议：让下一次交付，先核验授权。",
+      "english": "Shanhai Continuity Protocol: verify authorization before the next delivery.",
+      "evidenceKind": "PROTOCOL_PURPOSE_AND_SCOPE",
+      "screen": "Shanhai Continuity Protocol. Verify authorization before the next delivery.",
+      "source": "docs/EVIDENCE.md"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 5,
+      "english": "I changed my instruction from “brief conclusions”\nto “detailed explanations.”"
+    },
+    {
+      "start": 5,
+      "end": 10,
+      "english": "Can the next assistant still receive\nthe old version?"
+    },
+    {
+      "start": 10,
+      "end": 15,
+      "english": "This is Shanhai Continuity Protocol.\nOur protocol tests preserve source:"
+    },
+    {
+      "start": 15,
+      "end": 22,
+      "english": "Even when a user accepts an AI inference,\nit does not become their own words."
+    },
+    {
+      "start": 22,
+      "end": 29,
+      "english": "Encrypted content stays off-chain.\nMonad records authorization and versions."
+    },
+    {
+      "start": 29,
+      "end": 37,
+      "english": "Sender and recipient each verify that record.\nThe recipient need not rely only on our server."
+    },
+    {
+      "start": 37,
+      "end": 44,
+      "english": "In this recorded testnet run, only one preference\nwas authorized. A private note stayed out of context."
+    },
+    {
+      "start": 44,
+      "end": 51,
+      "english": "With valid authorization, a separate recipient process\ndecrypted and assembled the approved material into context."
+    },
+    {
+      "start": 51,
+      "end": 58,
+      "english": "The user then changed the instruction:\n“This task needs a detailed explanation.”"
+    },
+    {
+      "start": 58,
+      "end": 65,
+      "english": "After version two was published, the old request was denied:\nno new material fetch, decryption, or context assembly."
+    },
+    {
+      "start": 65,
+      "end": 71,
+      "english": "After revocation, the next request was also\nstopped before delivery."
+    },
+    {
+      "start": 71,
+      "end": 77,
+      "english": "Previously received plaintext cannot be reclaimed.\nThis prototype controls subsequent delivery."
+    },
+    {
+      "start": 77,
+      "end": 85,
+      "english": "Three outcomes and four state transactions can be checked\nagainst on-chain records and execution receipts."
+    },
+    {
+      "start": 85,
+      "end": 92,
+      "english": "Shanhai Continuity Protocol:\nverify authorization before the next delivery."
+    }
+  ]
+}

@@ -4,6 +4,12 @@
 
 **Metropolis 2026 candidate repository · Track: Trust, Identity & AI Infrastructure**
 
+### Latest local use case: client-approved brief handoff
+
+A fictional client asks another assistant to prepare an event announcement. Only the approved brief is disclosed. When Friday changes to Saturday, the old request is denied; the client must separately authorize V2 before the new brief and updated announcement can be delivered. Revoking V2 denies later requests. The announcement is a deterministic template rendered by the receiving process from verified decrypted fields, not model output.
+
+Run `npm run sprint:brief` and follow [`deployment/BRIEF_TRANSACTION_SEQUENCE.md`](deployment/BRIEF_TRANSACTION_SEQUENCE.md). The Founder-operated new case now has five successful Monad Testnet transactions and four recorded gate outcomes; two original browser exports pass `npm run verify:brief-evidence`. See the [read-only brief evidence replay](apps/demo/brief-evidence.html) and [QA/evidence boundary](docs/BRIEF_QA_2026-10-12.md). The browser was reloaded between exports, so there is no single uninterrupted raw file. The 2026-10-11 testnet record below belongs to a separate preference case.
+
 Current visibility: **temporarily PRIVATE; GitHub Pages OFF**, by owner instruction on 2026-10-11. Repository/demo links are not currently available to anonymous judges. Reopen before submission and verify access again; see the [publication and withdrawal record](docs/HOSTING.md). Local reproduction remains available. Static hosting is not the local dual-process wallet workbench or a live testnet proof.
 
 ## In one minute

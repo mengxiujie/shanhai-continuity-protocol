@@ -21,6 +21,9 @@ await mkdir(join(dist, 'protocol', 'reference', 'owner-web'), { recursive: true 
 await cp(join(root, 'apps', 'demo'), join(dist, 'apps', 'demo'), { recursive: true });
 await cp(join(root, 'docs', 'EVIDENCE.md'), join(dist, 'docs', 'EVIDENCE.md'));
 await cp(join(root, 'deployment', 'raw-browser-evidence.monad-testnet.2026-10-11.json'), join(dist, 'deployment', 'raw-browser-evidence.monad-testnet.2026-10-11.json'));
+for (const name of ['raw-browser-evidence.brief-part1.monad-testnet.2026-10-12.json', 'raw-browser-evidence.brief-part2.monad-testnet.2026-10-12.json']) {
+  await cp(join(root, 'deployment', name), join(dist, 'deployment', name));
+}
 await cp(join(root, 'protocol', 'reference', 'owner-web', 'sprint-fixture.mjs'), join(dist, 'protocol', 'reference', 'owner-web', 'sprint-fixture.mjs'));
 
 const landing = `<!doctype html>

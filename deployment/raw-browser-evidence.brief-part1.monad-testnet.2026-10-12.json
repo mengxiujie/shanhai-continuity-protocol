@@ -1,0 +1,240 @@
+{
+  "evidenceType": "FIXED_SYNTHETIC_TESTNET_WORKBENCH",
+  "scenario": {
+    "id": "CLIENT_BRIEF_HANDOFF",
+    "dataClass": "SYNTHETIC",
+    "outputMode": "DETERMINISTIC_TEMPLATE_NOT_AI",
+    "title": "客户批准的活动简报交接",
+    "approved": [
+      {
+        "version": 1,
+        "title": "Lens Club photography meetup",
+        "schedule": "Friday, 19:00",
+        "venue": "Harbor Studio"
+      },
+      {
+        "version": 2,
+        "title": "Lens Club photography meetup",
+        "schedule": "Saturday, 15:00",
+        "venue": "Harbor Studio"
+      }
+    ],
+    "excluded": [
+      "内部筹备备注（未选入范围）",
+      "免费入场建议（AI 合成推断，未选入范围）"
+    ]
+  },
+  "realModelBehavior": "NOT_MEASURED",
+  "parameters": {
+    "version": 1,
+    "scopeHash": "0x45f38675cec99e6ddc8ecc5491cb9bd7831bc14030b8c230c9ca77ec1461337d",
+    "contentCommitmentV1": "0x554862bc3d6ec51c78d5e4edf5e5791c3225eeff35801e9e6236c37260148c70",
+    "contentCommitmentV2": "0x1777998b8ca41a11bcec0d60478418bbe0f87236c608ec7905fa22dd67de7cdd",
+    "scopeHashV2": "0x6e94ca3285ba51ccc7a540ad1f9239f906716929930bbbe1ce01175a433c65ac",
+    "assetId": "0xa7b834c6d54137fe04a3d875367ea2811c97492c9ef150e8c2deab9be6b1996c",
+    "consentId": "0xf510208ca27287e5e0dd32762d28e61e7ee067d1a08308dec97802e2f25ad878",
+    "consentIdV2": "0xeb00aaef07bd673afce9edaa127d382acca43e8918c895d766b8926deabeae95"
+  },
+  "configuration": {
+    "status": "RUNTIME_BYTECODE_VERIFIED",
+    "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+    "runtimeBytecodeSha256": "f968181f3fe204013357563ff6c0e6a6ba23320340974036b32ee97c86f827f4",
+    "account": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+    "agentPid": 22932,
+    "agentKeyFingerprint": "sha256:jmoCAFZHa0KaBzihdZv-juNnaACKilkN5-UNvZDWQOw",
+    "agentPidV2": 25564,
+    "agentKeyFingerprintV2": "sha256:T72eQcBZL8oB9ZV56IKPv0v1foB_00sXGXxXo0h6Jfw",
+    "revision": 2
+  },
+  "receipts": [
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "registerAsset",
+      "txHash": "0x7d4be6f6beaf502b56867896abbc67febc348e8553f515e8cb9f67a32d32eb9b",
+      "blockNumber": "0x431356f",
+      "blockHash": "0x24d7f8951b8db69313ca78797ab6b2494336aac7b18a76da1c3215289e17b4d2",
+      "contractAddress": null,
+      "gasUsed": "0x15897",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x7d4be6f6beaf502b56867896abbc67febc348e8553f515e8cb9f67a32d32eb9b"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "issueConsent",
+      "txHash": "0xf85ae48dd0d78b2108f4dfe0b9dc14f172623a3f2f6839c5003182a0962e96e2",
+      "blockNumber": "0x43139e1",
+      "blockHash": "0x5ee11d5707cbe0f1bf76f05f11d242ca0a51fc702fe75b32fe0584a3ed020136",
+      "contractAddress": null,
+      "gasUsed": "0x1cb36",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0xf85ae48dd0d78b2108f4dfe0b9dc14f172623a3f2f6839c5003182a0962e96e2"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "publishVersion",
+      "txHash": "0xcc0e0afd89d55f05d3979c2ca897f1efcdef869be30423d9005f15159669e8c2",
+      "blockNumber": "0x4313f43",
+      "blockHash": "0x37938278a6fe53fbfd2406a2167548bc321032a48474b2ea7905fc71e7ed427f",
+      "contractAddress": null,
+      "gasUsed": "0x8f49",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0xcc0e0afd89d55f05d3979c2ca897f1efcdef869be30423d9005f15159669e8c2"
+    }
+  ],
+  "results": [
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "registerAsset",
+      "txHash": "0x7d4be6f6beaf502b56867896abbc67febc348e8553f515e8cb9f67a32d32eb9b",
+      "blockNumber": "0x431356f",
+      "blockHash": "0x24d7f8951b8db69313ca78797ab6b2494336aac7b18a76da1c3215289e17b4d2",
+      "contractAddress": null,
+      "gasUsed": "0x15897",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0x7d4be6f6beaf502b56867896abbc67febc348e8553f515e8cb9f67a32d32eb9b"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "issueConsent",
+      "txHash": "0xf85ae48dd0d78b2108f4dfe0b9dc14f172623a3f2f6839c5003182a0962e96e2",
+      "blockNumber": "0x43139e1",
+      "blockHash": "0x5ee11d5707cbe0f1bf76f05f11d242ca0a51fc702fe75b32fe0584a3ed020136",
+      "contractAddress": null,
+      "gasUsed": "0x1cb36",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0xf85ae48dd0d78b2108f4dfe0b9dc14f172623a3f2f6839c5003182a0962e96e2"
+    },
+    {
+      "status": "ACTIVE_CONTEXT_DELIVERED",
+      "ownerReceipt": {
+        "outcome": "ACTIVE",
+        "chainId": 10143,
+        "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+        "assetId": "0xa7b834c6d54137fe04a3d875367ea2811c97492c9ef150e8c2deab9be6b1996c",
+        "consentId": "0xf510208ca27287e5e0dd32762d28e61e7ee067d1a08308dec97802e2f25ad878",
+        "grantee": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+        "version": 1,
+        "scopeHash": "0x45f38675cec99e6ddc8ecc5491cb9bd7831bc14030b8c230c9ca77ec1461337d",
+        "assetCommitment": "0x554862bc3d6ec51c78d5e4edf5e5791c3225eeff35801e9e6236c37260148c70",
+        "blockNumber": 70335534,
+        "blockHash": "0x36e9adb4fb17c3e791590c074fd0f609478ec3c1a58716b2c1ab4ee72e2b0015"
+      },
+      "receipt": {
+        "outcome": "ACTIVE",
+        "chainId": 10143,
+        "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+        "assetId": "0xa7b834c6d54137fe04a3d875367ea2811c97492c9ef150e8c2deab9be6b1996c",
+        "consentId": "0xf510208ca27287e5e0dd32762d28e61e7ee067d1a08308dec97802e2f25ad878",
+        "grantee": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+        "version": 1,
+        "scopeHash": "0x45f38675cec99e6ddc8ecc5491cb9bd7831bc14030b8c230c9ca77ec1461337d",
+        "assetCommitment": "0x554862bc3d6ec51c78d5e4edf5e5791c3225eeff35801e9e6236c37260148c70",
+        "blockNumber": 70335554,
+        "blockHash": "0x7d5ff3028cbff3f17be0836686aab660be868beb292e987015157fe39f502f73"
+      },
+      "counters": {
+        "totals": {
+          "chainChecks": 1,
+          "envelopeFetches": 1,
+          "envelopeReceived": 1,
+          "independentChainChecks": 1,
+          "decryptAttempts": 1,
+          "decryptSucceeded": 1,
+          "contextAssemblies": 1,
+          "controlledGatewayCalls": 1
+        },
+        "delta": {
+          "chainChecks": 1,
+          "envelopeFetches": 1,
+          "envelopeReceived": 1,
+          "independentChainChecks": 1,
+          "decryptAttempts": 1,
+          "decryptSucceeded": 1,
+          "contextAssemblies": 1,
+          "controlledGatewayCalls": 1
+        }
+      },
+      "messages": [
+        {
+          "role": "system",
+          "content": "以下是用户按范围授权的连续性材料。必须保留来源等级与时间边界；不得把模型推断写成用户原话或客观事实；发生冲突时优先使用更高权威材料，并允许表达未知。"
+        },
+        {
+          "role": "user",
+          "content": "[材料 31000000-0000-4000-8000-000000000021]\n权威=用户已确认；原始来源=USER_UTTERANCE:用户原话；审阅=USER_CONFIRMED\n有效时间=1791763100..open(INSTANT)；记录时间=1791763200\n内容={\"title\":\"Lens Club photography meetup\",\"schedule\":\"Friday, 19:00\",\"venue\":\"Harbor Studio\"}"
+        }
+      ],
+      "result": {
+        "status": "CONTROLLED_GATEWAY_ONLY",
+        "contextMessageCount": 2,
+        "announcement": {
+          "evidenceType": "DETERMINISTIC_TEMPLATE_NOT_AI",
+          "sourceVersion": 1,
+          "sourceVersionId": "21000000-0000-4000-8000-000000000021",
+          "receivedItemIds": [
+            "31000000-0000-4000-8000-000000000021"
+          ],
+          "receivedFields": {
+            "title": "Lens Club photography meetup",
+            "schedule": "Friday, 19:00",
+            "venue": "Harbor Studio"
+          },
+          "text": "Lens Club photography meetup\nFriday, 19:00 · Harbor Studio\nJoin us for Lens Club photography meetup at Harbor Studio on Friday, 19:00."
+        }
+      },
+      "ownerPid": 19184,
+      "agentPid": 22932,
+      "realModelBehavior": "NOT_MEASURED"
+    },
+    {
+      "status": "CONFIRMED_ON_TESTNET",
+      "action": "publishVersion",
+      "txHash": "0xcc0e0afd89d55f05d3979c2ca897f1efcdef869be30423d9005f15159669e8c2",
+      "blockNumber": "0x4313f43",
+      "blockHash": "0x37938278a6fe53fbfd2406a2167548bc321032a48474b2ea7905fc71e7ed427f",
+      "contractAddress": null,
+      "gasUsed": "0x8f49",
+      "chainId": 10143,
+      "explorerUrl": "https://testnet.monadscan.com/tx/0xcc0e0afd89d55f05d3979c2ca897f1efcdef869be30423d9005f15159669e8c2"
+    },
+    {
+      "status": "DENIED",
+      "receipt": {
+        "outcome": "VERSION_STALE",
+        "chainId": 10143,
+        "registryAddress": "0xcda4d087900f47427b4956b9b1ee2543ec5575c0",
+        "assetId": "0xa7b834c6d54137fe04a3d875367ea2811c97492c9ef150e8c2deab9be6b1996c",
+        "consentId": "0xf510208ca27287e5e0dd32762d28e61e7ee067d1a08308dec97802e2f25ad878",
+        "grantee": "0x6604da0fde310fb07744ab14f971d53e594e93ab",
+        "version": 1,
+        "scopeHash": "0x45f38675cec99e6ddc8ecc5491cb9bd7831bc14030b8c230c9ca77ec1461337d",
+        "assetCommitment": "0x1777998b8ca41a11bcec0d60478418bbe0f87236c608ec7905fa22dd67de7cdd",
+        "blockNumber": 70340636,
+        "blockHash": "0xfcfe1451c283252dc898bc1a14b6e47a68a2df81a37c8631dc789b228fb66927"
+      },
+      "counters": {
+        "totals": {
+          "chainChecks": 2,
+          "envelopeFetches": 1,
+          "envelopeReceived": 1,
+          "independentChainChecks": 1,
+          "decryptAttempts": 1,
+          "decryptSucceeded": 1,
+          "contextAssemblies": 1,
+          "controlledGatewayCalls": 1
+        },
+        "delta": {
+          "chainChecks": 1,
+          "envelopeFetches": 0,
+          "envelopeReceived": 0,
+          "independentChainChecks": 0,
+          "decryptAttempts": 0,
+          "decryptSucceeded": 0,
+          "contextAssemblies": 0,
+          "controlledGatewayCalls": 0
+        }
+      },
+      "realModelBehavior": "NOT_MEASURED"
+    }
+  ]
+}

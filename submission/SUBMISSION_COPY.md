@@ -1,6 +1,6 @@
 # Metropolis submission copy
 
-> Sprint draft updated 2026-10-11. Repository temporarily PRIVATE and Pages OFF following owner instruction; reopen and verify links before submission. Real Monad deployment, the connected fixed-synthetic evidence path and raw browser-export archival passed. A local Chinese-narrated / English-subtitled review video is generated; final video review, upload and portal submission remain pending.
+> Historical narrative checkpoint: 2026-10-11 preference case; do not apply its transaction hashes to the new brief scenario. Current access checkpoint (2026-10-12): PRIVATE, Pages OFF. Owner-supplied organizer reply permits private review, while supplied rules §§4.1/7.2 require public code; clarify stages/invitation before using a private route, with pre-submission publication retained as a fallback. Rules §5.2 give five criteria at 20% each; §9.4 requires a publicly playable video ≤3 minutes showing actual operation and Monad interaction. The new brief testnet evidence is complete in two separately preserved browser exports; its matching final film remains pending. The narrative and old hashes below are historical and require revision before copying into the portal. Later references below to repository reopening/old video do not grant publication authority or establish a final artifact.
 
 ## Project name
 
@@ -83,7 +83,7 @@ Shanhai directly addresses protocol-level trust, provenance, and user-owned data
 - Raw browser evidence is archived with SHA-256 `49bd59c0ff054fbf2ef82ab009b1bccefaf88890240ff5b18b0d0cc8225a9864`; the local recorded-evidence replay recomputed it as MATCH. Execution counters are project instrumentation, not third-party attestation.
 - Historical publication passed, then withdrawn: repository currently PRIVATE and Pages OFF; success and subsequent anonymous HTTP 404 checks recorded in `docs/HOSTING.md`.
 - Local review video: 92 seconds, Chinese generic installed-voice narration and burned-in English subtitles; archived evidence visualization, not a browser recording or new execution.
-- Pending: founder video review, upload/anonymous playback, external developer reproduction, final link/field checks and portal confirmation. Official judging weights are not independently verified.
+- Pending: founder video review, upload/anonymous playback, external developer reproduction, repository review-access clarification, final link/field checks and portal confirmation. Supplied rules §5.2 specify five criteria at 20% each; the live document version has not been independently retrieved.
 - Not demonstrated: external model behavior, real-user value, production security, market adoption or Mera recovery.
 
 Use `docs/EVIDENCE.md` and actual sprint run artifacts as the evidence source. A deployment receipt, a synthetic walkthrough and an independent encryption test do not by themselves prove the connected live claim.

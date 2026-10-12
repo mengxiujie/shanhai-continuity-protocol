@@ -4,37 +4,69 @@
 :root{font-family:system-ui,sans-serif;color:#e7edf6;background:#101925}*{box-sizing:border-box}body{max-width:1000px;margin:auto;padding:24px}h1{font-size:25px}.notice{border-left:4px solid #bb93ff;padding:14px;background:#1c283a;line-height:1.7}section{margin:20px 0;padding:18px;border:1px solid #3b4b64;border-radius:12px}button,input{font:inherit;border-radius:7px;padding:11px}button{background:#bfa0ff;border:0;color:#161123;cursor:pointer;margin:5px 8px 5px 0}button:disabled{opacity:.4;cursor:not-allowed}input{width:100%;color:inherit;background:#0d1520;border:1px solid #60718c}label{display:block;margin:8px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;background:#0c1420;padding:12px;max-height:450px;overflow:auto}.status{font-weight:600;color:#9de1c5}.warning{color:#ffd29a}details{margin:14px 0}a{color:#c4acff}small{line-height:1.5;color:#b5c3d6}.row{display:flex;flex-wrap:wrap;align-items:center}#events{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}#material{font-size:14px;line-height:1.6}@media(max-width:500px){body{padding:12px}section{padding:12px}button{width:100%;margin:5px 0}h1{font-size:21px}}
 </style></head><body>
 <h1>Shanhai · Monad 测试网操作台</h1>
-<p class="notice">仅使用两条固定虚构材料。只连接 Monad Testnet（10143），不接真实模型、真人资料或生产服务。每笔交易都要你点击按钮，并在钱包中亲自确认；这里只构造交易，不接触私钥。测试币也不要与存有真实资产的钱包混用。</p>
+<p class="notice">仅使用固定虚构材料。只连接 Monad Testnet（10143），不接真实模型、真人资料或生产服务。每笔交易都要你点击按钮，并在钱包中亲自确认；这里只构造交易，不接触私钥。测试币也不要与存有真实资产的钱包混用。</p>
 <p id="status" class="status" role="status">正在读取本地配置；没有发送交易。</p>
 <section><h2>1 · 连接与部署</h2><p>请使用浏览器注入钱包和独立测试账户。需要少量测试网 MON；取消钱包弹窗是正常结果。</p>
 <div class="row"><button id="connect">连接测试钱包 / 切换测试网</button><button id="deploy" disabled>部署 ConsentRegistry（需签名）</button></div>
 <label for="registry">已部署合约地址（也可填现有地址）</label><input id="registry" placeholder="0x…" autocomplete="off" spellcheck="false">
 <button id="configure" disabled>核验合约代码并初始化独立 Agent B</button><small>合约运行代码必须与本地编译产物完全一致。未经核验，不能初始化其他交易或继续请求。</small></section>
-<section><h2>2 · 四幕实链路径</h2><div id="material">授权：简洁解释、结果前置。未授权：另一条虚构私密备注。发布 v2 后，旧 v1 授权将因版本不符而失效；撤销后新的请求应被阻断。最小演示使用同一测试账户作为 Owner 与代理签名身份，Agent B 的解密密钥与上下文仍在独立进程中。</div>
-<div class="row"><button id="register" disabled>① 登记虚构材料 v1</button><button id="issue" disabled>② 授予 v1 使用资格</button><button id="continue" disabled>③ 签署临时请求 → Agent B</button><button id="publish" disabled>④ 发布更正 v2</button><button id="revoke" disabled>⑤ 撤销原授权</button></div>
+<section><h2 id="path-title">2 · 四幕实链路径</h2><div id="material">授权：简洁解释、结果前置。未授权：另一条虚构私密备注。发布 v2 后，旧 v1 授权将因版本不符而失效；撤销后新的请求应被阻断。最小演示使用同一测试账户作为 Owner 与代理签名身份，Agent B 的解密密钥与上下文仍在独立进程中。</div>
+<div class="row"><button id="register" disabled>① 登记虚构材料 v1</button><button id="issue" disabled>② 授予 v1 使用资格</button><button id="continue" disabled>③ 签署临时请求 → Agent B</button><button id="publish" disabled>④ 发布更正 v2</button><button id="issueV2" hidden disabled>⑤ 单独批准新版 v2</button><button id="continueV2" hidden disabled>⑥ 用新版授权请求 → Agent B</button><button id="revoke" disabled>⑤ 撤销原授权</button></div>
+<p id="next-step" class="status"></p>
 <small>每次“签署临时请求”都生成新的 nonce；其签名仅用于本轮请求身份核验，不是链上交易。发布/撤销以后请再点击它，核对实链拒绝及执行增量。真实模型效果仍为 NOT_MEASURED。</small></section>
+<section id="brief-output" hidden><h2>Agent B 收到什么，完成了什么</h2><p>公告由实际解密后的获准内容填入固定模板，非模型生成。它证明材料版本进入结果，不证明模型质量。</p><p id="announcement-version"></p><pre id="received"></pre><h3>活动公告 · 固定模板</h3><pre id="announcement"></pre><details><summary>接收进程构造的完整上下文</summary><pre id="received-context"></pre></details></section>
 <section><h2>3 · 当前结果与证据</h2><p id="result-summary">尚无实链结果。交易准备不等于已完成；待确认或失败不会显示成功。</p><pre id="result">NOT_MEASURED</pre><button id="download">下载本次公开证据 JSON</button><p id="events" aria-live="polite"></p>
 <details><summary>查看公开参数、源码版本与运行信息</summary><pre id="config"></pre></details></section>
 <script nonce="__CSP_NONCE__">
 const $ = (id) => document.getElementById(id);
-const operations = ['deploy','configure','register','issue','continue','publish','revoke'];
+const operations = ['deploy','configure','register','issue','continue','publish','issueV2','continueV2','revoke'];
 let config, account, running = false, latestResult = null; const evidence = [];
 const status = (message) => { $('status').textContent = message; };
 const record = (message) => { $('events').textContent = `${new Date().toISOString()} ${message}\n${$('events').textContent}`; };
-const updateButtons = () => { for(const id of operations) $(id).disabled = running || !account || (!['deploy','configure'].includes(id) && !config?.configuration); $('connect').disabled = running; };
+const updateButtons = () => {
+  for(const id of operations) $(id).disabled = running || !account || (!['deploy','configure'].includes(id) && !config?.configuration);
+  $('connect').disabled = running;
+  if(config?.scenario?.id!=='CLIENT_BRIEF_HANDOFF')return;
+  const confirmed=action=>config.receipts.some(receipt=>receipt.action===action&&receipt.status==='CONFIRMED_ON_TESTNET');
+  const received=version=>evidence.some(result=>result.status==='ACTIVE_CONTEXT_DELIVERED'&&result.receipt?.version===version);
+  const stale=evidence.some(result=>result.status==='DENIED'&&result.receipt?.outcome==='VERSION_STALE');
+  const enable={register:!confirmed('registerAsset'),issue:confirmed('registerAsset')&&!confirmed('issueConsent'),
+    continue:confirmed('issueConsent'),publish:received(1)&&!confirmed('publishVersion'),
+    issueV2:confirmed('publishVersion')&&stale&&!confirmed('issueConsentV2'),continueV2:confirmed('issueConsentV2'),
+    revoke:received(2)&&!confirmed('revokeConsentV2')};
+  for(const [id,enabled]of Object.entries(enable))$(id).disabled ||= !enabled;
+  $('next-step').textContent=!config.configuration?'下一步：连接钱包，然后核验已填入的合约。':!confirmed('registerAsset')?'下一步：① 登记活动简报。':
+    !confirmed('issueConsent')?'下一步：② 批准 v1。':!received(1)?'下一步：③ 请求 v1，查看周五公告。':
+    !confirmed('publishVersion')?'下一步：④ 发布更正 v2。':!stale?'下一步：再次点击③，确认旧 v1 被拒绝。':
+    !confirmed('issueConsentV2')?'下一步：⑤ 单独批准 v2。':!received(2)?'下一步：⑥ 请求 v2，查看周六公告。':
+    !confirmed('revokeConsentV2')?'下一步：⑦ 撤销 v2 授权。':
+    !evidence.some(result=>result.receipt?.version===2&&result.receipt?.outcome==='REVOKED')?'下一步：再次点击⑥，确认撤销后被拒绝。':'本轮四种结果已收集。请下载公开证据 JSON。';
+};
 async function api(path, body) {
   const response = await fetch(path, body === undefined ? {cache:'no-store',signal:AbortSignal.timeout(35000)} : {method:'POST',headers:{'content-type':'application/json','x-workbench-token':config.token},body:JSON.stringify(body),signal:AbortSignal.timeout(35000)});
   const output = await response.json(); if(!response.ok) throw new Error(output.code || `HTTP_${response.status}`); return output;
 }
-async function refresh() { config = await api('/api/config'); const {token,...shown}=config; $('config').textContent=JSON.stringify(shown,null,2); updateButtons(); }
+async function refresh() {
+  config = await api('/api/config'); const {token,...shown}=config; $('config').textContent=JSON.stringify(shown,null,2);
+  const brief = config.scenario?.id === 'CLIENT_BRIEF_HANDOFF';
+  $('issueV2').hidden = !brief; $('continueV2').hidden = !brief; $('deploy').hidden = brief;
+  if(brief){
+    document.title='Shanhai · 客户简报交接'; $('path-title').textContent='2 · 更正后重新批准，让工作继续';
+    $('material').textContent='合成任务：为 Lens Club 摄影交流会制作公告。v1：周五 19:00，Harbor Studio；v2：周六 15:00，地点不变。只批准活动简报，排除内部筹备备注与未批准的免费入场建议。顺序：登记 → 批准 v1 → 请求 v1 → 发布 v2 → 再请求 v1（应拒绝）→ 单独批准 v2 → 请求 v2 → 撤销 v2 → 再请求 v2（应拒绝）。Owner 与代理签名仍用同一测试账户；B 的密钥和上下文在独立进程。';
+    $('revoke').textContent='⑦ 撤销新版 v2 授权';
+    if(!$('registry').value)$('registry').value=config.recommendedRegistryAddress;
+  }
+  updateButtons();
+}
+function clearAnnouncement(){ $('brief-output').hidden=true; for(const id of ['announcement-version','received','announcement','received-context'])$(id).textContent=''; }
 async function walletReady() {
   if(!window.ethereum) throw new Error('未检测到浏览器钱包。请在安装钱包的浏览器打开本地地址。');
   const chain = await window.ethereum.request({method:'eth_chainId'}); if(BigInt(chain)!==10143n) throw new Error('钱包不在 Monad Testnet；请先点击连接/切换。');
   const accounts = await window.ethereum.request({method:'eth_accounts'}); if(accounts[0]?.toLowerCase()!==account) throw new Error('钱包账户已改变；请重新连接并核验。');
 }
 async function run(label, action) {
-  if(running) return; running = true; updateButtons(); status(label);
-  try{await action();}catch(error){status('未完成 / 已阻断'); record(error.message || '操作失败');}
+  if(running) return; running = true; clearAnnouncement(); latestResult=null; $('result-summary').textContent=label+'；尚未完成。'; $('result').textContent='PENDING_NOT_COMPLETED'; updateButtons(); status(label);
+  try{await action();}catch(error){status('未完成 / 已阻断'); $('result-summary').textContent='本次操作未完成；没有保留上一次公告作为本次结果。'; $('result').textContent=JSON.stringify({status:'NOT_COMPLETED',code:error.message||'操作失败'},null,2); record(error.message || '操作失败');}
   finally{running=false;updateButtons();}
 }
 async function transaction(action) {
@@ -62,17 +94,30 @@ $('connect').onclick=()=>run('等待你确认钱包连接 / 网络切换',async(
 });
 $('deploy').onclick=()=>run('准备部署；等待钱包确认',()=>transaction('deploy'));
 $('configure').onclick=()=>run('核验链与代码；初始化 Agent B',async()=>{await walletReady();config=await api('/api/configure',{account,registryAddress:$('registry').value.trim()});await refresh();status('代码已核验，独立 Agent B 已初始化；尚未授予任何链上资格。');});
-for(const [id,action]of [['register','registerAsset'],['issue','issueConsent'],['publish','publishVersion'],['revoke','revokeConsent']])$(id).onclick=()=>run(`准备 ${action}；等待钱包确认`,()=>transaction(action));
-$('continue').onclick=()=>run('生成临时请求；等待你确认签名',async()=>{
-  await walletReady();const challenge=await api('/api/request-challenge',{});
+for(const [id,action]of [['register','registerAsset'],['issue','issueConsent'],['publish','publishVersion'],['issueV2','issueConsentV2'],['revoke','revokeConsent']])$(id).onclick=()=>{
+  const selectedAction=id==='revoke'&&config.scenario?.id==='CLIENT_BRIEF_HANDOFF'?'revokeConsentV2':action;
+  return run(`准备 ${selectedAction}；等待钱包确认`,()=>transaction(selectedAction));
+};
+function continueRequest(version){return run(`生成 v${version} 临时请求；等待你确认签名`,async()=>{
+  const suffix=version===2?'-v2':'';
+  await walletReady();const challenge=await api('/api/request-challenge'+suffix,{});
   $('result-summary').textContent='请核对钱包中的请求声明；取消即可结束，没有自动授权。';$('result').textContent=challenge.message;
   const bytes=new TextEncoder().encode(challenge.message);const hex='0x'+Array.from(bytes,byte=>byte.toString(16).padStart(2,'0')).join('');
   const signature=await window.ethereum.request({method:'personal_sign',params:[hex,account]});
-  const result=await api('/api/continue',{declaration:challenge.declaration,signature});latestResult=result;evidence.push(result);
+  const result=await api('/api/continue'+suffix,{declaration:challenge.declaration,signature});latestResult=result;evidence.push(result);
   $('result').textContent=JSON.stringify(result,null,2);$('result-summary').textContent=result.status==='ACTIVE_CONTEXT_DELIVERED'?'获准材料已进入独立 Agent B 的受控上下文；真实模型效果未测。':result.status==='UNKNOWN'?'执行结果未知，不能认定未交付或零调用。会话已失效，请勿重放旧签名。':`本次请求被阻断：${result.receipt?.outcome||result.code||result.status}。如发生两次核验间撤销，密文可能已交付；请以各阶段执行增量为准。`;
-  status('本次实链门禁结果已返回；不是模型质量或生产验证。');record(`continue: ${result.status} ${result.receipt?.outcome||result.code||''}`);
-});
-$('download').onclick=()=>{const output={evidenceType:'FIXED_SYNTHETIC_TESTNET_WORKBENCH',realModelBehavior:'NOT_MEASURED',parameters:config.parameters,configuration:config.configuration,receipts:config.receipts,results:evidence};const blob=new Blob([JSON.stringify(output,null,2)],{type:'application/json'});const href=URL.createObjectURL(blob);const a=document.createElement('a');a.href=href;a.download='shanhai-testnet-evidence.json';a.click();URL.revokeObjectURL(href);};
+  const announcement=result.result?.announcement;
+  if(result.status==='ACTIVE_CONTEXT_DELIVERED'&&announcement?.evidenceType==='DETERMINISTIC_TEMPLATE_NOT_AI'){
+    $('brief-output').hidden=false; $('announcement-version').textContent=`本次实际接收 v${announcement.sourceVersion} · 仅 ${announcement.receivedItemIds.length} 条获准材料`;
+    $('received').textContent=JSON.stringify(announcement.receivedFields,null,2); $('announcement').textContent=announcement.text;
+    $('received-context').textContent=JSON.stringify(result.messages,null,2);
+    $('result-summary').textContent=`v${announcement.sourceVersion} 已获准并交付；公告来自接收进程的固定模板。`;
+  }
+  status('本次实链门禁结果已返回；不是模型质量或生产验证。');record(`continue v${version}: ${result.status} ${result.receipt?.outcome||result.code||''}`);
+});}
+$('continue').onclick=()=>continueRequest(1);
+$('continueV2').onclick=()=>continueRequest(2);
+$('download').onclick=()=>{const output={evidenceType:'FIXED_SYNTHETIC_TESTNET_WORKBENCH',scenario:config.scenario,realModelBehavior:'NOT_MEASURED',parameters:config.parameters,configuration:config.configuration,receipts:config.receipts,results:evidence};const blob=new Blob([JSON.stringify(output,null,2)],{type:'application/json'});const href=URL.createObjectURL(blob);const a=document.createElement('a');a.href=href;a.download=config.scenario?.id==='CLIENT_BRIEF_HANDOFF'?'shanhai-brief-testnet-evidence.json':'shanhai-testnet-evidence.json';a.click();URL.revokeObjectURL(href);};
 if(window.ethereum?.on){window.ethereum.on('accountsChanged',()=>{account=null;status('钱包账户已变更，请重新连接并核验。');updateButtons();});window.ethereum.on('chainChanged',()=>{account=null;status('钱包网络已变更，请重新连接并核验。');updateButtons();});}
 refresh().then(()=>status('本地固定合成操作台已就绪；没有自动连接或交易。')).catch(error=>status(error.message));
 </script></body></html>
