@@ -1,25 +1,22 @@
-# Judge-facing scorecard
+# Trust, Identity & AI Infrastructure · judge-facing scorecard
 
-The owner-supplied rules, last updated 3 September 2026, specify five main-track criteria at **20% each** (§5.2). This is not a self-awarded score or award probability. The live Google document and authenticated portal may change; verify them before submission.
+The Founder supplied the current authenticated track-page text on 2026-10-12. The five weights below are **track-specific** and supersede the older generic 20%-each scorecard. The page was not independently retrievable through the web tool; verify the authenticated page again at final submission. This is a gap map, not a self-awarded score or award probability.
 
-| Likely criterion | What judges should see in under two minutes | Evidence | Remaining gap |
-|---|---|---|---|
-| Product Quality & Completeness · 20% | One fictional task runs V1 delivery → correction denial → separate V2 approval/delivery → revocation denial; each successful delivery fills a usable fixed announcement template | Two original exports and four-outcome replay | Final actual-operation film, hosted URL and external developer reproduction; template is not live AI copy quality |
-| Technical Excellence · 20% | Exact version/scope/recipient binding; WebCrypto envelope; independent local B; zero downstream denial deltas | 9/9 vectors, 48/48 protocol, 5/5 gate, 19/19 wallet tests | Same-wallet prototype, snapshot race, no independent security audit or production key lifecycle |
-| Monad Integration · 20% | Chain state changes actual controlled delivery; five state transactions re-read from public RPC with `0x1` and matching blocks | Deployed contract, two hash-checked exports, `npm run verify:brief-live` | Explain why independently readable authority matters; film the fresh read-only chain check |
-| Track Fit & Problem Relevance · 20% | Concrete cross-agent brief handoff: a corrected date cannot ride on an obsolete grant; only one approved item travels | Workbench and recorded four-outcome sequence | Reviewer may see a narrow test rather than reusable integration; make API and recipient role explicit |
-| Innovation & Impact · 20% | Source-labeled, versioned, encrypted disclosure with separate reapproval and visible execution consequences | Protocol + testnet scenario | Related memory/permission work exists; real user demand, adoption and paid increment unvalidated |
+| Track criterion | Weight | Evidence judges can inspect | Remaining gap / honest boundary |
+|---|---:|---|---|
+| Technical Execution | 20% | Monad Testnet ConsentRegistry, five confirmed state transactions, V1 ACTIVE → VERSION_STALE → separately approved V2 ACTIVE → REVOKED; two unchanged exports; reproducible tests and live read-only receipt checks | Same test wallet signed owner and request roles; Agent B is a separate local process; no independent security audit, production key lifecycle, WebAuthn/P256 or atomic revocation guarantee. Do not imply use of Monad features not implemented. |
+| Design & Craft | 20% | Runnable reference code, workbench, documented transaction sequence, evidence verifier, stable test fixtures and explicit failure codes | An external developer has not reproduced or integrated it. Public HTTPS page verifies archived evidence, not a hosted signing SDK or full working wallet flow. The quickest reviewer path must be unambiguous. |
+| Originality & Track Insight | 15% | User-controlled, source-labeled, version- and scope-bound encrypted handoff; correction requires a new grant; revocation blocks later requests with zero new downstream work | Chain stores minimal authorization state, but recipient and sender processes still matter. This is not proof of complete decentralization, portability across all platforms or plaintext recall. Explain why a shared, independently readable authorization record is useful beyond a central database. |
+| Founder & Market Readiness | 25% | Specific proposed adopters: small agent builders handing client-approved briefs across tools or teams; concrete Lens Club corrected-brief scenario and honest adoption test | No customer discovery or external team integration has been shown. Need evidence why target developers would choose this over a simple database, signed URL or DIY ACL despite wallet/setup friction. Do not convert fictional task into traction. |
+| Traction & Path Forward | 20% | Completed in-window implementation and testnet proof; published read-only verifier; specific plan for a first external integration | No independent developer, pilot, real user or usage metric yet. A genuine third-party integration or documented developer test would be high-value but must not be invented. |
+
+## Deliverable reconciliation
+
+- The track page calls for a **Public GitHub Repository**, while the organizer's direct written reply and authenticated submission form allow a **private** repository shared with the official review address. The authorized private route is in use; GitHub shows an invitation to organizer account `MonadMetropolis`, but acceptance and actual access remain unverified. Do not silently convert this into a general waiver of later open-source obligations.
+- The track page names **YouTube, Loom or Vimeo** for demo and pitch videos; the authenticated form says those or another video host. Current videos are on the public HTTPS verifier site. Their field acceptance and reviewer playback must be checked; moving copies to one of the named hosts would remove this ambiguity if feasible before the deadline.
+- The track page says the live product must be on Monad Mainnet or Testnet. The public page performs fresh, read-only Monad Testnet receipt checks; it is not the original wallet-signing workbench or new Agent B execution. Judges may judge that narrower demonstration insufficient.
+- The portal's logo upload rule is stricter (2 MB) than the track page's 3 MB. The prepared 1024×1024 PNG is 335 KB and meets both stated size limits.
 
 ## Red-line claims
 
-Do not claim any of the following without new evidence:
-
-- production-ready or audited;
-- real users, traction, payments, retention, or health benefit;
-- live Monad deployment before public contract/transaction links exist;
-- Mera bounty compliance before real PRF ceremony and fresh-profile/second-device proof;
-- revocation deletes plaintext already obtained by a formerly authorized third party.
-- two snapshot checks make delivery atomic with chain state, or eliminate state changes after the final check;
-- archived JSON hash matching or project-generated counters constitute an external developer reproduction or third-party security attestation.
-- fixed-template announcement is live AI copywriting, or the earlier preference-case video depicts the new brief run;
-- the two browser exports are one uninterrupted original recording (a page reload split them after V2 grant recovery).
+Do not claim production readiness, a security audit, real model quality, external adoption, revenue, a true multi-wallet owner/agent separation, use of unimplemented WebAuthn/P256/ERC-8004/BTX features, or that revocation recalls already delivered plaintext. Two snapshot checks do not make delivery atomic with changing chain state. Archived JSON and project-generated counters are not third-party attestation; the two exports are not one uninterrupted original recording.
