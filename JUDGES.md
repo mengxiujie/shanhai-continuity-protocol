@@ -17,7 +17,7 @@ Five state transactions were confirmed on Monad Testnet: register V1, grant V1, 
 
 ## Verify it
 
-1. Open the [public evidence verifier](https://shanhai-brief-proof.open-wand-0634.chatgpt.site/).
+1. Open the [public evidence verifier](https://mengxiujie.github.io/shanhai-continuity-proof/).
 2. Inspect the four recorded outcomes.
 3. Click **Re-check five receipts on Monad now**. Expected result: `5/5 PASS`.
 

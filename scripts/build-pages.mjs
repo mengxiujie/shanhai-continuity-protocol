@@ -31,12 +31,12 @@ const landing = `<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=apps/demo/index.html">
+  <meta http-equiv="refresh" content="0; url=apps/demo/brief-evidence.html">
   <title>Shanhai Continuity Protocol</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%238b5cf6'/%3E%3Cpath d='M8 20c4-8 8 3 16-8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 </head>
 <body>
-  <p><a href="apps/demo/index.html">Open the Shanhai four-act demo</a></p>
+  <p><a href="apps/demo/brief-evidence.html">Open the Shanhai Continuity Protocol evidence verifier</a></p>
 </body>
 </html>
 `;
@@ -44,4 +44,4 @@ const landing = `<!doctype html>
 await writeFile(join(dist, 'index.html'), landing, 'utf8');
 await writeFile(join(dist, '.nojekyll'), '', 'utf8');
 
-console.log(JSON.stringify({ status: 'PASS', output: 'dist', entry: 'apps/demo/index.html' }, null, 2));
+console.log(JSON.stringify({ status: 'PASS', output: 'dist', entry: 'apps/demo/brief-evidence.html' }, null, 2));

@@ -16,7 +16,7 @@ Completing A or B is useful feedback. Neither is customer adoption, a production
 
 ## A · Check the public evidence page (about 5 minutes)
 
-1. Open [the public read-only demo](https://shanhai-brief-proof.open-wand-0634.chatgpt.site/). No login or wallet is required.
+1. Open [the public read-only demo](https://mengxiujie.github.io/shanhai-continuity-proof/). No login or wallet is required.
 2. Inspect the four recorded outcomes: Friday approved; old version refused; Saturday separately approved; revoked access refused.
 3. Scroll to **Five confirmed state transactions** and click **Re-check five receipts on Monad now**.
 4. A successful fresh check displays `LIVE READ-ONLY CHECK PASS` and `5/5 successful receipts and block hashes match the archive`. Record the result and check time. If the request fails, retain that failure; a recorded green screenshot is not a substitute for a fresh check.

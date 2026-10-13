@@ -19,7 +19,7 @@ V2 revoked -> REVOKED, zero new downstream execution
 ```
 
 - [60-second judge guide](JUDGES.md)
-- [Public read-only evidence verifier](https://shanhai-brief-proof.open-wand-0634.chatgpt.site/)
+- [Public read-only evidence verifier](https://mengxiujie.github.io/shanhai-continuity-proof/)
 - [69-second technical demo](https://youtu.be/nTZoqwLfsjo)
 - [70-second pitch](https://youtu.be/hig7qjxeCFQ)
 - [ConsentRegistry on Monad Testnet](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)

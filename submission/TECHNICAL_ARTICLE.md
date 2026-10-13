@@ -49,7 +49,7 @@ The recipient's second read reduces the gap between the sender's check and use, 
 
 ## What anyone can verify—and what they cannot
 
-The [public read-only verifier](https://shanhai-brief-proof.open-wand-0634.chatgpt.site/) needs no login or wallet. It presents the four recorded results and checks the original export hashes. Clicking **Re-check five receipts on Monad now** requests fresh testnet receipts and compares their success and block information with the archive.
+The [public read-only verifier](https://mengxiujie.github.io/shanhai-continuity-proof/) needs no login or wallet. It presents the four recorded results and checks the original export hashes. Clicking **Re-check five receipts on Monad now** requests fresh testnet receipts and compares their success and block information with the archive.
 
 The five state transitions are linked individually:
 

@@ -42,7 +42,7 @@ For full local reproduction, use the source repository's README and run `npm run
 
 ## Verified live product URL
 
-https://shanhai-brief-proof.open-wand-0634.chatgpt.site/
+https://mengxiujie.github.io/shanhai-continuity-proof/
 
 This is a public, read-only evidence verifier that actually calls Monad Testnet RPC. It is not a hosted wallet-signing workbench. The portal's interpretation of “live product” remains a judging risk.
 
