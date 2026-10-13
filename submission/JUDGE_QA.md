@@ -1,6 +1,6 @@
 # Judge Q&A
 
-> Current evidence: 2026-10-13. The fixed-fictional brief run records `ACTIVE V1 → VERSION_STALE V1 → ACTIVE V2 → REVOKED V2`, with five confirmed Monad Testnet state transactions. See [the judge guide](../JUDGES.md) and [current status](../docs/STATUS.md). The portal is Ready for judging according to the owner's authenticated transcription; external developer reproduction is still pending.
+> Current evidence: 2026-10-13. The fixed-fictional brief run records `ACTIVE V1 → VERSION_STALE V1 → ACTIVE V2 → REVOKED V2`, with five confirmed Monad Testnet state transactions. See [the judge guide](../JUDGES.md) and [current status](../docs/STATUS.md). The portal is Ready for judging according to the owner's authenticated screenshot. This public guide makes no external integration or adoption claim.
 
 ## 1. Why is this not just a database permission table?
 
