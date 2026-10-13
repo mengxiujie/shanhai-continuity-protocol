@@ -12,7 +12,11 @@ The project owner remains responsible for:
 
 AI-generated text or code is never treated as proof by itself. Claims in this repository are tied to executable tests, artifacts, portal records, or explicitly marked limitations.
 
-## 2026-10-11 sprint use
+## Current publication status — 2026-10-14
+
+With the owner's explicit authorization, Codex changed `mengxiujie/shanhai-continuity-protocol` to public after a passing release audit and verification of the pushed source commit. Anonymous API and file requests confirmed public access. The latest owner-provided portal record is Ready for judging; the authenticated portal was not rechecked during this publication operation. Participant material authorized only for private judging stays outside the public repository.
+
+## Historical 2026-10-11 sprint use
 
 OpenAI Codex assisted with the connected Owner/Agent B runtime, signed-request identity checks, deterministic test fixtures, local wallet workbench, dependency remediation, public documentation research and judge-facing text. Parallel Codex agents worked on scoped implementation and review tasks in the shared repository; the resulting changes were checked through actual local suites and build/release checks.
 
@@ -20,7 +24,7 @@ AI-assisted review found that the earlier four-act browser walkthrough used synt
 
 The model gateway used in this submission is a deterministic simulation, with no external model calls. AI assistance during development must not be confused with a live model handling the demonstrated synthetic context. This work does not validate model behavior, natural-language understanding or consumer value.
 
-Codex may prepare reproducible commands, unsigned transaction requests and public evidence summaries. Wallet signatures and final submission remain owner-controlled. With explicit owner permission, Codex published the isolated repository and static synthetic walkthrough, then made the repository private and removed Pages following the owner's subsequent instruction; see `docs/HOSTING.md`. Current anonymous links return 404; reopening is a pre-submission step, not an automatic scheduled action. Subsequently the owner operated a dedicated test wallet for real Monad deployment and four state-transition transactions; see `docs/EVIDENCE.md`. Final portal submission remains pending. No private key, seed phrase, participant material or proprietary prompt corpus is included in this publishable candidate.
+Codex may prepare reproducible commands, unsigned transaction requests and public evidence summaries. Wallet signatures and final submission remain owner-controlled. With explicit owner permission, Codex published the isolated repository and static synthetic walkthrough, then made the repository private and removed Pages following the owner's subsequent instruction; see `docs/HOSTING.md`. Anonymous links returned 404 at that earlier checkpoint. Subsequently the owner operated a dedicated test wallet for real Monad deployment and four state-transition transactions; see `docs/EVIDENCE.md`. Final portal submission was pending at that earlier checkpoint; the current publication and submission records are in `docs/STATUS.md`. No private key, seed phrase, participant material or proprietary prompt corpus is included in this publishable candidate.
 
 The local 92-second review video is programmatically rendered from verified archived evidence. Its Chinese review narration uses an installed generic Windows SAPI voice, not a recording or clone of the founder. English subtitles are burned in. It is not a screen recording, new chain execution, third-party attestation or external-model quality test.
 

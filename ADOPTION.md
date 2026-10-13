@@ -34,7 +34,7 @@ The adoption hypothesis is therefore specific: **for some cross-tool handoffs, i
 
 - One founder-operated testnet run using fixed-fictional material, with five confirmed state transactions and four recorded gate outcomes.
 - A public read-only receipt verifier, local archive checks and a runnable local mock lifecycle example.
-- External testing has started according to the project owner; returned results have not yet been reviewed. No successful external reproduction or integration is claimed on that basis.
+- Participant reports authorized only for private judging are retained outside this public repository. No external application integration or adoption is claimed here.
 - No customer pilot, production use, retention, revenue or willingness-to-pay evidence. Third-party AI-generated or AI-run feedback is not counted as human developer feedback.
 
 ## A small validation sequence
