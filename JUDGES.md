@@ -37,6 +37,10 @@ The sender checks the registry before releasing ciphertext; the recipient checks
 
 The testnet run used one wallet for Owner and requester. Agent B ran in a separate local process with an ephemeral key, not a separate administrative trust domain. Announcements came from a deterministic template. Real-model behavior is `NOT_MEASURED`; no production security audit or external adoption is claimed.
 
+## Why these design choices?
+
+Shanhai's prior governance practice separates a retained record, its authoritative version and the permission to use it. This prototype makes one part of that discipline executable at the next handoff. Evaluate the resulting checks—not the volume of our internal documents. The [build disclosure](docs/BUILD_DISCLOSURE.md#how-governance-practice-shaped-this-build) maps each design choice to evidence and separates prior work from the hackathon implementation. It does not claim that our internal governance workflow already runs through this protocol.
+
 ## Who would build on this?
 
 The intended adopter is a developer handing client-approved briefs between tools or teams that need to independently check the same grant state. A single organization controlling both sides may be better served by database permissions. The remaining question is whether shared verification is worth the signing and integration cost for a real handoff.

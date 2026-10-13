@@ -1,6 +1,6 @@
 # Build disclosure
 
-> Evidence status: repository disclosure for Metropolis 2026. The public Git history, once pushed, is the final timestamped record.
+> Evidence status: repository disclosure for Metropolis 2026. Git history records source revisions; archived execution records and their stated checks support behavior claims. A commit alone does not establish successful execution.
 
 ## Work that existed before the hackathon module
 
@@ -9,6 +9,20 @@
 - Earlier local prototypes and product research about AI-assisted personal continuity.
 
 These materials are not included wholesale in this repository and are not claimed as newly invented during the event.
+
+## How governance practice shaped this build
+
+Shanhai's prior governance work distinguishes what a record says, which version is authoritative, and what someone has actually permitted. A retained record is not a standing authorization. That discipline informed this submission; the hackathon contribution is a narrow executable handoff boundary, not the entire governance system.
+
+| Design question from that practice | Implemented boundary in this submission | Inspectable evidence |
+|---|---|---|
+| Does an earlier approval survive an explicit correction? | A grant is version-bound; publishing V2 makes the old V1 request stale, and V2 needs a separate grant. | [Recorded brief sequence and limits](BRIEF_QA_2026-10-12.md) |
+| Does approval of one brief authorize every available note? | The recorded successful requests deliver only the selected brief item; internal planning and the unapproved suggestion stay outside that disclosure. | [Two original exports and their verifier](../scripts/verify-brief-evidence.mjs) |
+| Can the next recipient treat possession or a previous success as current permission? | The sender checks before envelope release; a separate recipient process checks again before decryption and context assembly. Both checks remain snapshots. | [Fresh local reference-runtime example](../examples/brief-handoff.mjs), using mock registry state |
+
+We apply the same evidence discipline to the submission: preserve the two original exports, distinguish receipt checks from local execution counters, and distinguish reproduction from application integration or adoption. The [judge guide](../JUDGES.md#three-checks-three-different-conclusions) specifies what each check establishes.
+
+This is design provenance, not proof that the internal governance workflow runs through ConsentRegistry. We do not claim that the private governance corpus is on-chain, that every internal rule has been automated, or that the full Shanhai product is production-ready. That corpus remains outside the submission. The implementation and tests below, rather than the size of the prior documentation, are the contribution to evaluate.
 
 ## Substantial work implemented for this submission
 

@@ -56,6 +56,10 @@ Shanhai Continuity Protocol (SCP) is a user-controlled continuity reference for 
 
 The repository is an independently publishable hackathon module. It is not the complete Unsaid Shanhai commercial product and contains no real user data, production credentials, payment system, private operating documents, or proprietary prompt corpus.
 
+### Why this boundary
+
+Our prior governance practice distinguishes retained information from current authority. This build turns one part of that discipline into executable checks: publishing an explicit V2 makes subsequent requests under the V1 grant stale, the revised brief needs separate approval, and a request checked after revocation is refused. [Design provenance and build disclosure](docs/BUILD_DISCLOSURE.md#how-governance-practice-shaped-this-build) connect those choices to inspectable evidence; they do not claim that the full governance system has been implemented or adopted.
+
 ### Full regression and build checks
 
 ```bash
@@ -116,7 +120,7 @@ Monad 不保存生活正文、来源记录或模型上下文。链上状态是�
 | 统一 RPC → 密文 → 独立 B → context 路径及并发/UNKNOWN | 本地合成 RPC PASS | sprint chain suite，11/11；真实模型未测 |
 | 本地钱包操作台、同源保护、ABI 与回执核验 | 本地 PASS | wallet/API/controller suite 19/19；固定虚构简报的真实浏览器钱包流程另有原始导出 |
 | Monad 测试网真实合约部署与三类真实 receipt | **E3 PASS** | `0xcda4d087900f47427b4956b9b1ee2543ec5575c0`；见 `docs/EVIDENCE.md` |
-| 最新简报实链证据回放 | PASS；两份原始 JSON SHA-256 MATCH，四次结果及五笔交易 | `apps/demo/brief-evidence.html`；只读回放，外部开发者复现待完成 |
+| 最新简报实链证据回放 | PASS；两份原始 JSON SHA-256 MATCH，四次结果及五笔交易 | `apps/demo/brief-evidence.html`；历史证据只读核验，不是新一轮 Agent B 执行 |
 | 技术演示与项目介绍视频 | PASS；分别为 69 秒和 70 秒，主理人已在未登录窗口验证播放 | YouTube 链接见本页 `Judge quick path`；技术演示是事后只读核验，不是钱包现场录屏 |
 | Mera 真实 ceremony / 第二设备恢复 | **DEFERRED** | 已调起系统认证，受本机 Windows Hello PIN 阻断 |
 
@@ -176,7 +180,7 @@ npm run sprint:wallet
 
 ## 部署状态
 
-2026-10-12 已完成最新固定虚构简报案例：V1 `ACTIVE`、旧 V1 `VERSION_STALE`、单独批准的 V2 `ACTIVE`、撤销后的 V2 `REVOKED`。合约地址为 [`0xcda4d087900f47427b4956b9b1ee2543ec5575c0`](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)。两份原始浏览器导出逐字节归档，分别通过 SHA-256 和内部一致性核验；五笔交易已通过公开 Monad RPC 重新读取并匹配状态、区块号和区块哈希。详见 [`docs/BRIEF_QA_2026-10-12.md`](docs/BRIEF_QA_2026-10-12.md)。外部开发者复现仍待完成；生产安全、真实模型质量和真人价值均未据此成立。
+2026-10-12 已完成最新固定虚构简报案例：V1 `ACTIVE`、旧 V1 `VERSION_STALE`、单独批准的 V2 `ACTIVE`、撤销后的 V2 `REVOKED`。合约地址为 [`0xcda4d087900f47427b4956b9b1ee2543ec5575c0`](https://testnet.monadscan.com/address/0xcda4d087900f47427b4956b9b1ee2543ec5575c0)。两份原始浏览器导出逐字节归档，分别通过 SHA-256 和内部一致性核验；五笔交易已通过公开 Monad RPC 重新读取并匹配状态、区块号和区块哈希。详见 [`docs/BRIEF_QA_2026-10-12.md`](docs/BRIEF_QA_2026-10-12.md)。本公开仓库不主张外部应用集成或真实采用；非公开评审材料不纳入仓库。生产安全、真实模型质量和真人价值均未据此成立。
 
 ## 黑客松工作披露
 

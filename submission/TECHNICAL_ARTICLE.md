@@ -7,6 +7,8 @@ tags: [web3, ai, cryptography, showdev]
 
 # The brief changed. The old approval stopped working.
 
+> Repository article candidate, not an exact export of the owner's [published DEV article](https://dev.to/mengxiujie/a-correction-does-not-inherit-the-old-approval-1dja). Editing this file does not change that page; `published: false` applies to this candidate.
+
 An assistant is preparing an event announcement. Its client approved Friday at 19:00. Then the event moves to Saturday at 15:00.
 
 Should the old approval still authorize the next handoff? Should approving the event brief also disclose the organizer's internal planning note? If permission is withdrawn, where does the next request stop?
@@ -72,6 +74,12 @@ For one organization controlling both sides, a database permission table may be 
 The proposed use case is a handoff between tools or organizations that need a common grant record rather than treating the sending platform's latest assertion as the final authority. Monad supplies the shared state used here; its EVM compatibility lets the reference use familiar Solidity and wallet tooling.
 
 This build does not demonstrate a Monad-specific performance advantage or removal of every centralized dependency. The off-chain endpoints, keys, RPC access and compliant recipient implementation remain consequential. The contract cannot force software that ignores the protocol to behave.
+
+## From governance practice to a testable boundary
+
+Shanhai's prior governance work distinguishes a record that is retained from a version that is authoritative and permission that is currently granted. The hackathon build implements one small part of that discipline: explicit versions, scoped grants and authorization checks before the next disclosure. The [build disclosure](../docs/BUILD_DISCLOSURE.md#how-governance-practice-shaped-this-build) maps those choices to the recorded scenario and reproduction path.
+
+This is the origin of the design, not proof that our internal governance workflow runs through the protocol. The contribution to inspect is the executable boundary and its limitations—not the size of the private governance corpus, a claim of production maturity or evidence of adoption.
 
 ## Current limits and the next developer test
 

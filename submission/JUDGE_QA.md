@@ -36,7 +36,7 @@ The registry is deployed on Monad Testnet. The owner-operated brief run delivere
 
 ## 9. Is this already a validated consumer business?
 
-No. This submission proves a technical and governance primitive. It does not prove willingness to pay, retention, or market adoption for the broader Unsaid Shanhai product.
+No. This submission demonstrates a narrow technical authorization boundary. It does not establish production governance, willingness to pay, retention, or market adoption for the broader Unsaid Shanhai product.
 
 ## 10. Why Monad specifically?
 
@@ -69,3 +69,9 @@ The primary sprint is the connected Monad authorization and context-delivery pro
 ## 17. What can the owner revoke after an ACTIVE request?
 
 The owner can stop later delivery through the supplied implementation by changing or revoking its authorization state. The owner cannot retroactively erase plaintext already received, guarantee that an external agent forgets it, or remove immutable chain metadata. The negative proof concerns a new request after the recorded state change.
+
+## 18. How does your prior governance work help this prototype?
+
+It informed the design: separate retained information from current permission, make version changes explicit, and keep each claim tied to the evidence that supports it. In this build, those ideas become version-bound grants, scoped delivery and checks before release and decryption. The [build disclosure](../docs/BUILD_DISCLOSURE.md#how-governance-practice-shaped-this-build) maps the choices to inspectable artifacts.
+
+That is design provenance, not a claim of protocol dogfooding, external adoption or superior governance to other teams. Our internal documents have not been demonstrated running through this protocol. Keeping historical exports unchanged and separating chain receipts from local counters makes this submission easier to inspect; it does not replace an independent security audit or a real application integration.

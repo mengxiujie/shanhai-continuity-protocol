@@ -24,7 +24,9 @@ Five state transactions were confirmed on Monad Testnet and re-read from public 
 
 This is a prototype using fictional material. The same test wallet signed owner and request operations, while Agent B ran in a separate local process, not a separate organization. The announcement is a fixed template; no external model was called. Revocation blocks later releases through the compliant path but cannot recall plaintext already delivered. Chain checks are snapshots, not atomic guarantees against later state changes. We do not claim a production security audit, real-user adoption or revenue.
 
-The pre-existing Shanhai product context is disclosed in the repository. The hackathon-period work is the protocol implementation, Monad integration, independent recipient process, browser workbench, executed testnet scenarios, evidence tooling and verification. AI tools assisted research, coding and review; the owner made authorization and submission decisions.
+Our prior Shanhai governance work distinguishes retained information from current authority: a record can remain while its version or permission changes. That experience shaped this prototype's explicit versions, scoped grants and checks before disclosure. The event brief makes those choices inspectable in a small, reproducible scenario. We are demonstrating one executable authorization boundary, not claiming that the full governance system is automated, on-chain or already integrated into another product.
+
+The repository discloses the pre-existing Shanhai product context separately. The hackathon-period work is the protocol implementation, Monad integration, independent recipient process, browser workbench, executed testnet scenarios, evidence tooling and verification. AI tools assisted research, coding and review; the owner made authorization and submission decisions.
 
 ## Who are your first users, and how will you reach them? · ≤8,000 characters
 
@@ -61,5 +63,5 @@ The Founder reports both YouTube links playable without login, and both appear i
 
 - Repository URL: `https://github.com/mengxiujie/shanhai-continuity-protocol`. On 2026-10-13 the owner-side GitHub API reported `write` permission for organizer account `MonadMetropolis`, with no pending invitation. The repository was still private at that check; individual judges' login access was not tested.
 - The supplied portal transcription already includes project details, logo, repository URL, both videos, access instructions and Ready for judging. The owner has since confirmed changing Live product to the current URL. Do not restart a completed submission merely because this revision exists.
-- Source visibility remains private until the separately authorized publication step. Do not add completed human-test claims while the newly contacted developer is still running the test.
+- Source visibility remains private until the separately authorized publication step. This public copy contains no participant feedback. Any separately authorized, private-to-judges material must remain outside the public repository; do not infer public-use permission from permission to submit a private summary.
 - These copy edits do not change the portal. If selected refinements are entered there, save and inspect the resulting submission state before the deadline.
