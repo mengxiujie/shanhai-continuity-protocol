@@ -4,5 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": { "compile": "node scripts/compile.mjs" },
-  "devDependencies": { "solc": "0.8.30" }
+  "devDependencies": { "solc": "0.8.30" },
+  "overrides": { "solc": { "tmp": "0.2.7" } }
 }

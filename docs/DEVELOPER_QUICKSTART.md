@@ -11,7 +11,7 @@ The narrow question: **after a client corrects an approved brief, does a new req
 | Level | Task | What it establishes if successful |
 |---|---|---|
 | A · Browser check | Open the public page and re-check five receipts | The hosted read-only verifier is usable from your environment; archived transaction receipts match fresh RPC responses. |
-| B · Local reproduction | Use the supplied ZIP or authorized Git clone; run the selected checks below | Someone outside the project can reproduce those checks at a recorded source version. |
+| B · Local reproduction | Use the supplied ZIP or public Git clone; run the selected checks below | Someone outside the project can reproduce those checks at a recorded source version. |
 | C · Integration experiment | Wire the primitive into an application you control and describe the actual handoff | Only the work actually completed counts as an external integration. Running our example alone does not. |
 
 Completing A or B is useful feedback. Neither is customer adoption, a production security audit or proof that a live AI model follows the resulting instructions.
@@ -32,7 +32,7 @@ This page verifies an earlier founder-operated run. It does not send a transacti
 - Node.js **24 or newer**, and npm. Check `node --version` before installing dependencies. If your version is lower and you do not want to change your environment, complete A and report the local prerequisite as blocked; do not spend the whole trial upgrading. Node 24+ is the declared supported runtime, not a claim that every lower version has been tested and fails.
 - Initial `npm ci` needs access to the npm registry. After installation, the archive check and local mock example do not need the public Monad RPC. The separate live check does.
 - **ZIP users do not need Git.** Unzip the supplied archive and open a terminal in the directory containing `package.json`. Record the source commit and ZIP hash from its accompanying handoff note. Skip both `git clone` and `git rev-parse HEAD`; a source ZIP intentionally has no `.git` directory.
-- **Git users:** the repository may still be private. Use your own authorized GitHub session. If access is denied, report **SOURCE_ACCESS_BLOCKED**, use the supplied ZIP if available, or complete A. Do not share login tokens. The same URL works after public release.
+- **Git users:** the repository is public. The HTTPS clone below requires no GitHub login or access invitation. If cloning fails, retain the actual error and check the URL and network; use the supplied ZIP if available, or complete A. Do not share login tokens.
 
 Git users only:
 
@@ -119,7 +119,7 @@ Report the actual test totals, failures and compiler output from your run. A pas
 
 | Symptom | Safe next step |
 |---|---|
-| Clone returns not found / permission denied | Check that the owner granted your account access, or wait for the public release. Do not share credentials. |
+| Clone returns not found / permission denied | The repository is public; check the exact URL and network, retain the error, and use the supplied ZIP or browser check if needed. Do not share credentials. |
 | Node version is below 24 / unsupported runtime | Use an existing supported environment if convenient, or complete A and report the blocked prerequisite. If you upgrade and retry, record both attempts. |
 | PowerShell blocks `npm.ps1` | Use `npm.cmd` in place of `npm`; no permanent execution-policy change is required. |
 | `npm ci` cannot reach the registry | Record the network/install error and retry when connectivity is restored. Do not delete the lockfile to claim a clean reproduction. |

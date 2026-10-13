@@ -1,5 +1,16 @@
 # Focused documentation and reproduction audit — 2026-10-13
 
+## Three-item closure — 2026-10-14
+
+The owner authorized the fixes from the final preparation audit. Earlier dated results below remain historical checkpoints.
+
+- **Compiler dependency finding resolved:** `contracts/package.json` now overrides `solc`'s `tmp` dependency to 0.2.7 while keeping the compiler fixed at 0.8.30. The corresponding lockfile removes the old `tmp` 0.0.33 and its unused `os-tmpdir` dependency. Official-registry `npm audit --prefix contracts --registry=https://registry.npmjs.org --json` returned zero findings after a fresh `npm ci`.
+- **Initial patch attempt retained:** tmp 0.2.6 fixed the earlier advisory but a new audit flagged [GHSA-7c78-jf6q-g5cm](https://github.com/advisories/GHSA-7c78-jf6q-g5cm), which affects 0.2.6 and is patched in 0.2.7. The failed 0.2.6 attempt was not published. Final attribution and override use 0.2.7.
+- **Compiler and deployment unchanged:** compilation still reports `0.8.30+commit.73712a01.Emscripten.clang`; runtime length remains 2526 bytes, and SHA-256 remains `f968181f3fe204013357563ff6c0e6a6ba23320340974036b32ee97c86f827f4`. `verify:deployment`, with the recorded registry address configured, returned PASS on chain 10143 at block 70735828. It compares the full runtime bytes, not only their hash. No new deployment or wallet transaction occurred.
+- **Compatibility and regression:** the overridden helper supports the `tmp.fileSync({postfix: '.smt2'})` interface and cleanup used by the compiler helper. Conformance 9/9, protocol tests 48/48, gate tests 5/5, wallet/controller tests 19/19 and separate-process E2E all passed. Release-content scan: 145 text files, zero findings. These are internal engineering checks, not an independent security audit.
+- **License finding resolved:** `THIRD_PARTY_NOTICES.md` distinguishes the npm solc-js wrapper's MIT license from the Solidity compiler component's GPL-3.0 license, and identifies the overridden tmp dependency.
+- **Quickstart finding resolved:** the source-access instructions now describe public HTTPS cloning without a GitHub login or invitation. Frozen historical ZIP instructions remain applicable to their recorded source version.
+
 ## Source-access and read-only preflight — later on 2026-10-13
 
 - `gh repo view` reported source repository visibility `PRIVATE` at the check. The owner-side GitHub API returned an empty pending-invitations list and `permission: write` for collaborator `MonadMetropolis`. This establishes that account's granted permission; no organizer/judge session was operated here and anonymous access was not expected while private.
