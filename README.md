@@ -26,7 +26,7 @@ V2 revoked -> REVOKED, zero new downstream execution
 - [Who could adopt it, and why](ADOPTION.md)
 - [Developer quickstart and feedback](docs/DEVELOPER_QUICKSTART.md)
 
-Fast local verification (Node.js 24+, from a cloned repository):
+Fast local verification (Node.js 24+, from a Git clone or source ZIP, in the directory containing `package.json`; ZIP users skip Git commands):
 
 ```bash
 npm ci
@@ -34,7 +34,7 @@ npm run verify:brief-evidence
 npm run verify:brief-live
 ```
 
-The first verifier checks the exact hashes and internal consistency of the two original browser exports. The second performs fresh read-only Monad Testnet receipt checks and expects five matching successful transactions. Transaction receipts prove inclusion and success; the archived project execution counters are the evidence for the off-chain fetch/decrypt/context/gateway deltas.
+The first verifier checks the exact hashes and internal consistency of the two original browser exports. The second needs public Monad Testnet RPC access and expects five matching successful receipts. Record an HTTP error, timeout or mismatch separately; do not infer its cause or mark it PASS. Transaction receipts prove inclusion and success; the archived project execution counters are the evidence for the off-chain fetch/decrypt/context/gateway deltas. Installation needs the npm registry; once installed, the archive check and local example below can be run without public RPC connectivity.
 
 For a fresh local execution of the handoff boundary, run:
 

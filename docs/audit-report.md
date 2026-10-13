@@ -1,5 +1,19 @@
 # Focused documentation and reproduction audit — 2026-10-13
 
+## Later documentation-only refinement — 2026-10-13
+
+The owner reports a human developer has started testing; results are still pending. This checkpoint improves the judge route, adoption hypothesis, ZIP-aware quickstart, portal field reference and current status. It does not change runtime code, original evidence, hosted demo, portal fields or repository visibility. The separate Chinese handoff note was corrected to use the current GitHub Pages URL and explicitly keeps the in-progress tester on the same source ZIP.
+
+- Targeted relative-link check: eight edited entry documents, 47 links, zero missing file targets.
+- `node scripts/release-audit.mjs`: PASS, 144 text files scanned, zero findings. This is a limited content-pattern scan, not a security audit.
+- `node scripts/verify-brief-evidence.mjs`: PASS; both original hashes unchanged, five transaction records and four gate outcomes checked.
+- Frozen source ZIP: SHA-256 `BF7F2DC50FBE74857799A3C2E05CDCB87FACB6A27C08E215C1812A5AC1AE8D60`, unchanged. Its source version remains `82d2600d3bfc7f8e4f1edd64d1952434ad03b72f`.
+- Field-copy lengths, excluding headings/editing notes: name 27/120; tagline 79/200; description 3,138/8,000; adoption 2,085/8,000; judge access 1,834/8,000. These are local character counts, not actual portal validation.
+- `git diff --check`: used as the final pre-commit whitespace check.
+- No fresh live RPC check or full runtime regression was performed for these text-only edits. The earlier results below remain dated internal evidence, not new tests or external feedback.
+
+## Earlier focused review in this report
+
 Scope: the current README, judge guide, adoption note, status, judge Q&A, developer guide, blank external feedback form and article draft, plus the new local example and Windows reproduction script. This is an internal review, not an external security audit or adoption test.
 
 ## Result
