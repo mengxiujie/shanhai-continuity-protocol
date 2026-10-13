@@ -59,7 +59,7 @@ The Founder reports both YouTube links playable without login, and both appear i
 
 ## Editing notes · do not paste into the form
 
-- Repository URL: `https://github.com/mengxiujie/shanhai-continuity-protocol`. Organizer account `MonadMetropolis` has a pending `write` invitation; acceptance and actual reviewer access are not yet confirmed.
+- Repository URL: `https://github.com/mengxiujie/shanhai-continuity-protocol`. On 2026-10-13 the owner-side GitHub API reported `write` permission for organizer account `MonadMetropolis`, with no pending invitation. The repository was still private at that check; individual judges' login access was not tested.
 - The supplied portal transcription already includes project details, logo, repository URL, both videos, access instructions and Ready for judging. The owner has since confirmed changing Live product to the current URL. Do not restart a completed submission merely because this revision exists.
 - Source visibility remains private until the separately authorized publication step. Do not add completed human-test claims while the newly contacted developer is still running the test.
 - These copy edits do not change the portal. If selected refinements are entered there, save and inspect the resulting submission state before the deadline.

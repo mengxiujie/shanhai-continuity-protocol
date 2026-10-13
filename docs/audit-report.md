@@ -1,5 +1,14 @@
 # Focused documentation and reproduction audit — 2026-10-13
 
+## Source-access and read-only preflight — later on 2026-10-13
+
+- `gh repo view` reported source repository visibility `PRIVATE` at the check. The owner-side GitHub API returned an empty pending-invitations list and `permission: write` for collaborator `MonadMetropolis`. This establishes that account's granted permission; no organizer/judge session was operated here and anonymous access was not expected while private.
+- Public GitHub Pages verifier returned HTTP 200 to a read-only request. This is reachability, not a fresh browser click.
+- `node scripts/verify-brief-evidence.mjs`: PASS, both original browser-export hashes match; the ZIP supplied to the in-progress external tester still has SHA-256 `BF7F2DC50FBE74857799A3C2E05CDCB87FACB6A27C08E215C1812A5AC1AE8D60`.
+- `npm run verify:brief-live`: PASS, all five archived transaction hashes returned successful receipts with matching block numbers and block hashes from Monad Testnet. This checks receipt inclusion and success, not Agent B's historical off-chain work or real-model output.
+- `node scripts/release-audit.mjs`: PASS, 145 scanned text files, zero findings. This is a targeted content-pattern scan, not a security audit.
+- External developer test remains in progress per owner report; no result was added.
+
 ## Later documentation-only refinement — 2026-10-13
 
 The owner reports a human developer has started testing; results are still pending. This checkpoint improves the judge route, adoption hypothesis, ZIP-aware quickstart, portal field reference and current status. It does not change runtime code, original evidence, hosted demo, portal fields or repository visibility. The separate Chinese handoff note was corrected to use the current GitHub Pages URL and explicitly keeps the in-progress tester on the same source ZIP.
